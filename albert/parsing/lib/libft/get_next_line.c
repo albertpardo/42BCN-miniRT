@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 17:04:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/22 13:40:02 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/23 15:18:48 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static char	*getlinebuf(char *posn, char **buf)
 		freenull(buf);
 		*buf = aux;
 	}
-	else 
+	else
 	{
 		free(aux);
 		freenull(&line);
