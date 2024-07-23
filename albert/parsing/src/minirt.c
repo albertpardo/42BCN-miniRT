@@ -74,11 +74,23 @@ char	*cleanStringSpaces(char *str)
 	return (tmpstr);
 }
 
+void	putArrayStr(char ** arrstr)
+{
+	ft_printf("\nArray de string de la linea sin spaces: \n");
+	while (arrstr && *arrstr)
+	{
+		ft_printf("%s\n", *arrstr);
+		arrstr++;
+	}
+}
+
+
 int		main(int argc, char *argv[])
 {
 	int		fd;
 	char	*line;
 	char	*cleanline;
+	char 	**splitline;
 
 	if (argc == 2)
 	{
@@ -90,6 +102,8 @@ int		main(int argc, char *argv[])
 			cleanline = cleanStringSpaces(line);
 			ft_printf("Linea Original  >%s", line);
 			ft_printf("Linea sin spaces>%s", cleanline);
+			splitline = ft_split(cleanline, ' ');
+			putArrayStr(splitline);
 			free(cleanline);
 			free(line);
 			line = get_next_line(fd);
