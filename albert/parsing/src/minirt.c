@@ -27,7 +27,7 @@ int		ft_isspace(const char c)
 }
 
 /*
- *   void	putWithOneSpace(char *str)
+ * char	*cleanStringSpaces(char *str)
  *
  *	- flag : used to know if last get char is '.' or ','
  *
@@ -40,32 +40,8 @@ int		ft_isspace(const char c)
  *		- to put space check : flag == 0 && (isdigit(char) || char == '+' || char == '-')
  *
  */
-/*
-void	putWithOneSpace(char *str)
-{
-	int	i;
-	int	flag;
 
-	flag = 0;
-	i = 0;
-	while (str[i] != '\0' && ft_isspace(str[i]))
-		i++;
-	while (str[i] != '\0')
-	{
-		flag = 0;
-		while (str[i] != '\0' && ! ft_isspace(str[i]))
-			ft_putchar(str[i++]);
-		if (str[i -1 ] == ',' || str[i - 1] == '.')
-			flag = 1;
-		while (str[i] != '\0' && ft_isspace(str[i]))
-			i++;
-		if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+'))
-			ft_putchar(' ');
-	}
-}
-*/
-
-void	putWithOneSpace(char *str)
+char	*cleanStringSpaces(char *str)
 {
 	int		i;
 	int		j;
@@ -92,17 +68,17 @@ void	putWithOneSpace(char *str)
 			if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+'))
 				tmpstr[j++] = ' ';
 		}
-		ft_putstr(tmpstr);
-		free(tmpstr);
 	}
 	else
-		exiterror(MALLOC_ERROR);	
+		exiterror(MALLOC_ERROR);
+	return (tmpstr);
 }
 
 int		main(int argc, char *argv[])
 {
 	int		fd;
 	char	*line;
+	char	*cleanline;
 
 	if (argc == 2)
 	{
@@ -111,9 +87,10 @@ int		main(int argc, char *argv[])
 		line = get_next_line(fd);
   		while (line)
 		{
-			ft_printf("Linea Original  >%s",line);
-			ft_putstr("Linea sin spaces>");
-			putWithOneSpace(line);
+			cleanline = cleanStringSpaces(line);
+			ft_printf("Linea Original  >%s", line);
+			ft_printf("Linea sin spaces>%s", cleanline);
+			free(cleanline);
 			free(line);
 			line = get_next_line(fd);
 		}
