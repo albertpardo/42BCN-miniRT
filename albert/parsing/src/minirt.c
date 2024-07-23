@@ -7,14 +7,18 @@
 #define	BAD_ARGUMENTS "BAD ARGUMETS. Use : ./minirt NAME.rt"
 #define NO_OPEN "open() failed"
 #define NO_CLOSE "\nclose() failed" 
+#define MALLOC_ERROR "Memory assignament ERROR"
+
+void	exiterror(char *msg)
+{
+	perror(msg);
+	exit (EXIT_FAILURE);
+}
 
 void	exitifcheckfails(int val, char *msg)
 {
 	if (val == -1)
-	{
-		perror(msg);
-		exit (EXIT_FAILURE);
-	}
+		exiterror(msg);
 }
 
 int		ft_isspace(const char c)
@@ -36,7 +40,7 @@ int		ft_isspace(const char c)
  *		- to put space check : flag == 0 && (isdigit(char) || char == '+' || char == '-')
  *
  */
-
+/*
 void	putWithOneSpace(char *str)
 {
 	int	i;
@@ -58,6 +62,41 @@ void	putWithOneSpace(char *str)
 		if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+'))
 			ft_putchar(' ');
 	}
+}
+*/
+
+void	putWithOneSpace(char *str)
+{
+	int		i;
+	int		j;
+	int		flag;
+	char	*tmpstr;
+
+	flag = 0;
+	i = 0;
+	j = 0;
+	tmpstr = ft_calloc(1, ft_strlen(str));
+	if (tmpstr)
+	{
+		while (str[i] != '\0' && ft_isspace(str[i]))
+			i++;
+		while (str[i] != '\0')
+		{
+			flag = 0;
+			while (str[i] != '\0' && ! ft_isspace(str[i]))
+			tmpstr[j++] = str[i++];
+			if (str[i -1 ] == ',' || str[i - 1] == '.')
+				flag = 1;
+			while (str[i] != '\0' && ft_isspace(str[i]))
+				i++;
+			if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+'))
+				tmpstr[j++] = ' ';
+		}
+		ft_putstr(tmpstr);
+		free(tmpstr);
+	}
+	else
+		exiterror(MALLOC_ERROR);	
 }
 
 int		main(int argc, char *argv[])
@@ -81,9 +120,6 @@ int		main(int argc, char *argv[])
 		exitifcheckfails(close(fd), NO_CLOSE);
 	}
 	else
-	{
-		perror(BAD_ARGUMENTS);
-		return (1);
-	}
+		exiterror(BAD_ARGUMENTS);
 	return (0);
 }
