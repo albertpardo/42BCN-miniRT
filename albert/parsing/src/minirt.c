@@ -109,6 +109,7 @@ int		main(int argc, char *argv[])
 			line = get_next_line(fd);
 		}
 		exitifcheckfails(close(fd), NO_CLOSE);
+		printf("\nCheck float : %f\n", ft_atof("11.234")); 
 	}
 	else
 		exiterror(BAD_ARGUMENTS);

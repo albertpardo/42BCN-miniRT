@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 17:00:07 by apardo-m          #+#    #+#             */
-/*   Updated: 2023/09/13 12:46:57 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/23 17:50:06 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+float	ft_atof(const char *str);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);

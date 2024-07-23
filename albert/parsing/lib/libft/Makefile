@@ -6,7 +6,7 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/04 17:18:38 by apardo-m          #+#    #+#              #
-#    Updated: 2024/07/22 16:27:10 by apardo-m         ###   ########.fr        #
+#    Updated: 2024/07/23 17:50:41 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ FLAGS = -Wall -Wextra -Werror #-g3
 DPFLAGS = -MMD -MP
 AR_FLAGS = -rcs
 
-SRCS_LIBFT = ft_atoi.c \
+SRCS_LIBFT = ft_atof.c \
+	ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
 	ft_isalnum.c \
