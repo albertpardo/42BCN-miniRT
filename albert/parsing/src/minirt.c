@@ -1,79 +1,4 @@
-#include <stdio.h>
-#include <fcntl.h>
-#include "libft.h"
-#include "ft_printf.h"
-#include "get_next_line.h"
-
-#define	BAD_ARGUMENTS "BAD ARGUMETS. Use : ./minirt NAME.rt"
-#define NO_OPEN "open() failed"
-#define NO_CLOSE "\nclose() failed" 
-#define MALLOC_ERROR "Memory assignament ERROR"
-
-void	exiterror(char *msg)
-{
-	perror(msg);
-	exit (EXIT_FAILURE);
-}
-
-void	exitifcheckfails(int val, char *msg)
-{
-	if (val == -1)
-		exiterror(msg);
-}
-
-int		ft_isspace(const char c)
-{
-	return ( c == ' ' || c == '\t');
-}
-
-/*
- * char	*cleanStringSpaces(char *str)
- *
- *	- flag : used to know if last get char is '.' or ','
- *
- *	Steps:
- *	1 - Avoid initial spaces in 'str'
- *	2 - until of 'str'
- *		- get no space chars
- *		- set 'flag' if last char is '.' or ','
- *		- avoid spaces
- *		- to put space check : flag == 0 && char != ',' && char != '.' && isprint(char))
- *
- */
-
-char	*cleanStringSpaces(char *str)
-{
-	int		i;
-	int		j;
-	int		flag;
-	char	*tmpstr;
-
-	flag = 0;
-	i = 0;
-	j = 0;
-	tmpstr = ft_calloc(1, ft_strlen(str) + 1);
-	if (tmpstr)
-	{
-		while (str[i] != '\0' && ft_isspace(str[i]))
-			i++;
-		while (str[i] != '\0')
-		{
-			flag = 0;
-			while (str[i] != '\0' && ! ft_isspace(str[i]))
-			tmpstr[j++] = str[i++];
-			if (str[i -1 ] == ',' || str[i - 1] == '.')
-				flag = 1;
-			while (str[i] != '\0' && ft_isspace(str[i]))
-				i++;
-			//if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+' || str[i] == '-')   )
-			if (str[i] != '\0' && flag == 0 && str[i] != ',' && str[i] != '.' && ft_isprint(str[i]))
-				tmpstr[j++] = ' ';
-		}
-	}
-	else
-		exiterror(MALLOC_ERROR);
-	return (tmpstr);
-}
+#include "minirt.h"
 
 void	putArrayStr(char ** arrstr)
 {
@@ -83,15 +8,6 @@ void	putArrayStr(char ** arrstr)
 		ft_printf("%s\n", *arrstr);
 		arrstr++;
 	}
-}
-
-void	freeArrStr(char **arr)
-{
-	int i;                                                                  
- 	i = 0;   
- 	while (arr[i] != NULL)
- 		free(arr[i++]);
-	free(arr);
 }
 
 int		main(int argc, char *argv[])
@@ -108,7 +24,7 @@ int		main(int argc, char *argv[])
 		line = get_next_line(fd);
   		while (line)
 		{
-			cleanline = cleanStringSpaces(line);
+			cleanline = cleanstringspaces(line);
 			ft_printf("--------------------------------------------\n");
 			ft_printf("Linea Original  >%s", line);
 			ft_printf("Del extra spaces>%s", cleanline);
