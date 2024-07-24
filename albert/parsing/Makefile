@@ -75,12 +75,12 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(Makefile) | $(OBJS_DIR) $(DEP_DIR)
 	@echo "$(CYAN)▉▉▉▉▉▉▶ END: Objects and depenencies created...$(RESET)"
 	@echo
 
-# Delete objects and dependecies folders
+# Delete objects and dependecies folders, and 'fclean' libreries
 clean:
 	@echo "$(YELLOW)▶ Cleaning object files and dependencies...$(RESET)"
 	$(RM) $(OBJS_DIR) $(DEP_DIR)
 	@echo "$(YELLOW)▶ Cleaning libft$(RESET)"
-	make -C lib/libft/ clean
+	make -C lib/libft/ fclean
 
 
 # Delete executable, objects and dependecies folders

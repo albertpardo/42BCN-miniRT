@@ -51,7 +51,7 @@ char	*cleanStringSpaces(char *str)
 	flag = 0;
 	i = 0;
 	j = 0;
-	tmpstr = ft_calloc(1, ft_strlen(str));
+	tmpstr = ft_calloc(1, ft_strlen(str) + 1);
 	if (tmpstr)
 	{
 		while (str[i] != '\0' && ft_isspace(str[i]))
@@ -65,7 +65,7 @@ char	*cleanStringSpaces(char *str)
 				flag = 1;
 			while (str[i] != '\0' && ft_isspace(str[i]))
 				i++;
-			if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+'))
+			if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+' || str[i] == '-')   )
 				tmpstr[j++] = ' ';
 		}
 	}
@@ -76,7 +76,7 @@ char	*cleanStringSpaces(char *str)
 
 void	putArrayStr(char ** arrstr)
 {
-	ft_printf("\nArray de string de la linea sin spaces: \n");
+	ft_printf("\nArray de strings de la linea sin extra spaces: \n");
 	while (arrstr && *arrstr)
 	{
 		ft_printf("%s\n", *arrstr);
@@ -84,6 +84,14 @@ void	putArrayStr(char ** arrstr)
 	}
 }
 
+void	freeArrStr(char **arr)
+{
+	int i;                                                                  
+ 	i = 0;   
+ 	while (arr[i] != NULL)
+ 		free(arr[i++]);
+	free(arr);
+}
 
 int		main(int argc, char *argv[])
 {
@@ -100,10 +108,12 @@ int		main(int argc, char *argv[])
   		while (line)
 		{
 			cleanline = cleanStringSpaces(line);
+			ft_printf("--------------------------------------------\n");
 			ft_printf("Linea Original  >%s", line);
-			ft_printf("Linea sin spaces>%s", cleanline);
+			ft_printf("Del extra spaces>%s", cleanline);
 			splitline = ft_split(cleanline, ' ');
 			putArrayStr(splitline);
+			freeArrStr(splitline);
 			free(cleanline);
 			free(line);
 			line = get_next_line(fd);

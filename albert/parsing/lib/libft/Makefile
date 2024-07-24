@@ -6,14 +6,14 @@
 #    By: apardo-m <apardo-m@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/04 17:18:38 by apardo-m          #+#    #+#              #
-#    Updated: 2024/07/23 17:50:41 by apardo-m         ###   ########.fr        #
+#    Updated: 2024/07/24 12:06:56 by apardo-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 HEADERS = libft.h ft_printf.h
 
-FLAGS = -Wall -Wextra -Werror #-g3
+FLAGS = -Wall -Wextra -Werror -g3
 DPFLAGS = -MMD -MP
 AR_FLAGS = -rcs
 
