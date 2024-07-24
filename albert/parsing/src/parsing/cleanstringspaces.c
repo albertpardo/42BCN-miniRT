@@ -13,6 +13,12 @@
  *		- avoid spaces
  *		- to put space check : flag == 0 && char != ',' && char != '.' && isprint(char))
  *
+ * Note:
+ *  All the spaces after '.' or ',' are deleted. 
+ *  	So '4.   5' is '4.5'
+ *  	'4.  ,  5  .   6,  a' is '4.,5.6,a'
+ *
+ *  To defina a decimal is better : '4.5' instead '4.'
  */
 
 char	*cleanstringspaces(char *str)
