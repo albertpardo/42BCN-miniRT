@@ -35,9 +35,9 @@ int		ft_isspace(const char c)
  *	1 - Avoid initial spaces in 'str'
  *	2 - until of 'str'
  *		- get no space chars
- *		- set 'flag' if las char is '.' or ','
+ *		- set 'flag' if last char is '.' or ','
  *		- avoid spaces
- *		- to put space check : flag == 0 && (isdigit(char) || char == '+' || char == '-')
+ *		- to put space check : flag == 0 && char != ',' && char != '.' && isprint(char))
  *
  */
 
@@ -65,7 +65,8 @@ char	*cleanStringSpaces(char *str)
 				flag = 1;
 			while (str[i] != '\0' && ft_isspace(str[i]))
 				i++;
-			if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+' || str[i] == '-')   )
+			//if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+' || str[i] == '-')   )
+			if (str[i] != '\0' && flag == 0 && str[i] != ',' && str[i] != '.' && ft_isprint(str[i]))
 				tmpstr[j++] = ' ';
 		}
 	}
