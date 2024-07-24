@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT
+NAME = miniRT_parsing_1
 
 # Compiler and FLAGS
 CC = cc
@@ -16,7 +16,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = minirt.c \
+SRC_FILES = minirt_parsing1.c \
 	parsing/cleanstringspaces.c \
 	parsing/exiterror.c \
 	parsing/exitifcheckfails.c \
