@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exiterror.c                                        :+:      :+:    :+:   */
+/*   freearrstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 12:16:23 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/25 12:16:27 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/07/25 12:16:58 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/07/25 14:07:43 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include <stdlib.h>
 
-void	exiterror(char *msg)
+void	freearrstr(char **arr)
 {
-	if (errno != 0)
-		perror(msg);
-	else
-	{
-		ft_putstr_fd(msg, 2);
-		ft_putstr_fd("\n", 2);
-	}
-	exit (EXIT_FAILURE);
+	int	i;
+
+	i = 0;
+	while (arr[i] != NULL)
+		free(arr[i++]);
+	free(arr);
 }

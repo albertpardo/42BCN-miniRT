@@ -20,7 +20,8 @@ SRC_FILES = minirt_parsing1.c \
 	parsing/cleanstringspaces.c \
 	parsing/exiterror.c \
 	parsing/exitifcheckfails.c \
-	parsing/freeArrStr.c \
+	parsing/exitifnotvalidfiletype.c \
+	parsing/freearrstr.c \
 	parsing/ft_isspace.c 
 
 # Objet files

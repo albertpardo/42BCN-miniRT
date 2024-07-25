@@ -1,4 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cleanstringspaces.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/25 12:15:12 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/07/25 14:03:16 by apardo-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minirt.h"
+
+/* 
+ * 	avoidspaces(char *str, int i)
+ *
+ * 	Starting on str[i] looks for nex position where there are no ' '
+ */
+
+static int	avoidspaces(char *str, int i)
+{
+	while (str[i] != '\0' && ft_isspace(str[i]))
+		i++;
+	return (i);
+}
 
 /*
  * char	*cleanStringSpaces(char *str)
@@ -11,7 +36,8 @@
  *		- get no space chars
  *		- set 'flag' if last char is '.' or ','
  *		- avoid spaces
- *		- to put space check : flag == 0 && char != ',' && char != '.' && isprint(char))
+ *		- to put space check : 
+ *			flag == 0 && char != ',' && char != '.' && isprint(char))
  *
  * Note:
  *  All the spaces after '.' or ',' are deleted. 
@@ -32,25 +58,20 @@ char	*cleanstringspaces(char *str)
 	i = 0;
 	j = 0;
 	tmpstr = ft_calloc(1, ft_strlen(str) + 1);
-	if (tmpstr)
-	{
-		while (str[i] != '\0' && ft_isspace(str[i]))
-			i++;
-		while (str[i] != '\0')
-		{
-			flag = 0;
-			while (str[i] != '\0' && ! ft_isspace(str[i]))
-			tmpstr[j++] = str[i++];
-			if (str[i -1 ] == ',' || str[i - 1] == '.')
-				flag = 1;
-			while (str[i] != '\0' && ft_isspace(str[i]))
-				i++;
-			//if (str[i] != '\0' && flag == 0 && (ft_isdigit(str[i]) || str[i] == '+' || str[i] == '-')   )
-			if (str[i] != '\0' && flag == 0 && str[i] != ',' && str[i] != '.' && ft_isprint(str[i]))
-				tmpstr[j++] = ' ';
-		}
-	}
-	else
+	if (tmpstr == NULL)
 		exiterror(MALLOC_ERROR);
+	i = avoidspaces(str, i);
+	while (str[i] != '\0')
+	{
+		flag = 0;
+		while (str[i] != '\0' && ! ft_isspace(str[i]))
+			tmpstr[j++] = str[i++];
+		if (str[i -1] == ',' || str[i - 1] == '.')
+			flag = 1;
+		i = avoidspaces(str, i);
+		if (str[i] != '\0' && flag == 0)
+			if (str[i] != ',' && str[i] != '.' && ft_isprint(str[i]))
+				tmpstr[j++] = ' ';
+	}
 	return (tmpstr);
 }

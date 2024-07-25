@@ -20,7 +20,7 @@ SRC_FILES = test_cleanspaces.c\
 	parsing/cleanstringspaces.c \
 	parsing/exiterror.c \
 	parsing/exitifcheckfails.c \
-	parsing/freeArrStr.c \
+	parsing/freearrstr.c \
 	parsing/ft_isspace.c 
 
 # Objet files
