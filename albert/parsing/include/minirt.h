@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/25 15:20:02 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/25 15:43:32 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,29 @@ typedef struct s_light
 	float		brightratio;
 	t_vector3	f_rgb;
 }	t_light;
+
+typedef struct s_sphere
+{
+	t_vector3	center;
+	float		diameter;
+	t_vector3	f_rgb;
+}	t_sphere;
+
+typedef struct s_plane
+{
+	t_vector3	point;
+	t_vector3	normal;
+	t_vector3	f_rgb;
+}	t_plane;
+
+typedef struct s_cylinder
+{
+	t_vector3	center;
+	float		diameter;
+	float		height;
+	t_vector3	normvector;
+	t_vector3	f_rgb;
+}	t_cylinder;
 
 // ------  parsing -------- //
 
