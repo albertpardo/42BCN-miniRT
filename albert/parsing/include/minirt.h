@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/25 15:43:32 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/25 17:15:40 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_vector3
 	float	y;
 	float	z;
 }	t_vector3;
+
+// ---- Diferent elements structs ---- //
 
 typedef struct s_ambientlight
 {
@@ -77,6 +79,15 @@ typedef struct s_cylinder
 	t_vector3	normvector;
 	t_vector3	f_rgb;
 }	t_cylinder;
+
+// ---- Generic element struct ---- //
+
+typedef struct s_element
+{
+	int		numline;
+	char	*idelement;
+	void	*infoelement;
+}	t_element;
 
 // ------  parsing -------- //
 
