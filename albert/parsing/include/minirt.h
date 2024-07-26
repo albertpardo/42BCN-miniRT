@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/25 17:15:40 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/26 19:17:01 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@
 # define MALLOC_ERROR "Memory assignament ERROR"
 # define BAD_FILETYPE "Filetype is not .rt"
 # define EXT ".rt"
+
+// --- Defines for integers checks ----- //
+
+# define CHAR_MAX_RGB "255"
+# define CHAR_MAX_FOV "180"
+# define INT_NUMDIGITS 3
 
 typedef struct s_vector3
 {
@@ -98,6 +104,7 @@ void	exitifnotvalidfiletype(char *fname, char *ext, char *msg);
 void	exitifnortfile(char *filename);
 void	freearrstr(char **arr);
 int		ft_isspace(const char c);
+int		isstringvalueinpositiverange(char *str, char *maxintval);
 void	putarraystr(char **arrstr);
 
 #endif

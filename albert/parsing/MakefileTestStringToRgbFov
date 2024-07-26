@@ -16,8 +16,9 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = test_stringtorgbfov.c
-
+SRC_FILES = test_stringtorgbfov.c \
+			parsing/isstringvalueinpositiverange.c
+	
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
 
