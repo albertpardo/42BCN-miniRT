@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 15:58:07 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/27 16:01:56 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:41:26 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static size_t	countchar(char *str, char c)
  *
  */
 
-int	isstrfloat(char *str)
+static int	isstrfloat(char *str)
 {
 	char	*tmp;
 
