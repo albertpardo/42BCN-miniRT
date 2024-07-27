@@ -16,9 +16,8 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = teststrtofloat01.c
-			
-			#parsing/
+SRC_FILES = teststrtofloat01.c \
+			parsing/isstrfloatcerone.c
 	
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
