@@ -6,13 +6,13 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:03:20 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/27 15:33:49 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/27 15:49:25 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-static size_t countchar(char *str, char c)
+static size_t	countchar(char *str, char c)
 {
 	size_t	i;
 	char	*tmp;
@@ -37,7 +37,7 @@ static size_t countchar(char *str, char c)
  */
 
 int	isstrfloat(char *str)
-{ 
+{
 	char	*tmp;
 
 	tmp = str;
@@ -64,27 +64,23 @@ int	isstrfloat(char *str)
  *	- '*.'
  *
  * Cases: 
- * 	- '1.0'  	VALID
- * 	- '1'		VALID
- * 	- '0'		VALID
- * 	- '0.*'		VALID
- * 	- '1.0*'	NO VALID
- * 	- '1.X'  	NO VALID
+ * 	- '1.0'  		VALID
+ * 	- '1'			VALID
+ * 	- '0'			VALID
+ * 	- '0.0'			VALID
+ * 	- '0.0X__X00'	VALID (from last X to the end all chars are 0)
+ * 	- '0.00_0'		NO VALID (all 0)
+ * 	- '1.0*'		NO VALID
+ * 	- '1.X'  		NO VALID
  */
 
 int	isstrfloatcerone(char *str)
 {
 	size_t	len;
 
-	len = ft_strlen(str);	
+	len = ft_strlen(str);
 	if (isstrfloat(str) && (*str != '.' || str[len - 1] != '.'))
 	{
-/*
-		if (len > 3 && ft_strncmp(str, "1.0", 3) == 0)
-			return (0);
-		if (len == 3 && ft_strncmp(str, "1.0", 3) > 0)
-			return (0);
-*/
 		if (len == 3 && \
 				(!ft_strncmp(str, "1.0", 3) || !ft_strncmp(str, "0.0", 3)))
 			return (1);
@@ -99,7 +95,7 @@ int	isstrfloatcerone(char *str)
 
 static void	printest(char *s)
 {
-	printf("%s ? ", s); 
+	printf("%s ? ", s);
 	if (isstrfloatcerone(s))
 		printf("TRUE\n");
 	else
@@ -109,11 +105,11 @@ static void	printest(char *s)
 int	main(void)
 {
 	printf("------ Valid float in format range [0.0, 1.0]-------\n"),
-	printest("0.0");
-	printest("0.9");
-	printest("1.0");
 	printest("0");
 	printest("1");
+	printest("0.0");
+	printest("1.0");
+	printest("0.9");
 	printest("0.0500000000");
 	printf("------ No Valid float in format range [0.0, 1.0]-------\n"),
 	printest(".1");
@@ -130,6 +126,5 @@ int	main(void)
 	printest("-5");
 	printest("+0.01");
 	printest("-0.01");
-
 	return (0);
 }

@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_stringtoint_1
+NAME = miniRT_stringtofloat_1
 
 # Compiler and FLAGS
 CC = cc
