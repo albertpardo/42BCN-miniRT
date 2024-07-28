@@ -16,7 +16,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = test_cleanspaces.c\
+SRC_FILES = tests/test_cleanspaces.c\
 	parsing/cleanstringspaces.c \
 	parsing/exiterror.c \
 	parsing/exitifcheckfails.c \

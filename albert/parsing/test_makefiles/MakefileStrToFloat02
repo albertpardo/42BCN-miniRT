@@ -16,7 +16,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = teststrtofloat02.c \
+SRC_FILES = tests/teststrtofloat02.c \
 			parsing/isstrfloatcerone.c \
 			parsing/isstrfloatsgnone.c
 	

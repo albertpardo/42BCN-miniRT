@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 19:28:45 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/26 19:31:53 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/28 06:37:04 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	alldigits(char *str)
 		tmp++;
 	if (tmp != str && *tmp == '\0')
 		return (1);
-	returni (0);
+	return (0);
 }
 
 /*

@@ -18,13 +18,14 @@ int	main(void)
 	printest("181");
 	printest("255");
 	printest("256");
-	prinitest("256");
+	printest("256");
 // No valid
 	printest("+20");
 	printest("2.56");
 	printest("");
 	printest("a");
-
+	printest("424242");
+	printest("-1002");
 	
 	return (0);
 }

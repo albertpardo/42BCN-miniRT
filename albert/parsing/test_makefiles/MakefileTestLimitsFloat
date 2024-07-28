@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_parsing_1
+NAME = miniRT_limitsfloat_1
 
 # Compiler and FLAGS
 CC = cc
@@ -16,13 +16,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = minirt_parsing1.c \
-	parsing/cleanstringspaces.c \
-	parsing/exiterror.c \
-	parsing/exitifcheckfails.c \
-	parsing/exitifnotvalidfiletype.c \
-	parsing/freearrstr.c \
-	parsing/ft_isspace.c 
+SRC_FILES = tests/test_floatlimits.c 
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)

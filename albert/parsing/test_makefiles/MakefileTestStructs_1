@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_stringtofloat_1
+NAME = miniRT_structs_1
 
 # Compiler and FLAGS
 CC = cc
@@ -16,9 +16,8 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = teststrtofloat01.c \
-			parsing/isstrfloatcerone.c
-	
+SRC_FILES = tests/testStruct.c
+
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
 

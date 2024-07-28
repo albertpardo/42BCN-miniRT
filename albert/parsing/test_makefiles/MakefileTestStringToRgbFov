@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_structs_1
+NAME = miniRT_stringtoint_1
 
 # Compiler and FLAGS
 CC = cc
@@ -16,8 +16,9 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = testStruct.c
-
+SRC_FILES = tests/test_stringtorgbfov.c \
+			parsing/isstringvalueinpositiverange.c
+	
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
 
