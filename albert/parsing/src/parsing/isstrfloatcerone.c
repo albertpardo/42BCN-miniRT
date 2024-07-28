@@ -6,50 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 15:58:07 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/27 16:41:26 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/28 09:23:25 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
-
-static size_t	countchar(char *str, char c)
-{
-	size_t	i;
-	char	*tmp;
-
-	tmp = str;
-	i = 0;
-	while (tmp != NULL && *tmp != '\0')
-	{
-		if (*tmp == c)
-			i++;
-		tmp++;
-	}
-	return (i);
-}
-
-/*
- * int isstrfloat(char *str)
- *
- * str is valid with or whitout one point and digits
- * No checks limits
- *
- */
-
-static int	isstrfloat(char *str)
-{
-	char	*tmp;
-
-	tmp = str;
-	if (countchar(str, '.') < 2)
-	{
-		while (tmp != NULL && *tmp != '\0' && (ft_isdigit(*tmp) || *tmp == '.'))
-			tmp++;
-		if (tmp != str && *tmp == '\0')
-			return (1);
-	}
-	return (0);
-}
 
 /*
  * int	isstrfloatcerone(char *str)
@@ -79,7 +40,7 @@ int	isstrfloatcerone(char *str)
 	size_t	len;
 
 	len = ft_strlen(str);
-	if (isstrfloat(str) && (*str != '.' || str[len - 1] != '.'))
+	if (isstrfloat(str) && (*str != '.' && str[len - 1] != '.'))
 	{
 		if (len == 3 && \
 				(!ft_strncmp(str, "1.0", 3) || !ft_strncmp(str, "0.0", 3)))

@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_stringtofloat_2
+NAME = miniRT_stringtofloat_3
 
 # Compiler and FLAGS
 CC = cc
@@ -16,12 +16,11 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = tests/teststrtofloat02.c \
+SRC_FILES = tests/teststrtofloat03.c \
 			parsing/countchar.c \
 			parsing/isstrfloat.c \
-			parsing/isstrfloatcerone.c \
-			parsing/isstrfloatsgnone.c
-	
+			parsing/isstrsgnfloat.c	
+
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
 

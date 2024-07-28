@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/27 16:22:27 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/28 07:18:50 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ typedef struct s_element
 // ------  parsing -------- //
 
 char	*cleanstringspaces(char *str);
+size_t	countchar(char *str, char c);
 void	exiterror(char *msg);
 void	exitifcheckfails(int val, char *msg);
 void	exitifnotvalidfiletype(char *fname, char *ext, char *msg);
@@ -105,8 +106,10 @@ void	exitifnortfile(char *filename);
 void	freearrstr(char **arr);
 int		ft_isspace(const char c);
 int		isstringvalueinpositiverange(char *str, char *maxintval);
+int		isstrfloat(char *str);
 int		isstrfloatcerone(char *str);
 int		isstrfloatsgnone(char *str);
+int		isstrsgnfloat(char *str);
 void	putarraystr(char **arrstr);
 
 #endif

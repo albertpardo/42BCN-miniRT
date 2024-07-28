@@ -17,6 +17,8 @@ DEP_DIR = .dep/
 
 # Source files
 SRC_FILES = tests/teststrtofloat01.c \
+			parsing/countchar.c \
+			parsing/isstrfloat.c \
 			parsing/isstrfloatcerone.c
 	
 # Objet files
