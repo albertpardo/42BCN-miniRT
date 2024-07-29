@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 07:23:33 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/29 12:37:32 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/29 16:21:15 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ static void	printest(char *s)
 {
 	printf("%s ? ", s);
 	if (isstrsgnfloat(s))
-		printf("TRUE\n");
+		printf("VALID.\t As float : %f\n", ft_atof(s));
 	else
-		printf("FALSE\n");
+		printf("NO VALID\n");
 }
 
 int	main(void)
 {
-	printf("------ Valid float (no check MAX / MIN limits) -------\n");
+	printf("------ Valid float -------\n");
 	printf("NO SIGNED:\n");
 	printest("0");
 	printest("9");
@@ -35,19 +35,6 @@ int	main(void)
 	printest("5901");
 	printest("0.0500000000");
 	printest("0.0932040");
-	printf("\nSIGNED:\n");
-	printest("-0");
-	printest("+0");
-	printest("-9");
-	printest("+9");
-	printest("-0.0");
-	printest("+0.0");
-	printest("-9.0");
-	printest("+9.0");
-	printest("+0.01");
-	printest("-0.01");
-	printest("-4.08");
-	printf("\n------ No Valid (no check MAX / MIN limits) -------\n");
 	printest(".1");
 	printest("001.");
 	printest("00");
@@ -64,8 +51,29 @@ int	main(void)
 	printest("000000.0");
 	printest("0.0000000000");
 	printest("1.0000000000");
-	printest("-0.0a1");
+	printf("\nSIGNED:\n");
+	printest("-0");
+	printest("+0");
+	printest("-9");
+	printest("+9");
+	printest("-0.0");
+	printest("+0.0");
+	printest("-9.0");
+	printest("+9.0");
+	printest("+0.01");
+	printest("-0.01");
+	printest("-4.08");
+	printest("340282346638528859811704183484516925440");
+	printest("-340282346638528859811704183484516925440");
+	printf("\n------ No Valid -------\n");
 	printest("-+1.0");
 	printest("+++++++0.01");
+	printest("-0.0a1");
+	printest("340282430000000000000000000000000000000");
+	printest("-340282430000000000000000000000000000000");
+	printest("340282346638528859811704183484516925441");
+	printest("340282346638528859811704183484516925441");
+	printest("-999340282346638528859811704183484516925441");
+	printest("-999340282346638528859811704183484516925441");
 	return (0);
 }

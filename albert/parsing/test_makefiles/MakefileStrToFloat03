@@ -19,6 +19,7 @@ DEP_DIR = .dep/
 SRC_FILES = tests/teststrtofloat03.c \
 			parsing/countchar.c \
 			parsing/isstrfloat.c \
+			parsing/ft_strichr.c \
 			parsing/isstrsgnfloat.c	
 
 # Objet files
