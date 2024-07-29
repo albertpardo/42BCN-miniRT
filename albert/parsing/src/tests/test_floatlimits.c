@@ -1,45 +1,41 @@
 #include "minirt.h"
 #include "float.h"
-//3.402823466e+38F
-//i						 1         2         3
-//             12345678901234567890123456789012345678 
-// CFLT_MAX : 340282346638528859811704183484516925440.000000
+
+//i					 1         2         3
+//            12345678901234567890123456789012345678 
+// FLT_MAX : 340282346638528859811704183484516925440.000000
 
 int		main(void)
 {
-	float	fl;
-	float	f2;
-	float	f3;
-	int 	i;
-	i = 0;
-	fl = FLT_MAX;
-	printf("\nCheck float : %f\n", ft_atof("11.234")); 
-	printf("\n  CFLT_MAX : %f\n", fl); 
-	fl = fl - 1.0f;
-	printf("\n--CFLT_MAX : %f\n", fl); 
-	f2 = 1.01f;
-	printf("\n%i, f2 : %f\n", ++i, f2); 
-	f2 += .0000005f;
-	printf("\n%i, f2 : %f\n", ++i, f2); 
-	f2 += .0000005f;
-	printf("\n%i, f2 : %f\n", ++i, f2); 
-	f2 = 340282346638528859811704183484516925430.0f;
-	printf("\n%i, f2 : %f\n", ++i, f2);
-	printf("---\n");
-	f3 = 3.402823466e+38f;	
-	printf("\n%i, f3 : %f\n", ++i, f3); 
-	f3 = 3.40282346e+38f;	
-	printf("\n%i, f3 : %f\n", ++i, f3); 
-	f3 = 3.4028234e+38f;	
-	printf("\n%i, f3 : %f\n", ++i, f3); 
-	f2 = 3.402823e+38f;	
-	printf("\n%i,   f2 : %f\n", ++i, f2); 
-	f3 = 3.4e+38f;	
-	printf("\n%i,   f3 : %f\n", ++i, f3);
-	printf("Diff f2-f3 : %f\n", f2 -f3);
-	printf("---\n");
-	f2 = 340000000000000000000000000000000000000.f;
-	printf("\n%i, f2 : %f\n", ++i, f2); 
-	f2 = 330000000000000000000000000000000000000.f;
-	printf("\n%i, f2 : %f\n", ++i, f2); 
+		
+	printf("----Extrated from -> https://en.cppreference.com/w/c/types/limits\n");
+    printf("DECIMAL_DIG     = %d\n", DECIMAL_DIG);
+    printf("FLT_DECIMAL_DIG = %d\n", FLT_DECIMAL_DIG);
+    printf("FLT_RADIX       = %d\n", FLT_RADIX);
+    printf("FLT_MIN         = %e\n", FLT_MIN);
+    printf("FLT_MAX         = %e\n", FLT_MAX);
+    printf("FLT_EPSILON     = %e\n", FLT_EPSILON);
+    printf("FLT_DIG         = %d\n", FLT_DIG);
+    printf("FLT_MANT_DIG    = %d\n", FLT_MANT_DIG);
+    printf("FLT_MIN_EXP     = %d\n", FLT_MIN_EXP);
+    printf("FLT_MIN_10_EXP  = %d\n", FLT_MIN_10_EXP);
+    printf("FLT_MAX_EXP     = %d\n", FLT_MAX_EXP);
+    printf("FLT_MAX_10_EXP  = %d\n", FLT_MAX_10_EXP);
+    printf("FLT_ROUNDS      = %d\n", FLT_ROUNDS);
+    printf("FLT_EVAL_METHOD = %d\n", FLT_EVAL_METHOD);
+    printf("FLT_HAS_SUBNORM = %d\n", FLT_HAS_SUBNORM);
+	
+	printf("\n----- My evaluation ---\n");
+	printf("FLT_MAX                    :  %f\n", FLT_MAX); 
+	printf("FLT_MIN                    :  %f\n", FLT_MIN); 
+	printf("FLT_NEG                    : %f\n", -FLT_MAX); 
+
+	printf("ft_atof(string(FLT_MAX)    :  %f\n", ft_atof("340282346638528859811704183484516925440")); 
+	printf("ft_atof(string(-FLT_MAX)   : %f\n", ft_atof("-340282346638528859811704183484516925440.0"));
+	printf("\nusando 'ft_atof' para un string > FLTMAX\n");
+	printf("ft_atof(string(>FLT_MAX)   :  %f\n", ft_atof("340282429999999999999999999999999999999")); 
+	printf("ft_atof(string(<-FLT_MAX)  : %f\n", ft_atof("-340282429999999999999999999999999999999")); 
+	printf("\nObtengo 'inf' para 3.4028243e+38 al usar printf\n");
+	printf("ft_atof(string(>FLT_MAX)   :  %f\n", ft_atof("340282430000000000000000000000000000000")); 
+	printf("ft_atof(string(<-FLT_MAX)  : %f\n", ft_atof("-340282430000000000000000000000000000000")); 
 }

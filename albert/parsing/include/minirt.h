@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/28 07:18:50 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/29 11:13:30 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ void	exitifnotvalidfiletype(char *fname, char *ext, char *msg);
 void	exitifnortfile(char *filename);
 void	freearrstr(char **arr);
 int		ft_isspace(const char c);
+int		ft_strichr(const char *s, int c);
 int		isstringvalueinpositiverange(char *str, char *maxintval);
 int		isstrfloat(char *str);
 int		isstrfloatcerone(char *str);
