@@ -45,10 +45,9 @@ int		main(int argc, char *argv[])
 		}
 		exitifcheckfails(close(fd), NO_CLOSE);
 		if (i == 0)
-			printf("Empty file\n");
+			exiterror(EMPTY_FILE);
 		else if (j == 0)
-			printf("File only with 'spaces' and/or '\\t' and '\\n'");
-		printf("\nCheck float : %f\n", ft_atof("11.234")); 
+			exiterror(SPACES_IN_FILE);
 	}
 	else
 		exiterror(BAD_ARGUMENTS);

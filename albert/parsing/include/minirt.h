@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/29 11:13:30 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/30 10:20:55 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define NO_CLOSE "\nclose() failed" 
 # define MALLOC_ERROR "Memory assignament ERROR"
 # define BAD_FILETYPE "Filetype is not .rt"
+# define EMPTY_FILE "Empty file."
+# define SPACES_IN_FILE "File only with 'spaces' and/or '\\t' and '\\n'." 
 # define EXT ".rt"
 
 // --- Defines for integers checks ----- //
