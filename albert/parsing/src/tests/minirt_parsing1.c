@@ -10,6 +10,12 @@ void	putarraystr(char ** arrstr)
 	}
 }
 
+/*
+ *
+ * - i : counter for total file lines
+ * - j : counter for no lines equal to "\0" or "\n"
+ */
+
 int		main(int argc, char *argv[])
 {
 	int		fd;

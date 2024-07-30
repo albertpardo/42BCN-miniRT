@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/30 10:20:55 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/30 12:12:00 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define EMPTY_FILE "Empty file."
 # define SPACES_IN_FILE "File only with 'spaces' and/or '\\t' and '\\n'." 
 # define EXT ".rt"
-
+# define ID_ERROR_NOALPHA "Element ID is no alpha"
 // --- Defines for integers checks ----- //
 
 # define CHAR_MAX_RGB "255"

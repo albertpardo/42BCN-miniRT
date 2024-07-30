@@ -1,0 +1,136 @@
+#include "minirt.h"
+
+void	putarraystr(char **arrstr)
+{
+	ft_printf("\nArray de strings de la linea sin extra spaces: \n");
+	while (arrstr && *arrstr)
+	{
+		ft_printf("%s\n", *arrstr);
+		arrstr++;
+	}
+}
+
+int	ft_astrlen(char **arrstr)
+{
+	int i;
+
+	i = 0;
+	while (arrstr && *arrstr)
+	{
+		arrstr++;
+		i++;
+	}
+	return (i);
+}
+
+
+void	checka(char **aelement)
+{
+		char	*id;
+
+		id = aelement[0];
+		ft_printf("Element is Ambient\n");
+		if (ft_astrlen(aelement) == 3)
+			ft_printf("TODO check each type elemtent Ambient\n");
+		else
+			exiterror("[Ambient]: There are not 3 'type elements'");
+}
+
+void	checkid(char **aelement)
+{
+	int	len;
+
+	ft_printf("\n\t>> Check id :\n");
+	len = ft_strlen(aelement[0]);
+	if (len == 1 && ft_strncmp(aelement[0], "A", len) == 0)
+//		ft_printf("Element is Ambient\n");
+		checka(aelement);
+	else
+		ft_printf("TODO evaluate this element\n");
+}
+
+int	isstralpha(char *str)
+{
+	while(str != NULL && *str != '\0' && ft_isalpha(*str))
+		str++;
+	if (str != NULL && *str == '\0')
+		return (1);
+	return (0);
+}
+
+void	checkidvalid(char **elem)
+{
+	printf("\n>> checkidvalid(...) :\n");
+	if (elem != NULL && *elem != NULL)
+	{
+		if (isstralpha(elem[0]))
+			checkid(elem);
+		else
+			exiterror(ID_ERROR_NOALPHA);
+	}
+	else
+		exiterror("NO ELEMENT");
+}
+
+
+void 	delastnl(char * line)
+{
+	int	len;
+
+	len = ft_strlen(line);
+
+	if (line[len - 1] == '\n')
+		line[len -1] = '\0';
+}
+
+/*
+ *
+ * - i : counter for total file lines
+ * - j : counter for no lines equal to "\0" or "\n"
+ */
+
+int		main(int argc, char *argv[])
+{
+	int		fd;
+	char	*line;
+	char	*cleanline;
+	char 	**splitline;
+	int		i;
+	int		j;
+
+	if (argc == 2)
+	{
+		i = 0;
+		j = 0;
+		exitifnotvalidfiletype(argv[1], EXT, BAD_FILETYPE);
+		fd = open(argv[1], O_RDONLY);
+		exitifcheckfails(fd, NO_OPEN);
+		line = get_next_line(fd);
+  		while (line)
+		{
+			i++;
+			cleanline = cleanstringspaces(line);
+			if (cleanline[0] != '\0' && cleanline[0] != '\n')
+				j++;
+			ft_printf("--------------------------------------------\n");
+			delastnl(cleanline);
+			ft_printf("Linea Original  >%s", line);
+			ft_printf("Del extra spaces>%s", cleanline);
+			splitline = ft_split(cleanline, ' ');
+			putarraystr(splitline);
+			checkidvalid(splitline);
+			freearrstr(splitline);
+			free(cleanline);
+			free(line);
+			line = get_next_line(fd);
+		}
+		exitifcheckfails(close(fd), NO_CLOSE);
+		if (i == 0)
+			exiterror(EMPTY_FILE);
+		else if (j == 0)
+			exiterror(SPACES_IN_FILE);
+	}
+	else
+		exiterror(BAD_ARGUMENTS);
+	return (0);
+}
