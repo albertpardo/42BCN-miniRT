@@ -17,7 +17,18 @@ void	checka(char **aelement)
 		id = aelement[0];
 		ft_printf("Element is Ambient\n");
 		if (ft_astrlen(aelement) == 3)
+		{
+			if (isstrfloatcerone(aelement[1])
+				ft_printf("[Ambient] Scale is valid format\n");
+			else
+				exiterror("[Ambient] Scale is NOT VALID format\n");
+			if (isrgb(aelement[2]))
+				ft_printf("[Ambient] RGB is valid format\n");
+			else
+				exiterror('[Ambient} RGB is NOT VALID format\n");
+
 			ft_printf("TODO check each type element Ambient\n");
+		}
 		else
 			exiterror(ERR_NUM_TYPELEM_AMBIENT);
 }
@@ -29,7 +40,6 @@ void	checkid(char **aelement)
 	ft_printf("\t>> Check id :\n");
 	len = ft_strlen(aelement[0]);
 	if (len == 1 && ft_strncmp(aelement[0], "A", len) == 0)
-//		ft_printf("Element is Ambient\n");
 		checka(aelement);
 	else
 		ft_printf("TODO evaluate this element\n");
@@ -45,8 +55,16 @@ void	checkidvalid(char **elem)
 		else
 			exiterror(ID_ERROR_NOALPHA);
 	}
-	else
-		exiterror(NO_ELEMENT);
+//	else
+//		exiterror(NO_ELEMENT);
+}
+
+static void exitifemptyfileoronlyspaces(int i, int j)
+{
+	if (i == 0)
+		exiterror(EMPTY_FILE);
+	else if (j == 0)
+		exiterror(SPACES_IN_FILE);
 }
 
 /*
@@ -90,10 +108,7 @@ int		main(int argc, char *argv[])
 			line = get_next_line(fd);
 		}
 		exitifcheckfails(close(fd), NO_CLOSE);
-		if (i == 0)
-			exiterror(EMPTY_FILE);
-		else if (j == 0)
-			exiterror(SPACES_IN_FILE);
+		exitifemptyfileoronlyspaces(i, j);
 	}
 	else
 		exiterror(BAD_ARGUMENTS);
