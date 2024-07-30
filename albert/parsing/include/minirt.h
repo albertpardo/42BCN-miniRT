@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/30 12:12:00 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:39:28 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 # define SPACES_IN_FILE "File only with 'spaces' and/or '\\t' and '\\n'." 
 # define EXT ".rt"
 # define ID_ERROR_NOALPHA "Element ID is no alpha"
+# define NO_ELEMENT "NO ELEMENT"
+# define ERR_NUM_TYPELEM_AMBIENT "[Ambient]: There are no 3 'type elements'"
+
 // --- Defines for integers checks ----- //
 
 # define CHAR_MAX_RGB "255"
@@ -106,7 +109,9 @@ void	exitifcheckfails(int val, char *msg);
 void	exitifnotvalidfiletype(char *fname, char *ext, char *msg);
 void	exitifnortfile(char *filename);
 void	freearrstr(char **arr);
+int		ft_astrlen(char **arrstr);
 int		ft_isspace(const char c);
+int		ft_isstralpha(char *str);
 int		ft_strichr(const char *s, int c);
 int		isstringvalueinpositiverange(char *str, char *maxintval);
 int		isstrfloat(char *str);

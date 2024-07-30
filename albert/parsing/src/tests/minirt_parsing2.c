@@ -10,20 +10,6 @@ void	putarraystr(char **arrstr)
 	}
 }
 
-int	ft_astrlen(char **arrstr)
-{
-	int i;
-
-	i = 0;
-	while (arrstr && *arrstr)
-	{
-		arrstr++;
-		i++;
-	}
-	return (i);
-}
-
-
 void	checka(char **aelement)
 {
 		char	*id;
@@ -31,16 +17,16 @@ void	checka(char **aelement)
 		id = aelement[0];
 		ft_printf("Element is Ambient\n");
 		if (ft_astrlen(aelement) == 3)
-			ft_printf("TODO check each type elemtent Ambient\n");
+			ft_printf("TODO check each type element Ambient\n");
 		else
-			exiterror("[Ambient]: There are not 3 'type elements'");
+			exiterror(ERR_NUM_TYPELEM_AMBIENT);
 }
 
 void	checkid(char **aelement)
 {
 	int	len;
 
-	ft_printf("\n\t>> Check id :\n");
+	ft_printf("\t>> Check id :\n");
 	len = ft_strlen(aelement[0]);
 	if (len == 1 && ft_strncmp(aelement[0], "A", len) == 0)
 //		ft_printf("Element is Ambient\n");
@@ -49,38 +35,18 @@ void	checkid(char **aelement)
 		ft_printf("TODO evaluate this element\n");
 }
 
-int	isstralpha(char *str)
-{
-	while(str != NULL && *str != '\0' && ft_isalpha(*str))
-		str++;
-	if (str != NULL && *str == '\0')
-		return (1);
-	return (0);
-}
-
 void	checkidvalid(char **elem)
 {
 	printf("\n>> checkidvalid(...) :\n");
 	if (elem != NULL && *elem != NULL)
 	{
-		if (isstralpha(elem[0]))
+		if (ft_isstralpha(elem[0]))
 			checkid(elem);
 		else
 			exiterror(ID_ERROR_NOALPHA);
 	}
 	else
-		exiterror("NO ELEMENT");
-}
-
-
-void 	delastnl(char * line)
-{
-	int	len;
-
-	len = ft_strlen(line);
-
-	if (line[len - 1] == '\n')
-		line[len -1] = '\0';
+		exiterror(NO_ELEMENT);
 }
 
 /*
@@ -93,7 +59,7 @@ int		main(int argc, char *argv[])
 {
 	int		fd;
 	char	*line;
-	char	*cleanline;
+	char	*cleanstr;
 	char 	**splitline;
 	int		i;
 	int		j;
@@ -109,18 +75,17 @@ int		main(int argc, char *argv[])
   		while (line)
 		{
 			i++;
-			cleanline = cleanstringspaces(line);
-			if (cleanline[0] != '\0' && cleanline[0] != '\n')
+			cleanstr = cleanstringspaces(line);
+			if (cleanstr[0] != '\0' && cleanstr[0] != '\n')
 				j++;
 			ft_printf("--------------------------------------------\n");
-			delastnl(cleanline);
 			ft_printf("Linea Original  >%s", line);
-			ft_printf("Del extra spaces>%s", cleanline);
-			splitline = ft_split(cleanline, ' ');
+			ft_printf("Del extra spaces>%s", cleanstr);
+			splitline = ft_split(cleanstr, ' ');
 			putarraystr(splitline);
 			checkidvalid(splitline);
 			freearrstr(splitline);
-			free(cleanline);
+			free(cleanstr);
 			free(line);
 			line = get_next_line(fd);
 		}

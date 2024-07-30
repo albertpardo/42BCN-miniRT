@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 12:15:12 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/25 14:03:16 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/30 16:25:30 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ static int	avoidspaces(char *str, int i)
 	while (str[i] != '\0' && ft_isspace(str[i]))
 		i++;
 	return (i);
+}
+
+/*
+ * void 	delastnl(char * line)
+ *
+ * if '\n' exist at the end of line then it's subtituted by '\0'
+ */
+
+static void	delastnl(char *line)
+{
+	int	len;
+
+	len = ft_strlen(line);
+	if (line[len - 1] == '\n')
+		line[len -1] = '\0';
 }
 
 /*
@@ -47,6 +62,16 @@ static int	avoidspaces(char *str, int i)
  *  To defina a decimal is better : '4.5' instead '4.'
  */
 
+static char	*getstrmem(char *str)
+{
+	char	*tmpstr;
+
+	tmpstr = ft_calloc(1, ft_strlen(str) + 1);
+	if (tmpstr == NULL)
+		exiterror(MALLOC_ERROR);
+	return (tmpstr);
+}
+
 char	*cleanstringspaces(char *str)
 {
 	int		i;
@@ -57,9 +82,7 @@ char	*cleanstringspaces(char *str)
 	flag = 0;
 	i = 0;
 	j = 0;
-	tmpstr = ft_calloc(1, ft_strlen(str) + 1);
-	if (tmpstr == NULL)
-		exiterror(MALLOC_ERROR);
+	tmpstr = getstrmem(str);
 	i = avoidspaces(str, i);
 	while (str[i] != '\0')
 	{
@@ -73,5 +96,6 @@ char	*cleanstringspaces(char *str)
 			if (str[i] != ',' && str[i] != '.' && ft_isprint(str[i]))
 				tmpstr[j++] = ' ';
 	}
+	delastnl(tmpstr);
 	return (tmpstr);
 }

@@ -22,7 +22,9 @@ SRC_FILES = tests/minirt_parsing2.c \
 	parsing/exitifcheckfails.c \
 	parsing/exitifnotvalidfiletype.c \
 	parsing/freearrstr.c \
-	parsing/ft_isspace.c 
+	parsing/ft_astrlen.c \
+	parsing/ft_isspace.c \
+	parsing/ft_isstralpha.c
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
@@ -75,11 +77,9 @@ $(DEP_DIR):
 # Source files to Object files rule (Dependency files are generated)
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(Makefile) | $(OBJS_DIR) $(DEP_DIR)
 	@mkdir -p $(dir $@)
-	@echo "$(CYAN)▉▉▉▉▉▉▶ START: Creating objects and depenencies files...$(RESET)"
 	@echo "▶ Compiling... $<"
 	$(CC) $(CFLAGS) $(DPFLAGS) -c $< -o $@ $(INCLUDE)
 	@mv $(patsubst %.o,%.d,$@) $(DEP_DIR)/$(notdir $(@:.o=.d))
-	@echo "$(CYAN)▉▉▉▉▉▉▶ END: Objects and depenencies created...$(RESET)"
 	@echo
 
 # Delete objects and dependecies folders, and 'fclean' libreries
