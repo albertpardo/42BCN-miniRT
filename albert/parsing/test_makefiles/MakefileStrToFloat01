@@ -19,8 +19,8 @@ DEP_DIR = .dep/
 SRC_FILES = tests/teststrtofloat01.c \
 			parsing/countchar.c \
 			parsing/ft_strichr.c \
-			parsing/isstrsgnfloat.c \
-			parsing/isstrfloatcerone.c
+			parsing/isstrfloatcerone.c \
+			parsing/isstrsgnfloat.c
 	
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)

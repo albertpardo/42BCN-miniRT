@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 15:58:07 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/29 16:53:58 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/30 08:42:28 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int	isstrfloatcerone(char *str)
 {
-	float num;
+	float	num;
 
 	if (isstrsgnfloat(str))
 	{

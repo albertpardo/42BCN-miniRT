@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 19:28:45 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/28 06:37:04 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/30 07:35:30 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static int	alldigits(char *str)
 
 /*
  * 'str' must be all digits
+ *
  * True if str is a integer >= 0 and <= 'maxintval'
  * Valid values: (X in 0 to 9)
  * - "0"
  * - "0X"
  * - "00X"
  * - "XXX"
- *
- * If 'str' contains '+' as first char and rest are digits is NOT VALID
+ * If '+' or '-' in str . str is not valid
  */
 
 int	isstringvalueinpositiverange(char *str, char *maxintval)
