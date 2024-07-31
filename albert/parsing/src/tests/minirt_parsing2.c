@@ -128,7 +128,7 @@ void	checkpl(char **aelement)
 				ft_printf("[Plane] Normalized Normal is valid format\n");
 			else
 				ft_printf("[Plane] Normalized Normal is NOT VALID format\n");
-			if (isrgbstr(aelement[2]))
+			if (isrgbstr(aelement[3]))
 				ft_printf("[Plane] RGB is valid format\n");
 			else
 				exiterror("[Plane] RGB is NOT VALID format\n");
