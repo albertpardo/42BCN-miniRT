@@ -2,7 +2,7 @@
 
 void	printest(char *str)
 {
-	ft_printf("%s is valid FOV type? ", str);
+	ft_printf("\"%s\" is valid FOV type? ", str);
 	if (isfov(str))
 		ft_printf("TRUE. INT format : %d\n", ft_atoi(str));
 	else

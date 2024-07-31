@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:30:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 12:11:36 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:51:59 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void putisrgb(char *str)
 {
-	ft_printf("%s is valid RGB type? ", str);
+	ft_printf("%\"%s\" is valid RGB type? ", str);
 	if (isrgbstr(str))
 		ft_printf("TRUE.\n");
 	else

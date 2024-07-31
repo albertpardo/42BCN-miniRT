@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 12:27:43 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:43:15 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int		ft_astrlen(char **arrstr);
 int		ft_isspace(const char c);
 int		ft_isstralpha(char *str);
 int		ft_strichr(const char *s, int c);
+int		iscoordinatestr(char *str);
 int		isfov(char *str);
 int		isrgbstr(char *rgbstr);
 int		isstringvalueinpositiverange(char *str, char *maxintval);

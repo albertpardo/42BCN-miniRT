@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_stringtofloat_3
+NAME = miniRT_striscoor
 
 # Compiler and FLAGS
 CC = cc
@@ -16,11 +16,14 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = tests/test_iscoordenate.c \
+SRC_FILES = tests/test_iscoordenate.c\
 			parsing/countchar.c \
+			parsing/ft_astrlen.c \
 			parsing/ft_strichr.c \
-			parsing/isstrsgnfloat.c	\
+			parsing/freearrstr.c \
+			parsing/isstrsgnfloat.c \
 			parsing/iscoordinatestr.c
+
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)

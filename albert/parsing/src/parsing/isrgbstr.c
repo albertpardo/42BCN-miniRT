@@ -6,28 +6,28 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 17:22:06 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 12:10:38 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:58:26 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
-int	isrgbstr(char *rgbstr)
+int	isstr(char *str)
 {
-	char	**argb;
+	char	**astr;
 	int		ans;
 
 	ans = 0;
-	argb = NULL;	
-	if (countchar(rgbstr, ',') == 2)
+	astr = NULL;	
+	if (countchar(str, ',') == 2)
 	{
-		argb = ft_split(rgbstr, ',');
-		if (ft_astrlen(argb) == 3)
+		astr = ft_split(str, ',');
+		if (ft_astrlen(astr) == 3)
 		{
-			if (isstringvalueinpositiverange(argb[0], CHAR_MAX_RGB) && \
-					isstringvalueinpositiverange(argb[1], CHAR_MAX_RGB) && \
-					isstringvalueinpositiverange(argb[2], CHAR_MAX_RGB))
+			if (isstringvalueinpositiverange(astr[0], CHAR_MAX_RGB) && \
+					isstringvalueinpositiverange(astr[1], CHAR_MAX_RGB) && \
+					isstringvalueinpositiverange(astr[2], CHAR_MAX_RGB))
 				ans = 1;
 			else
 				ft_printf("\n\t[RGB] Some value is not in range [0,255]\n\t");
@@ -37,29 +37,29 @@ int	isrgbstr(char *rgbstr)
 	}
 	else
 		ft_printf("\n\t[RGB] No valid RGB components (No 2 commas)\n\t");
-	if (argb != NULL)
-		freearrstr(argb);
+	if (astr != NULL)
+		freearrstr(astr);
 	return (ans);
 }
 */
 
-int	isrgbstr(char *rgbstr)
+int	isstr(char *str)
 {
-	char	**argb;
+	char	**astr;
 	int		ans;
 
 	ans = 0;
-	argb = NULL;
-	if (countchar(rgbstr, ',') == 2)
+	astr = NULL;
+	if (countchar(str, ',') == 2)
 	{
-		argb = ft_split(rgbstr, ',');
-		if (argb && ft_astrlen(argb) == 3 && \
-				isstringvalueinpositiverange(argb[0], CHAR_MAX_RGB) && \
-				isstringvalueinpositiverange(argb[1], CHAR_MAX_RGB) && \
-				isstringvalueinpositiverange(argb[2], CHAR_MAX_RGB))
+		astr = ft_split(str, ',');
+		if (astr && ft_astrlen(astr) == 3 && \
+				isstringvalueinpositiverange(astr[0], CHAR_MAX_RGB) && \
+				isstringvalueinpositiverange(astr[1], CHAR_MAX_RGB) && \
+				isstringvalueinpositiverange(astr[2], CHAR_MAX_RGB))
 			ans = 1;
 	}
-	if (argb)
-		freearrstr(argb);
+	if (astr)
+		freearrstr(astr);
 	return (ans);
 }
