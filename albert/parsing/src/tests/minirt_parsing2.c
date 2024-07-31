@@ -86,6 +86,32 @@ void	checkl(char **aelement)
 			exiterror(ERR_NUM_TYPELEM_LIGHT);
 }
 
+void	checksp(char **aelement)
+{
+		char	*id;
+
+		id = aelement[0];
+		ft_printf("Element is sphere\n");
+		if (ft_astrlen(aelement) == 4)
+		{
+			if (iscoordinatestr(aelement[1]))
+				ft_printf("[sphere] Center is valid format\n");
+			else
+				ft_printf("[sphere] Center is NOT VALID format\n");
+// Change to positive float
+			if (isstrsgnfloat(aelement[2]))
+				ft_printf("[sphere] Diameter is valid format\n");
+			else
+				exiterror("[sphere] Diameter is NOT VALID format\n");
+			if (isrgbstr(aelement[3]))
+				ft_printf("[sphere] RGB is valid format\n");
+			else
+				exiterror("[sphere] RGB is NOT VALID format\n");
+		}
+		else
+			exiterror(ERR_NUM_TYPELEM_LIGHT);
+}
+
 void	checkid(char **aelement)
 {
 	int	len;
@@ -98,6 +124,8 @@ void	checkid(char **aelement)
 		checkc(aelement);
 	else if (len == 1 && ft_strncmp(aelement[0], "L", len) == 0)
 		checkl(aelement);
+	else if (len == 2 && ft_strncmp(aelement[0], "sp", len) == 0)
+		checksp(aelement);
 	else
 		ft_printf("TODO evaluate this element\n");
 }
