@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 17:18:55 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/31 17:47:03 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@
 # define EXT ".rt"
 # define ID_ERROR_NOALPHA "Element ID is no alpha"
 # define NO_ELEMENT "NO ELEMENT"
-# define ERR_NUM_TYPELEM_AMBIENT "[Ambient]: There are no 3 'type elements'"
-# define ERR_NUM_TYPELEM_CAMARA "[Camara]: There are no 3 'type elements'"
+# define ERR_NUM_TYPELEM_AMBIENT "[Ambient]: No Scale or RGB"
+# define ERR_NUM_TYPELEM_CAMARA "[Camara]: No Viewport, Orientation or RGB"
+# define ERR_NUM_TYPELEM_LIGHT "[Light]: No Lightpoint, Brigh Ratio or RGB"
 
 // --- Defines for integers checks ----- //
 
