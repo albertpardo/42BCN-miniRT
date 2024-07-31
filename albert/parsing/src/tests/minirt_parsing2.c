@@ -25,9 +25,7 @@ void	checka(char **aelement)
 			if (isrgb(aelement[2]))
 				ft_printf("[Ambient] RGB is valid format\n");
 			else
-				exiterror('[Ambient} RGB is NOT VALID format\n");
-
-			ft_printf("TODO check each type element Ambient\n");
+				exiterror("[Ambient] RGB is NOT VALID format\n");
 		}
 		else
 			exiterror(ERR_NUM_TYPELEM_AMBIENT);
