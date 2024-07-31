@@ -27,8 +27,12 @@ SRC_FILES = tests/minirt_parsing2.c \
 	parsing/ft_isspace.c \
 	parsing/ft_isstralpha.c \
 	parsing/ft_strichr.c \
+	parsing/iscoordinatestr.c \
+	parsing/isfov.c \
+	parsing/isorientnormal.c \
 	parsing/isrgbstr.c \
 	parsing/isstrfloatcerone.c \
+	parsing/isstrfloatsgnone.c \
 	parsing/isstringvalueinpositiverange.c \
 	parsing/isstrsgnfloat.c
 
