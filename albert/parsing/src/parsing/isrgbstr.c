@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 17:22:06 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 13:58:26 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/31 16:39:56 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	isstr(char *str)
 }
 */
 
-int	isstr(char *str)
+int	isrgbstr(char *str)
 {
 	char	**astr;
 	int		ans;

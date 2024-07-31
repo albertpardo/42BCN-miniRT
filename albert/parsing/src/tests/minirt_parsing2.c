@@ -18,11 +18,11 @@ void	checka(char **aelement)
 		ft_printf("Element is Ambient\n");
 		if (ft_astrlen(aelement) == 3)
 		{
-			if (isstrfloatcerone(aelement[1])
+			if (isstrfloatcerone(aelement[1]))
 				ft_printf("[Ambient] Scale is valid format\n");
 			else
 				exiterror("[Ambient] Scale is NOT VALID format\n");
-			if (isrgb(aelement[2]))
+			if (isrgbstr(aelement[2]))
 				ft_printf("[Ambient] RGB is valid format\n");
 			else
 				exiterror("[Ambient] RGB is NOT VALID format\n");
