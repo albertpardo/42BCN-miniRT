@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_testisfov
+NAME = miniRT_isfov
 
 # Compiler and FLAGS
 CC = cc
@@ -16,7 +16,8 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = tests/test_stringtorgbfov.c \
+SRC_FILES = tests/test_isfov.c \
+			parsing/isfov.c \
 			parsing/isstringvalueinpositiverange.c
 	
 # Objet files
