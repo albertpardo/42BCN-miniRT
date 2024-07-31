@@ -109,7 +109,32 @@ void	checksp(char **aelement)
 				exiterror("[sphere] RGB is NOT VALID format\n");
 		}
 		else
-			exiterror(ERR_NUM_TYPELEM_LIGHT);
+			exiterror(ERR_NUM_TYPELEM_SPHERE);
+}
+
+void	checkpl(char **aelement)
+{
+		char	*id;
+
+		id = aelement[0];
+		ft_printf("Element is plane\n");
+		if (ft_astrlen(aelement) == 4)
+		{
+			if (iscoordinatestr(aelement[1]))
+				ft_printf("[Plane] Point in Plane is valid format\n");
+			else
+				ft_printf("[Plane] Point in Plane is NOT VALID format\n");
+			if (isorientnormal(aelement[2]))
+				ft_printf("[Plane] Normalized Normal is valid format\n");
+			else
+				ft_printf("[Plane] Normalized Normal is NOT VALID format\n");
+			if (isrgbstr(aelement[2]))
+				ft_printf("[Plane] RGB is valid format\n");
+			else
+				exiterror("[Plane] RGB is NOT VALID format\n");
+		}
+		else
+			exiterror(ERR_NUM_TYPELEM_PLANE);
 }
 
 void	checkid(char **aelement)
@@ -126,6 +151,8 @@ void	checkid(char **aelement)
 		checkl(aelement);
 	else if (len == 2 && ft_strncmp(aelement[0], "sp", len) == 0)
 		checksp(aelement);
+	else if (len == 2 && ft_strncmp(aelement[0], "pl", len) == 0)
+		checkpl(aelement);
 	else
 		ft_printf("TODO evaluate this element\n");
 }

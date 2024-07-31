@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 17:47:03 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/07/31 18:34:38 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define ERR_NUM_TYPELEM_AMBIENT "[Ambient]: No Scale or RGB"
 # define ERR_NUM_TYPELEM_CAMARA "[Camara]: No Viewport, Orientation or RGB"
 # define ERR_NUM_TYPELEM_LIGHT "[Light]: No Lightpoint, Brigh Ratio or RGB"
+# define ERR_NUM_TYPELEM_SPHERE "[Sphere]: No Center, Diameter or RGB"
+# define ERR_NUM_TYPELEM_PLANE "[Plane]: No Point in plane, Normalized Normal or RGB"
 
 // --- Defines for integers checks ----- //
 
