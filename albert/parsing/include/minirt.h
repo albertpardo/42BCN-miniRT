@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 10:24:27 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:09:54 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,13 @@ typedef struct s_element
 
 // ------  parsing -------- //
 
+void	checka(char **aelement);
+void	checkc(char **aelement);
+void	checkcy(char **aelement);
+void	checkl(char **aelement);
+void	checkpl(char **aelement);
+void	checksp(char **aelement);
+void	checkidvalid(char **elem);
 char	*cleanstringspaces(char *str);
 size_t	countchar(char *str, char c);
 void	exiterror(char *msg);

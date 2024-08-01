@@ -10,6 +10,7 @@ void	putarraystr(char **arrstr)
 	}
 }
 
+/*
 void	checka(char **aelement)
 {
 		char	*id;
@@ -171,6 +172,7 @@ void	checkpl(char **aelement)
 		else
 			exiterror(ERR_NUM_TYPELEM_PLANE);
 }
+
 void	checkid(char **aelement)
 {
 	int	len;
@@ -206,6 +208,8 @@ void	checkidvalid(char **elem)
 //	else
 //		exiterror(NO_ELEMENT);
 }
+*/
+
 
 static void exitifemptyfileoronlyspaces(int i, int j)
 {

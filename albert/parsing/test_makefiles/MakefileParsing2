@@ -17,6 +17,13 @@ DEP_DIR = .dep/
 
 # Source files
 SRC_FILES = tests/minirt_parsing2.c \
+	parsing/checka.c \
+	parsing/checkc.c \
+	parsing/checkcy.c \
+	parsing/checkidvalid.c \
+	parsing/checkl.c \
+	parsing/checkpl.c \
+	parsing/checksp.c \
 	parsing/cleanstringspaces.c \
 	parsing/countchar.c \
 	parsing/exiterror.c \
