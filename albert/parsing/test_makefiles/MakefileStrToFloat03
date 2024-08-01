@@ -16,11 +16,10 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = tests/test_iscoordenate.c \
+SRC_FILES = tests/teststrtofloat03.c \
 			parsing/countchar.c \
 			parsing/ft_strichr.c \
-			parsing/isstrsgnfloat.c	\
-			parsing/iscoordinatestr.c
+			parsing/isstrsgnfloat.c
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)

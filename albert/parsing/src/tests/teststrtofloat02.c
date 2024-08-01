@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:03:20 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 16:03:37 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 16:58:16 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	main(void)
 	printest("-1.000000059");
 	printf("\n------ No Valid float in format range [-1.0, 1.0]-------\n");
 	printest(".");
+	printest("..");
+	printest("+.");
 	printest("");
 	printest(" ");
 	printest("1.1");

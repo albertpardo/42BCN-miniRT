@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 07:23:33 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 16:06:40 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 17:01:05 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ int	main(void)
 	printest("340282346638528859811704183484516925440");
 	printest("-340282346638528859811704183484516925440");
 	printf("\n------ No Valid -------\n");
+	printest(".");
+	printest("..");
+	printest("+.");
+	printest("");
+	printest(" ");
 	printest("-+1.0");
 	printest("+++++++0.01");
 	printest("-0.0a1");
