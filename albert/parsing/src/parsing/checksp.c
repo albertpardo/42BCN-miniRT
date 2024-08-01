@@ -1,27 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checksp.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 14:44:31 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/01 14:45:14 by apardo-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minirt.h"
+
+// Change to only positive float
+//		if (isstrsgnfloat(aelement[2]))
 
 void	checksp(char **aelement)
 {
-		char	*id;
-
-		id = aelement[0];
-		ft_printf("Element is sphere\n");
-		if (ft_astrlen(aelement) == 4)
-		{
-			if (iscoordinatestr(aelement[1]))
-				ft_printf("[Sphere] Center is valid format\n");
-			else
-				ft_printf("[Sphere] Center is NOT VALID format\n");
-// Change to only positive float
-			if (isstrsgnfloat(aelement[2]))
-				ft_printf("[Sphere] Diameter is valid format\n");
-			else
-				exiterror("[Sphere] Diameter is NOT VALID format\n");
-			if (isrgbstr(aelement[3]))
-				ft_printf("[Sphere] RGB is valid format\n");
-			else
-				exiterror("[Sphere] RGB is NOT VALID format\n");
-		}
+	ft_printf("Element is sphere\n");
+	if (ft_astrlen(aelement) == 4)
+	{
+		if (iscoordinatestr(aelement[1]))
+			ft_printf("[Sphere] Center is valid format\n");
 		else
-			exiterror(ERR_NUM_TYPELEM_SPHERE);
+			ft_printf("[Sphere] Center is NOT VALID format\n");
+		if (isstrsgnfloat(aelement[2]))
+			ft_printf("[Sphere] Diameter is valid format\n");
+		else
+			exiterror("[Sphere] Diameter is NOT VALID format\n");
+		if (isrgbstr(aelement[3]))
+			ft_printf("[Sphere] RGB is valid format\n");
+		else
+			exiterror("[Sphere] RGB is NOT VALID format\n");
+	}
+	else
+		exiterror(ERR_NUM_TYPELEM_SPHERE);
 }

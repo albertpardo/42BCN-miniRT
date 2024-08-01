@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checkidvalid.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 14:42:32 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/01 14:42:33 by apardo-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minirt.h"
 
 static void	checkid(char **aelement)
@@ -22,6 +34,7 @@ static void	checkid(char **aelement)
 		ft_printf("TODO evaluate this element : %s\n", aelement[0]);
 }
 
+/*
 void	checkidvalid(char **elem)
 {
 	printf("\n>> checkidvalid(...) :\n");
@@ -32,6 +45,19 @@ void	checkidvalid(char **elem)
 		else
 			exiterror(ID_ERROR_NOALPHA);
 	}
-//	else
-//		exiterror(NO_ELEMENT);
+	else
+		exiterror(NO_ELEMENT);
+}
+*/
+
+void	checkidvalid(char **elem)
+{
+	printf("\n>> checkidvalid(...) :\n");
+	if (elem != NULL && *elem != NULL)
+	{
+		if (ft_isstralpha(elem[0]))
+			checkid(elem);
+		else
+			exiterror(ID_ERROR_NOALPHA);
+	}
 }
