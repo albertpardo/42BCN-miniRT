@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 13:41:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 13:54:45 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 18:01:31 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	iscoordinatestr(char *str)
 	{
 		astr = ft_split(str, ',');
 		if (astr && ft_astrlen(astr) == 3 && \
-				isstrsgnfloat(astr[0]) && \
-				isstrsgnfloat(astr[1]) && \
-				isstrsgnfloat(astr[2]))
+				isstrsgnfloat(astr[0], 0) && \
+				isstrsgnfloat(astr[1], 0) && \
+				isstrsgnfloat(astr[2], 0))
 			ans = 1;
 	}
 	if (astr)

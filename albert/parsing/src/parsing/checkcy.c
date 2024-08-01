@@ -6,14 +6,13 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:47:45 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 14:48:49 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 18:08:48 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-// Change to only positive float
-// 			(isstrsgnfloat(aelement[3]))
+#define PLUS 1
 
 void	checkcy(char **aelement)
 {
@@ -28,11 +27,11 @@ void	checkcy(char **aelement)
 			ft_printf("[Cylinder] Normalized Vector is valid format\n");
 		else
 			ft_printf("[Cylinder] Normalized Vector is NOT VALID format\n");
-		if (isstrsgnfloat(aelement[3]))
+		if (isstrsgnfloat(aelement[3], PLUS))
 			ft_printf("[Cylinder] Diameter is valid format\n");
 		else
 			exiterror("[Cylinder] Diameter is NOT VALID format\n");
-		if (isstrsgnfloat(aelement[4]))
+		if (isstrsgnfloat(aelement[4], PLUS))
 			ft_printf("[Cylinder] Height is valid format\n");
 		else
 			exiterror("[Cylinder] Height is NOT VALID format\n");
