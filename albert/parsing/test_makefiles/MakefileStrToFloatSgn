@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_stringtofloat_3
+NAME = miniRT_stringtofloatsgn
 
 # Compiler and FLAGS
 CC = cc
@@ -16,7 +16,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = tests/teststrtofloat03.c \
+SRC_FILES = tests/teststrtofloatsgn.c \
 			parsing/countchar.c \
 			parsing/ft_strichr.c \
 			parsing/isstrsgnfloat.c

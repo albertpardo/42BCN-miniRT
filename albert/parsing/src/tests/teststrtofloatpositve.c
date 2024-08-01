@@ -1,21 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   teststrtofloat03.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 07:23:33 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 17:01:05 by apardo-m         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "minirt.h"
 
 static void	printest(char *s)
 {
 	printf("\"%s\" ? ", s);
-	if (isstrsgnfloat(s,0))
+	if (isstrsgnfloat(s,1))
 		printf("VALID.\t As float : %f\n", ft_atof(s));
 	else
 		printf("NO VALID\n");
@@ -52,20 +40,20 @@ int	main(void)
 	printest("0.0000000000");
 	printest("1.0000000000");
 	printf("\nSIGNED:\n");
-	printest("-0");
 	printest("+0");
-	printest("-9");
 	printest("+9");
-	printest("-0.0");
 	printest("+0.0");
-	printest("-9.0");
 	printest("+9.0");
 	printest("+0.01");
+	printest("340282346638528859811704183484516925440");
+	printf("\n------ No Valid -------\n");
+	printest("-0");
+	printest("-0.0");
+	printest("-9");
+	printest("-9.0");
 	printest("-0.01");
 	printest("-4.08");
-	printest("340282346638528859811704183484516925440");
 	printest("-340282346638528859811704183484516925440");
-	printf("\n------ No Valid -------\n");
 	printest(".");
 	printest("..");
 	printest("+.");

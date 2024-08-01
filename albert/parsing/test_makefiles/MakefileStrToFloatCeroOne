@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_stringtofloat_2
+NAME = miniRT_stringtofloat01
 
 # Compiler and FLAGS
 CC = cc
@@ -16,11 +16,10 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = tests/teststrtofloat02.c \
+SRC_FILES = tests/teststrtofloatceroone.c \
 			parsing/countchar.c \
 			parsing/ft_strichr.c \
 			parsing/isstrfloatcerone.c \
-			parsing/isstrfloatsgnone.c \
 			parsing/isstrsgnfloat.c
 	
 # Objet files
