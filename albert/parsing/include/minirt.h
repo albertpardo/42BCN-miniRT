@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 18:34:38 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 10:24:27 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define ERR_NUM_TYPELEM_LIGHT "[Light]: No Lightpoint, Brigh Ratio or RGB"
 # define ERR_NUM_TYPELEM_SPHERE "[Sphere]: No Center, Diameter or RGB"
 # define ERR_NUM_TYPELEM_PLANE "[Plane]: No Point in plane, Normalized Normal or RGB"
+# define ERR_NUM_TYPELEM_CYLINDRE "[Cylindre]: No Center, Normalized Vector, Diameter,Height or RGB"
 
 // --- Defines for integers checks ----- //
 

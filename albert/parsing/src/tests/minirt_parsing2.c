@@ -95,21 +95,56 @@ void	checksp(char **aelement)
 		if (ft_astrlen(aelement) == 4)
 		{
 			if (iscoordinatestr(aelement[1]))
-				ft_printf("[sphere] Center is valid format\n");
+				ft_printf("[Sphere] Center is valid format\n");
 			else
-				ft_printf("[sphere] Center is NOT VALID format\n");
-// Change to positive float
+				ft_printf("[Sphere] Center is NOT VALID format\n");
+// Change to only positive float
 			if (isstrsgnfloat(aelement[2]))
-				ft_printf("[sphere] Diameter is valid format\n");
+				ft_printf("[Sphere] Diameter is valid format\n");
 			else
-				exiterror("[sphere] Diameter is NOT VALID format\n");
+				exiterror("[Sphere] Diameter is NOT VALID format\n");
 			if (isrgbstr(aelement[3]))
-				ft_printf("[sphere] RGB is valid format\n");
+				ft_printf("[Sphere] RGB is valid format\n");
 			else
-				exiterror("[sphere] RGB is NOT VALID format\n");
+				exiterror("[Sphere] RGB is NOT VALID format\n");
 		}
 		else
 			exiterror(ERR_NUM_TYPELEM_SPHERE);
+}
+
+void	checkcy(char **aelement)
+{
+		char	*id;
+
+		id = aelement[0];
+		ft_printf("Element is cilinder\n");
+		if (ft_astrlen(aelement) == 6)
+		{
+			if (iscoordinatestr(aelement[1]))
+				ft_printf("[Cylinder] Center is valid format\n");
+			else
+				ft_printf("[Cylinder] Center is NOT VALID format\n");
+			if (isorientnormal(aelement[2]))
+				ft_printf("[Cylinder] Normalized Vector is valid format\n");
+			else
+				ft_printf("[Cylinder] Normalized Vector is NOT VALID format\n");
+// Change to only positive float
+			if (isstrsgnfloat(aelement[3]))
+				ft_printf("[Cylinder] Diameter is valid format\n");
+			else
+				exiterror("[Cylinder] Diameter is NOT VALID format\n");
+// Change to only positive float
+			if (isstrsgnfloat(aelement[4]))
+				ft_printf("[Cylinder] Height is valid format\n");
+			else
+				exiterror("[Cylinder] Height is NOT VALID format\n");
+			if (isrgbstr(aelement[5]))
+				ft_printf("[Cylinder] RGB is valid format\n");
+			else
+				exiterror("[Cylinder] RGB is NOT VALID format\n");
+		}
+		else
+			exiterror(ERR_NUM_TYPELEM_PLANE);
 }
 
 void	checkpl(char **aelement)
@@ -136,7 +171,6 @@ void	checkpl(char **aelement)
 		else
 			exiterror(ERR_NUM_TYPELEM_PLANE);
 }
-
 void	checkid(char **aelement)
 {
 	int	len;
@@ -153,6 +187,8 @@ void	checkid(char **aelement)
 		checksp(aelement);
 	else if (len == 2 && ft_strncmp(aelement[0], "pl", len) == 0)
 		checkpl(aelement);
+	else if (len == 2 && ft_strncmp(aelement[0], "cy", len) == 0)
+		checkcy(aelement);
 	else
 		ft_printf("TODO evaluate this element\n");
 }
