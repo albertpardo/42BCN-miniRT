@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 06:59:06 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/30 08:56:52 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 16:49:50 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static int	checkfloatlimits(char *str)
 	return (ans);
 }
 
+/*
 int	isstrsgnfloat(char *str)
 {
 	char	*tmp;
@@ -54,6 +55,33 @@ int	isstrsgnfloat(char *str)
 	tmp = str;
 	if (countchar(str, '.') < 2)
 	{
+		while (tmp != NULL && *tmp != '\0' && (ft_isdigit(*tmp) || *tmp == '.'))
+			tmp++;
+		if (tmp != str && *tmp == '\0')
+			return (checkfloatlimits(str));
+	}
+	return (0);
+}
+*/
+
+/* 
+ * 	isstrsgnfloat(char *str, int onlyplus)
+ *
+ * if 'onlyplus == 1' only checks for valid positive float
+ *	 else checks all positive and negative values
+ */
+
+int	isstrsgnfloat(char *str, int onlyplus)
+{
+	char	*tmp;
+
+	if (*str == '+' || (onlyplus == 0 && *str == '-'))
+		str++;
+	if (countchar(str, '.') < 2)
+	{
+		tmp = str;
+		if (ft_strlen(tmp) == 1 && *tmp == '.')
+			return (0);
 		while (tmp != NULL && *tmp != '\0' && (ft_isdigit(*tmp) || *tmp == '.'))
 			tmp++;
 		if (tmp != str && *tmp == '\0')

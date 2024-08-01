@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 12:03:20 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/30 07:57:51 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 16:03:37 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	printest(char *s)
 {
-	printf("%s ? ", s);
+	printf("\"%s\" ? ", s);
 	if (isstrfloatsgnone(s))
 		printf("VALID.\t As float : %f\n", ft_atof(s));
 	else

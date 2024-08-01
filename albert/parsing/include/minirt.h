@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 14:09:54 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:50:14 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,8 @@ int		isstringvalueinpositiverange(char *str, char *maxintval);
 int		isstrfloat(char *str);
 int		isstrfloatcerone(char *str);
 int		isstrfloatsgnone(char *str);
-int		isstrsgnfloat(char *str);
+//int		isstrsgnfloat(char *str);
+int		isstrsgnfloat(char *str, int onlyplus);
 void	putarraystr(char **arrstr);
 
 #endif
