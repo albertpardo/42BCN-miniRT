@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 15:50:14 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/01 18:46:36 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,28 @@ typedef struct s_cylinder
 
 typedef struct s_element
 {
-	int		numline;
-	char	*idelement;
+	int		idnum;
+	char	idelement;
 	void	*infoelement;
 }	t_element;
+
+// ---- Only Element struct ------ //
+
+typedef struct s_onlyelem
+{
+	int			isset;
+	t_element	element;
+}	t_onelem;
+
+// ---- Scene struct ---- //
+
+typedef struct s_sceneinf
+{
+	t_onelem	amb;
+	t_onelem	cam;
+	t_onelem	light;
+	t_element	*elemlst;
+}	t_scinf;
 
 // ------  parsing -------- //
 
