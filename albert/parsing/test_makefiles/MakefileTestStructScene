@@ -17,6 +17,7 @@ DEP_DIR = .dep/
 
 # Source files
 SRC_FILES = tests/test_struct_scene.c \
+			parsing/clearscene.c \
 			tests/aux/putscene.c
 
 # Objet files

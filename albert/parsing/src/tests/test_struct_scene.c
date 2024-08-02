@@ -37,20 +37,9 @@ static void	startLight(t_sceneinf *scene)
 	scene->light.f_rgb.z = 255;
 }
 
-void clearscene(t_sceneinf *scene)
-{
-	free(scene->amb.id);
-	free(scene->cam.id);
-	free(scene->light.id);
-	if (scene->elemlst)
-		printf("TODO : free 'scene->elemlst'\n");
-}
-
 int	main(void)
 {
 	t_sceneinf	scene;
-
-	//scene.elemlst = NULL;
 
 	printf("==== Initiaize empty scene ====");
 	ft_memset(&scene, 0, sizeof(scene));

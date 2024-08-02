@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 10:28:39 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/02 14:46:00 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,7 @@ void	checkpl(char **aelement);
 void	checksp(char **aelement);
 void	checkidvalid(char **elem);
 char	*cleanstringspaces(char *str);
+void	clearscene(t_sceneinf *scene);
 size_t	countchar(char *str, char c);
 void	exiterror(char *msg);
 void	exitifcheckfails(int val, char *msg);
