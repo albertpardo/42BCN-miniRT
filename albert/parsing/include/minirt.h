@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 17:19:02 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/02 18:30:19 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 # define ERR_NUM_TYPELEM_CAMARA "[Camara]: No Viewport, Orientation or RGB"
 # define ERR_NUM_TYPELEM_LIGHT "[Light]: No Lightpoint, Brigh Ratio or RGB"
 # define ERR_NUM_TYPELEM_SPHERE "[Sphere]: No Center, Diameter or RGB"
-# define ERR_NUM_TYPELEM_PLANE "[Plane]: No Point in plane, Normalized Normal or RGB"
-# define ERR_NUM_TYPELEM_CYLINDRE "[Cylindre]: No Center, Normalized Vector, Diameter,Height or RGB"
+# define ERR_NUM_TYPELEM_PLANE "[Plane]: No PointPlane, NormalizedNormal or RGB"
+# define ERR_NUM_TYPELEM_CYLINDRE "[Cylindre]: No Center, Normalized Vector, Diameter, Height or RGB"
 
 // --- Defines for integers checks ----- //
 
@@ -206,6 +206,7 @@ int		isstrfloatcerone(char *str);
 int		isstrfloatsgnone(char *str);
 //int		isstrsgnfloat(char *str);
 int		isstrsgnfloat(char *str, int onlyplus);
+void	setelementinscene(char **splitline, t_sceneinf *scene);
 void	putarraystr(char **arrstr);
 
 #endif
