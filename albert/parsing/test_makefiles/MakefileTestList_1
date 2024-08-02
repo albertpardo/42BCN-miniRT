@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_structs_1
+NAME = miniRT_list_1
 
 # Compiler and FLAGS
 CC = cc
@@ -16,7 +16,7 @@ OBJS_DIR = .objs/
 DEP_DIR = .dep/
 
 # Source files
-SRC_FILES = tests/testStruct.c
+SRC_FILES = tests/testList1.c
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)

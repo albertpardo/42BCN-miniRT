@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 18:46:36 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/02 09:32:54 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct s_vector3
 
 // ---- Diferent elements structs ---- //
 
+/*  Ambient , camera & ligth has their own complete struct
 typedef struct s_ambientlight
 {
 	float		lightradio;
@@ -72,6 +73,7 @@ typedef struct s_light
 	float		brightratio;
 	t_vector3	f_rgb;
 }	t_light;
+*/
 
 typedef struct s_sphere
 {
@@ -107,20 +109,54 @@ typedef struct s_element
 
 // ---- Only Element struct ------ //
 
+/* Used for Amb, cam, or ligth  NO NECESARY???
 typedef struct s_onlyelem
 {
 	int			isset;
 	t_element	element;
 }	t_onelem;
+*/
+
+// id could be redundant
+
+typedef struct s_amb
+{
+	int			isset;
+	char		id;
+	float		ratio;
+	t_vector3	f_rgb;
+}	t_amb;
+
+// id could be redundant
+
+typedef struct s_cam
+{
+	int			isset;
+	char		id;
+	t_vector3	viewpoint;
+	t_vector3	orient;
+	float		fov;
+}	t_cam;
+
+// id could be redundant
+
+typedef struct s_light
+{
+	int			isset;
+	char		id;
+	t_vector3	lightpoint;
+	float		ratio;
+	t_vector3	f_rgb;
+}	t_light;
 
 // ---- Scene struct ---- //
 
 typedef struct s_sceneinf
 {
-	t_onelem	amb;
-	t_onelem	cam;
-	t_onelem	light;
-	t_element	*elemlst;
+	t_amb	amb;
+	t_cam	cam;
+	t_light	light;
+	t_list	*elemlst;
 }	t_scinf;
 
 // ------  parsing -------- //
