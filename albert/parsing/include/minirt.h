@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 09:32:54 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/02 10:28:39 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ typedef struct s_onlyelem
 typedef struct s_amb
 {
 	int			isset;
-	char		id;
+	char		*id;
 	float		ratio;
 	t_vector3	f_rgb;
 }	t_amb;
@@ -132,7 +132,7 @@ typedef struct s_amb
 typedef struct s_cam
 {
 	int			isset;
-	char		id;
+	char		*id;
 	t_vector3	viewpoint;
 	t_vector3	orient;
 	float		fov;
@@ -143,7 +143,7 @@ typedef struct s_cam
 typedef struct s_light
 {
 	int			isset;
-	char		id;
+	char		*id;
 	t_vector3	lightpoint;
 	float		ratio;
 	t_vector3	f_rgb;
@@ -157,7 +157,7 @@ typedef struct s_sceneinf
 	t_cam	cam;
 	t_light	light;
 	t_list	*elemlst;
-}	t_scinf;
+}	t_sceneinf;
 
 // ------  parsing -------- //
 
