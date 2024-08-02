@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clearscene.c                                       :+:      :+:    :+:   */
+/*   isokambient.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 14:43:10 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 16:55:58 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/02 16:35:21 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/02 16:56:37 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	clearscene(t_sceneinf *scene)
+int	isokambient(char **aelement)
 {
-	free(scene->amb.id);
-	free(scene->cam.id);
-	free(scene->light.id);
-	if (scene->elemlst)
-		printf("TODO : free 'scene->elemlst'\n");
+	if (ft_astrlen(aelement) == 3)
+		if (isstrfloatcerone(aelement[1]) && isrgbstr(aelement[2]))
+			return (1);
+	return (0);
 }

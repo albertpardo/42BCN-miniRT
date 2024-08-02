@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 14:46:00 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/02 17:19:02 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,8 @@ typedef struct s_sceneinf
 
 // ------  parsing -------- //
 
+// Start-  used in 'minirt_parsing2.c' //
+
 void	checka(char **aelement);
 void	checkc(char **aelement);
 void	checkcy(char **aelement);
@@ -168,6 +170,20 @@ void	checkl(char **aelement);
 void	checkpl(char **aelement);
 void	checksp(char **aelement);
 void	checkidvalid(char **elem);
+// End-  used in 'minirt_parsing2.c' //
+
+// Start  - Validate elements   //
+
+int		iselement(char **elem);
+int		isokambient(char **aelement);
+int		isokcamara(char **aelement);
+int		isoklight(char **aelement);
+int		isokplan(char **aelement);
+int		isokspher(char **aelement);
+int		isokcylin(char **aelement);
+
+// End  - Validate elements   //
+
 char	*cleanstringspaces(char *str);
 void	clearscene(t_sceneinf *scene);
 size_t	countchar(char *str, char c);

@@ -30,7 +30,7 @@ static void	startLight(t_sceneinf *scene)
 	scene->light.id = ft_strdup("L");
 	scene->light.lightpoint.x = -40.0f;
 	scene->light.lightpoint.y = 0;
-	scene->light.lightpoint.z = 50.0f;
+	scene->lightslightpoint.z = 50.0f;
 	scene->light.ratio = 0.6;
 	scene->light.f_rgb.x = 10;
 	scene->light.f_rgb.y = 0;
