@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:46:03 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 14:53:41 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/03 16:10:08 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	checkl(char **aelement)
 {
-	int		l;
-
-	l = ft_astrlen(aelement);
-	if (l == 3)
+	if (ft_astrlen(aelement) == 4)
 	{
 		if (iscoordinatestr(aelement[1]))
 			ft_printf("[Light] Lightpoint is valid format\n");
@@ -27,9 +24,6 @@ void	checkl(char **aelement)
 			ft_printf("[Light] Bright Ratio is valid format\n");
 		else
 			exiterror("[Light] Bright Ratio is NOT VALID format\n");
-	}
-	else if (l == 4)
-	{
 		if (isrgbstr(aelement[3]))
 			ft_printf("[Light] RGB is valid format\n");
 		else
