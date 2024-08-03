@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 18:30:19 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/03 14:48:33 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,7 +206,14 @@ int		isstrfloatcerone(char *str);
 int		isstrfloatsgnone(char *str);
 //int		isstrsgnfloat(char *str);
 int		isstrsgnfloat(char *str, int onlyplus);
-void	setelementinscene(char **splitline, t_sceneinf *scene);
+void	setambient(char **aelement, t_sceneinf *scene);
+void	setcamara(char **aelement, t_sceneinf *scene);
+void	setcylinder(char **aelement, t_sceneinf *scene);
+void	setelementinscene(char **eaelement, t_sceneinf *scene);
+void	setlight(char **aelement, t_sceneinf *scene);
+void	setplane(char **aelement, t_sceneinf *scene);
+void	setsphere(char **aelement, t_sceneinf *scene);
+void	setvectorinelemtscene(char *strvect, t_vector3 *vec3);
 void	putarraystr(char **arrstr);
 
 #endif

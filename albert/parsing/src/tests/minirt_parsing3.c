@@ -1,4 +1,5 @@
 #include "minirt.h"
+#include "testaux.h"
 
 void	putarraystr(char **arrstr)
 {

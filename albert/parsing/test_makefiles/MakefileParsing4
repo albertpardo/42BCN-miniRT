@@ -18,6 +18,7 @@ DEP_DIR = .dep/
 # Source files
 SRC_FILES = tests/minirt_parsing4.c \
 	parsing/cleanstringspaces.c \
+	parsing/clearscene.c \
 	parsing/countchar.c \
 	parsing/exiterror.c \
 	parsing/exitifcheckfails.c \
@@ -42,7 +43,15 @@ SRC_FILES = tests/minirt_parsing4.c \
 	parsing/isstrfloatsgnone.c \
 	parsing/isstringvalueinpositiverange.c \
 	parsing/isstrsgnfloat.c \
-	parsing/setelementinscene.c
+	parsing/setambient.c \
+	parsing/setcamara.c \
+	parsing/setcylinder.c \
+	parsing/setelementinscene.c \
+	parsing/setlight.c \
+	parsing/setplane.c \
+	parsing/setsphere.c \
+	parsing/setvectorinelemtscene.c \
+	tests/aux/putscene.c
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
