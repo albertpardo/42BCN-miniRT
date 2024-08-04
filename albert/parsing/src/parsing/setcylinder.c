@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:26:13 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/04 12:09:39 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/04 12:41:31 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	setcylinder(char **aelement, t_sceneinf *scene)
 		setvectorinelemtscene(aelement[2], &newcyl->normvector);	
 		newcyl->diameter = ft_atof(aelement[3]);
 		newcyl->height = ft_atof(aelement[4]);
-		setvectorinelemtscene(aelement[5], &newcyl->f_rgb);
+		setvectorinelemtscene(aelement[], &newcyl->f_rgb);
 		//set newnode
 		newnode = ft_lstnew(newelem);
 		ft_lstadd_back(&(scene->elemlst), newnode);

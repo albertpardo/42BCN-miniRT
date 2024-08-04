@@ -1,12 +1,29 @@
 #include "minirt.h"
 
-static void	putelements(t_list *elemlst)
+static void	putelements(t_list *lst)
 {
-	if (!elemlst)
-		printf("\tscene->elemlst : %p\n", elemlst);
-	else
-		printf("\tTODO scene->elemlst\n");
+	t_element	*elem;
+//	t_sphere	*sph;
+//	t_plane		*pla;
+//	t_cylinder	*cyl;
 
+	if (!lst)
+		printf("\tscene->elemlst : %p\n", lst);
+	else
+	{
+		printf("\tscene->elemlst\n");
+ 		while (lst != NULL)
+		{
+			elem = (t_element *) lst->content;
+			if (ft_strncmp(elem->idelement, "cy",2))
+			{
+				printf("\tscene->elemlst->idelement = %s\n", elem->idelement);
+			}
+			else
+				printf("TODO:  %s\n", elem->idelement);
+			lst = lst->next;
+		}
+	}
 }
 
 void putscene(t_sceneinf *scene)
