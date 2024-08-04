@@ -1,5 +1,14 @@
 #include "minirt.h"
 
+static void	putelements(t_list *elemlst)
+{
+	if (!elemlst)
+		printf("\tscene->elemlst : %p\n", elemlst);
+	else
+		printf("\tTODO scene->elemlst\n");
+
+}
+
 void putscene(t_sceneinf *scene)
 {
 	printf("\n--- Info Scene ---\n");
@@ -47,9 +56,12 @@ void putscene(t_sceneinf *scene)
 		printf("\t\tscene->light.f_rgb.g = %f\n", scene->light.f_rgb.y);
 		printf("\t\tscene->light.f_rgb.b = %f\n", scene->light.f_rgb.z);
 		printf("Elements Info:\n");
+		putelements(scene->elemlst);
+/*	
 		if (!scene->elemlst)
 			printf("\tscene->elemlst : %p\n", scene->elemlst);
 		else
 			printf("\tTODO scene->elemlst\n");
+*/
 	}	
 }

@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/03 14:48:33 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/04 11:28:45 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ typedef struct s_plane
 typedef struct s_cylinder
 {
 	t_vector3	center;
+	t_vector3	normvector;
 	float		diameter;
 	float		height;
-	t_vector3	normvector;
 	t_vector3	f_rgb;
 }	t_cylinder;
 
@@ -103,7 +103,7 @@ typedef struct s_cylinder
 typedef struct s_element
 {
 	int		idnum;
-	char	idelement;
+	char	*idelement;
 	void	*infoelement;
 }	t_element;
 

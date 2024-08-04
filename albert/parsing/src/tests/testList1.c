@@ -1,5 +1,11 @@
 #include "minirt.h"
 
+/*
+ *	Se usa 'uno' y 'dos' del type 't_vector3' sin reservar memoria como 
+ *	'content'  en una 't_list'
+ *
+ */
+
 void putlst(t_list *lst)
 {
 	t_vector3	*cont;
