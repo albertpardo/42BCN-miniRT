@@ -1,24 +1,73 @@
 #include "minirt.h"
 
+static void	putsp(t_element *elem)
+{
+	t_sphere	*sph;
+
+	sph = elem->infoelement;
+	printf("\tscene->elemlst->idelement = %s\n", elem->idelement);
+	printf("\t\tscene->elemlst->infoelement->center.x = %f\n", sph->center.x);
+	printf("\t\tscene->elemlst->infoelement->center.y = %f\n", sph->center.y);
+	printf("\t\tscene->elemlst->infoelement->center.z = %f\n", sph->center.z);
+	printf("\t\tscene->elemlst->infoelement->diameter = %f\n", sph->diameter);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.x = %f\n", sph->f_rgb.x);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.y = %f\n", sph->f_rgb.y);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.z = %f\n", sph->f_rgb.z);
+}
+
+static void putpl(t_element *elem)
+{
+	t_plane		*pla;
+
+	pla = elem->infoelement;
+	printf("\tscene->elemlst->idelement = %s\n", elem->idelement);
+	printf("\t\tscene->elemlst->infoelement->point.x = %f\n", pla->point.x);
+	printf("\t\tscene->elemlst->infoelement->point.y = %f\n", pla->point.y);
+	printf("\t\tscene->elemlst->infoelement->point.z = %f\n", pla->point.z);
+	printf("\t\tscene->elemlst->infoelement->normal.x = %f\n", pla->normal.x);
+	printf("\t\tscene->elemlst->infoelement->normal.y = %f\n", pla->normal.y);
+	printf("\t\tscene->elemlst->infoelement->normal.z = %f\n", pla->normal.z);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.x = %f\n", pla->f_rgb.x);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.y = %f\n", pla->f_rgb.y);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.z = %f\n", pla->f_rgb.z);
+}
+
+static void	putcyl(t_element *elem)
+{
+	t_cylinder	*cyl;
+
+	cyl = elem->infoelement;
+	printf("\tscene->elemlst->idelement = %s\n", elem->idelement);
+	printf("\t\tscene->elemlst->infoelement->center.x = %f\n", cyl->center.x);
+	printf("\t\tscene->elemlst->infoelement->center.y = %f\n", cyl->center.y);
+	printf("\t\tscene->elemlst->infoelement->center.z = %f\n", cyl->center.z);
+	printf("\t\tscene->elemlst->infoelement->normvector.x = %f\n", cyl->normvector.x);
+	printf("\t\tscene->elemlst->infoelement->normvector.y = %f\n", cyl->normvector.y);
+	printf("\t\tscene->elemlst->infoelement->normvector.z = %f\n", cyl->normvector.z);
+	printf("\t\tscene->elemlst->infoelement->diameter = %f\n", cyl->diameter);
+	printf("\t\tscene->elemlst->infoelement->height = %f\n", cyl->height);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.x = %f\n", cyl->f_rgb.x);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.y = %f\n", cyl->f_rgb.y);
+	printf("\t\tscene->elemlst->infoelement->f_rgb.z = %f\n", cyl->f_rgb.z);
+}
+
 static void	putelements(t_list *lst)
 {
 	t_element	*elem;
-//	t_sphere	*sph;
-//	t_plane		*pla;
-//	t_cylinder	*cyl;
 
 	if (!lst)
 		printf("\tscene->elemlst : %p\n", lst);
 	else
 	{
-		printf("\tscene->elemlst\n");
  		while (lst != NULL)
 		{
 			elem = (t_element *) lst->content;
-			if (ft_strncmp(elem->idelement, "cy",2))
-			{
-				printf("\tscene->elemlst->idelement = %s\n", elem->idelement);
-			}
+			if (ft_strncmp(elem->idelement, "sp", 2) == 0)
+				putsp(elem);
+			else if (ft_strncmp(elem->idelement, "pl", 2) == 0)
+				putpl(elem);
+			else if (ft_strncmp(elem->idelement, "cy", 2) == 0)
+				putcyl(elem);
 			else
 				printf("TODO:  %s\n", elem->idelement);
 			lst = lst->next;
