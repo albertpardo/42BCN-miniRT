@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 15:36:57 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 16:55:18 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:58:23 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	isvalidid(char **aelement)
 {
 	int	len;
 
-	ft_printf("\t>> Check id :\n");
 	len = ft_strlen(aelement[0]);
 	if (len == 1 && ft_strncmp(aelement[0], "A", len) == 0)
 		return (isokambient(aelement));
@@ -36,7 +35,6 @@ static int	isvalidid(char **aelement)
 
 int	iselement(char **elem)
 {
-	printf("\n>> iselement(...) :\n");
 	if (elem != NULL && *elem != NULL && ft_isstralpha(elem[0]))
 		return (isvalidid(elem));
 	return (0);

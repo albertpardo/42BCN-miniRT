@@ -44,7 +44,8 @@ int		main(int argc, char *argv[])
 		exitifcheckfails(fd, NO_OPEN);
 		printf("==== Initiaize empty scene ====");
 		ft_memset(&scene, 0, sizeof(scene));
-		putscene(&scene);
+		//putsceneinfo(&scene);
+		putsceneinfoinline(&scene);
 		line = get_next_line(fd);
   		while (line)
 		{
@@ -59,20 +60,21 @@ int		main(int argc, char *argv[])
 			putarraystr(splitline);
 			if (iselement(splitline))
 			{
-				printf("Element is OK!\n");
+				printf("\nElement is OK!\n");
 				setelementinscene(splitline, &scene);
 			}
 			else
-				printf("KO!");
+				printf("\nKO!");
 			freearrstr(splitline);
 			free(cleanstr);
 			free(line);
 			line = get_next_line(fd);
 		}
-		exitifcheckfails(close(fd), NO_CLOSE); 	// No libera scene
-		exitifemptyfileoronlyspaces(i, j); 		// No libera scene
+		exitifcheckfails(close(fd), NO_CLOSE);
+		exitifemptyfileoronlyspaces(i, j);
 		printf("\n ==== Scene Width valid Values ====");
-		putscene(&scene);
+		//putsceneinfo(&scene);
+		putsceneinfoinline(&scene);
 		clearscene(&scene);
 	}
 	else

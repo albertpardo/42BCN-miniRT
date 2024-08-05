@@ -51,7 +51,8 @@ SRC_FILES = tests/minirt_parsing4.c \
 	parsing/setplane.c \
 	parsing/setsphere.c \
 	parsing/setvectorinelemtscene.c \
-	tests/aux/putscene.c
+	tests/aux/putsceneinfoinline.c \
+	tests/aux/putsceneinfo.c
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)

@@ -75,7 +75,7 @@ static void	putelements(t_list *lst)
 	}
 }
 
-void putscene(t_sceneinf *scene)
+void putsceneinfo(t_sceneinf *scene)
 {
 	printf("\n--- Info Scene ---\n");
 	if (scene)
@@ -123,11 +123,5 @@ void putscene(t_sceneinf *scene)
 		printf("\t\tscene->light.f_rgb.b = %f\n", scene->light.f_rgb.z);
 		printf("Elements Info:\n");
 		putelements(scene->elemlst);
-/*	
-		if (!scene->elemlst)
-			printf("\tscene->elemlst : %p\n", scene->elemlst);
-		else
-			printf("\tTODO scene->elemlst\n");
-*/
 	}	
 }

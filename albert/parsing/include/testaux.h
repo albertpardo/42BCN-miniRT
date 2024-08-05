@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 12:23:58 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 12:26:43 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/05 13:49:36 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "minirt.h"
 
-void putscene(t_sceneinf *scene);
+void putsceneinfo(t_sceneinf *scene);
+void putsceneinfoinline(t_sceneinf *scene);
 
 #endif

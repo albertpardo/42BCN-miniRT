@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 18:25:32 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/03 14:05:47 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/05 14:58:51 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	setelementinscene(char **aelement, t_sceneinf *scene)
 {
 	int	len;
 
-	ft_printf("\t>> setelementinscene :\n");
 	len = ft_strlen(aelement[0]);
 	if (len == 1 && ft_strncmp(aelement[0], "A", len) == 0)
 		setambient(aelement, scene);
