@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/04 11:28:45 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:02:33 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,6 +212,7 @@ void	setcylinder(char **aelement, t_sceneinf *scene);
 void	setelementinscene(char **eaelement, t_sceneinf *scene);
 void	setlight(char **aelement, t_sceneinf *scene);
 void	setplane(char **aelement, t_sceneinf *scene);
+void	setsceneorexit(int argc, char *scfile, t_sceneinf *scene);
 void	setsphere(char **aelement, t_sceneinf *scene);
 void	setvectorinelemtscene(char *strvect, t_vector3 *vec3);
 void	putarraystr(char **arrstr);

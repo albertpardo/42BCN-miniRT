@@ -58,8 +58,10 @@ SRC_FILES = tests/minirt_parsing5.c \
 	parsing/setelementinscene.c \
 	parsing/setlight.c \
 	parsing/setplane.c \
+	parsing/setsceneorexit.c \
 	parsing/setsphere.c \
 	parsing/setvectorinelemtscene.c \
+	tests/aux/putarraystr.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
 
