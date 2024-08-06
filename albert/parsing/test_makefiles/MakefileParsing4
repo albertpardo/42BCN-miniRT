@@ -1,19 +1,28 @@
 # Executable Name
 NAME = miniRT_parsing_4
 
+# Makefile path and name
+MAKEFILE = test_makefiles/MakefileParsing4
+
 # Compiler and FLAGS
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 DPFLAGS = -MMD -MP
-
-#Libft flags
-LIBFTFLAGS = -L $(LIBFT_DIR) -lft
 
 # Paths
 LIBFT_DIR = lib/libft/
 SRCS_DIR = src/
 OBJS_DIR = .objs/
 DEP_DIR = .dep/
+
+# Include Paths
+INCLUDE := -I include/ -I $(LIBFT_DIR)
+
+#Libft flags
+LIBFTFLAGS := -L $(LIBFT_DIR) -lft
+
+#Libft.a
+LIBFT := $(LIBFT_DIR)libft.a
 
 # Source files
 SRC_FILES = tests/minirt_parsing4.c \
@@ -54,18 +63,18 @@ SRC_FILES = tests/minirt_parsing4.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
 
+HEADER_FILES = include/minirt.h \
+	include/testaux.h
+
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
 
 # Dependency files
 DEPS_FILES := $(SRC_FILES:.o=.d)
 
-# Rutas completas de las bibliotecas
+# Path to .o and .d 
 OBJS := $(addprefix $(OBJS_DIR), $(OBJ_FILES))
 DEPS := $(addprefix $(DEP_DIR), $(DEPS_FILES))
-
-# Include Paths
-INCLUDE := -I include/ -I $(LIBFT_DIR)
 
 # Delete folders and files
 RM = rm -rf
@@ -77,20 +86,24 @@ CYAN = \033[1;36m
 RESET = \033[0m
 
 # Default rule
-all: $(NAME)
-
+#all: $(NAME)
+#all: compilelibs $(NAME)
+all: compilelibs
+	@$(MAKE) -f $(MAKEFILE) $(NAME) --no-print-directory
+		
 # Libs compile rule
-compilelibs:
+compilelibs: 
 	@echo "$(CYAN)▉▉▉▉▉▉▶ START: Compiling external libs ...$(RESET)"
 	@echo "$(YELLOW)▶ Compiling Libft...$(RESET)"
-	@make -C $(LIBFT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
 	@echo "$(CYAN)▉▉▉▉▉▉▶ END: Extenal libs compiled ...$(RESET)"
 	@echo
 
 # Executable Rule
-$(NAME): compilelibs $(OBJS_DIR) $(DEP_DIR) $(OBJS) 
-	@echo "$(GREEN)▉▉▉▉▉▉▉▉▉▉ Compiling : $(NAME) ▉▉▉▉▉▉▉▉▉▉ $(RESET)"
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFTFLAGS) -o $@
+$(NAME): $(OBJS_DIR) $(DEP_DIR) $(OBJS) 
+	@echo "\n$(GREEN)▉▉▉▉▉▉▉▉▉▉ $(NAME) ▉▉▉▉▉▉▉▉▉▉ $(RESET)"
+	@echo "▶ Compiling $(NAME) ... "
+	@$(CC) $(CFLAGS) $(DPFLAGS) $(INCLUDE) $(OBJS) $(LIBFTFLAGS) -o $@
 	@echo "$(GREEN)▉▉▉▉▉▉▉▉▉▉ $(NAME) successfully compiled! ▉▉▉▉▉▉▉▉▉▉ $(RESET)"
 	@echo
 
@@ -103,12 +116,11 @@ $(DEP_DIR):
 	@mkdir -p $(DEP_DIR)
 
 # Source files to Object files rule (Dependency files are generated)
-$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(Makefile) | $(OBJS_DIR) $(DEP_DIR)
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(MAKEFILE) $(LIBFT) $(HEADER_FILES) | $(OBJS_DIR) $(DEP_DIR)
 	@mkdir -p $(dir $@)
 	@echo "▶ Compiling... $<"
-	$(CC) $(CFLAGS) $(DPFLAGS) -c $< -o $@ $(INCLUDE)
+	@$(CC) $(CFLAGS) $(DPFLAGS) $(INCLUDE) -c $< -o $@ 
 	@mv $(patsubst %.o,%.d,$@) $(DEP_DIR)/$(notdir $(@:.o=.d))
-	@echo
 
 # Delete objects and dependecies folders, and 'fclean' libreries
 clean:
