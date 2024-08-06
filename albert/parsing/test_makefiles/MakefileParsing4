@@ -86,11 +86,12 @@ CYAN = \033[1;36m
 RESET = \033[0m
 
 # Default rule
-#all: $(NAME)
-#all: compilelibs $(NAME)
 all: compilelibs
+	@echo "\n$(GREEN)▉▉▉▉▉▉▉▉▉▉ $(NAME) ▉▉▉▉▉▉▉▉▉▉ $(RESET)"
 	@$(MAKE) -f $(MAKEFILE) $(NAME) --no-print-directory
-		
+	@echo "$(GREEN)▉▉▉▉▉▉▉▉▉▉ $(NAME) successfully compiled! ▉▉▉▉▉▉▉▉▉▉ $(RESET)"
+	@echo
+
 # Libs compile rule
 compilelibs: 
 	@echo "$(CYAN)▉▉▉▉▉▉▶ START: Compiling external libs ...$(RESET)"
@@ -101,11 +102,8 @@ compilelibs:
 
 # Executable Rule
 $(NAME): $(OBJS_DIR) $(DEP_DIR) $(OBJS) 
-	@echo "\n$(GREEN)▉▉▉▉▉▉▉▉▉▉ $(NAME) ▉▉▉▉▉▉▉▉▉▉ $(RESET)"
-	@echo "▶ Compiling $(NAME) ... "
+	@echo "\n$(YELLOW)▶ Compiling $(NAME) ... $(RESET)"
 	@$(CC) $(CFLAGS) $(DPFLAGS) $(INCLUDE) $(OBJS) $(LIBFTFLAGS) -o $@
-	@echo "$(GREEN)▉▉▉▉▉▉▉▉▉▉ $(NAME) successfully compiled! ▉▉▉▉▉▉▉▉▉▉ $(RESET)"
-	@echo
 
 # Objects folder rule
 $(OBJS_DIR):
