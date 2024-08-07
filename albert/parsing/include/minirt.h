@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/06 15:02:33 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/07 11:52:12 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,7 @@ char	*cleanstringspaces(char *str);
 void	clearscene(t_sceneinf *scene);
 size_t	countchar(char *str, char c);
 void	exiterror(char *msg);
+void	exiterrorfreemsg(char *msg);
 void	exitifcheckfails(int val, char *msg);
 void	exitifnotvalidfiletype(char *fname, char *ext, char *msg);
 void	exitifnortfile(char *filename);
