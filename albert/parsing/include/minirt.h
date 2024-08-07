@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/07 11:52:12 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/07 18:38:16 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,6 +193,9 @@ void	exitifcheckfails(int val, char *msg);
 void	exitifnotvalidfiletype(char *fname, char *ext, char *msg);
 void	exitifnortfile(char *filename);
 void	freearrstr(char **arr);
+char	*freecleanlineandgetnl(char *cleanstr, char *line, int fd);
+void	freelinscenfdexitbymalloc(char *line, t_sceneinf *scene, int fd);
+void	freesplitcleanscenefd(char **arr, char *str, t_sceneinf *scn, int fd);
 int		ft_astrlen(char **arrstr);
 int		ft_isspace(const char c);
 int		ft_isstralpha(char *str);

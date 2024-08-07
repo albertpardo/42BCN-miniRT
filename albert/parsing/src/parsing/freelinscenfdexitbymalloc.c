@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exiterrorfreemsg.c                                 :+:      :+:    :+:   */
+/*   freelinscenfdexitbymalloc.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 11:30:23 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/07 18:42:42 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/07 18:31:51 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/07 18:35:06 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	exiterrorfreemsg(char *msg)
+void	freelinscenfdexitbymalloc(char *line, t_sceneinf *scene, int fd)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd("The next element line has information errors:\n", 2);
-	ft_putstr_fd(msg, 2);
-	ft_putstr_fd("\n", 2);
-	free(msg);
-	exit (EXIT_FAILURE);
+	free(line);
+	clearscene(scene);
+	close(fd);
+	exiterror(MALLOC_ERROR);
 }

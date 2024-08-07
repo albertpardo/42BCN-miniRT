@@ -6,28 +6,12 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/07 16:57:56 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/07 18:41:16 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "testaux.h"
-
-
-static void	freelinscenfdexitbymalloc(char *line, t_sceneinf *scene, int fd)
-{
-	free(line);
-	clearscene(scene);
-	close(fd);
-	exiterror(MALLOC_ERROR);
-}
-
-static char *freecleanlineandgetnl(char *cleanstr, char *line, int fd)
-{
-	free(cleanstr);
-	free(line);
-	return (get_next_line(fd));
-}
 
 static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
 {
@@ -188,8 +172,7 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 }
 */
 
-
-static void	setsceneandgnl(char *cleanstr,t_sceneinf *scene, char **line, int fd)
+static void	setsceneandgnl(char *cleanstr, t_sceneinf *scn, char **line, int fd)
 {
 	char	**splitline;
 
@@ -199,32 +182,27 @@ static void	setsceneandgnl(char *cleanstr,t_sceneinf *scene, char **line, int fd
 		putarraystr(splitline);
 		if (iselement(splitline))
 		{
-			setelementinscene(splitline, scene);
+			setelementinscene(splitline, scn);
 			freearrstr(splitline);
 			*line = freecleanlineandgetnl(cleanstr, *line, fd);
 		}
 		else
 		{
-			freearrstr(splitline);
-			free(cleanstr);
-			clearscene(scene);
-			close(fd);
+			freesplitcleanscenefd(splitline, cleanstr, scn, fd);
 			exiterrorfreemsg(*line);
 		}
 	}
 	else
 	{
 		free(cleanstr);
-		freelinscenfdexitbymalloc(*line, scene, fd);
+		freelinscenfdexitbymalloc(*line, scn, fd);
 	}
 }
-
 
 static void	setscenefromfd(int fd, t_sceneinf *scene)
 {
 	char	*line;
 	char	*cleanstr;
-//	char	**splitline;
 	int		i;
 	int		j;
 
@@ -240,32 +218,6 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 		if (cleanstr[0] != '\0')
 		{
 			j++;
-			/*
-			splitline = ft_split(cleanstr, ' ');
-			if (splitline)
-			{
-				putarraystr(splitline);
-				if (iselement(splitline))
-				{
-					setelementinscene(splitline, scene);
-					freearrstr(splitline);
-					line = freecleanlineandgetnl(cleanstr, line, fd);
-				}
-				else
-				{
-					freearrstr(splitline);
-					free(cleanstr);
-					clearscene(scene);
-					close(fd);
-					exiterrorfreemsg(line);
-				}
-			}
-			else
-			{
-				free(cleanstr);
-				freelinscenfdexitbymalloc(line, scene, fd);
-			}
-//			*/
 			setsceneandgnl(cleanstr, scene, &line, fd);
 		}
 		else

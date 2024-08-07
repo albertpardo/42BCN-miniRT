@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exiterrorfreemsg.c                                 :+:      :+:    :+:   */
+/*   freecleanlineandgetnl.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 11:30:23 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/07 18:42:42 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/07 18:36:50 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/07 18:41:46 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	exiterrorfreemsg(char *msg)
+char	*freecleanlineandgetnl(char *cleanstr, char *line, int fd)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd("The next element line has information errors:\n", 2);
-	ft_putstr_fd(msg, 2);
-	ft_putstr_fd("\n", 2);
-	free(msg);
-	exit (EXIT_FAILURE);
+	free(cleanstr);
+	free(line);
+	return (get_next_line(fd));
 }
