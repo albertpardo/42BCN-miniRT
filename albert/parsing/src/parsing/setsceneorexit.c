@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/06 17:51:25 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/07 11:23:12 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 					freearrstr(splitline);
 					free(cleanstr);
 					free(line);
-					exiterror("\nKO! (TODO free scene");
+					clearscene(scene);
+					exiterror("KO! Element error");
 				}
 				freearrstr(splitline);
 				free(cleanstr);
@@ -74,14 +75,14 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 			{
 				free(cleanstr);
 				free(line);
-				printf("TODO : free scene en exit with error");
+				printf("TODO : free scene en exit with error?");
 			}
 		}
 		else
 		{
 			free(line);
 			printf("TODO : free scene en exit with error");
-		}	
+		}
 	}
 	exitifcheckfails(close(fd), NO_CLOSE);
 	exitifemptyfileoronlyspaces(i, j);
