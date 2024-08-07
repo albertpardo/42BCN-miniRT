@@ -6,15 +6,17 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/07 14:41:49 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/07 15:07:56 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "testaux.h"
 
-static void	exitifemptyfileoronlyspaces(int i, int j)
+static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
 {
+	if (i == 0 || j == 0)
+		clearscene(scene);
 	if (i == 0)
 		exiterror(EMPTY_FILE);
 	else if (j == 0)
@@ -26,72 +28,6 @@ static void	exitifemptyfileoronlyspaces(int i, int j)
  * - i : counter for total file lines
  * - j : counter for no lines equal to "\0" or "\n"
  */
-
-/*
-static void	setscenefromfd(int fd, t_sceneinf *scene)
-{
-	char	*line;
-	char	*cleanstr;
-	char	**splitline;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	line = get_next_line(fd);
-	while (line)
-	{
-		i++;
-		cleanstr = cleanstringspaces(line);
-		if (cleanstr)
-		{
-			if (cleanstr[0] != '\0' && cleanstr[0] != '\n')
-				j++;
-			ft_printf("--------------------------------------------\n");
-			ft_printf("Linea Original  >%s", line);
-			ft_printf("Del extra spaces>%s", cleanstr);
-			splitline = ft_split(cleanstr, ' ');
-			if (splitline)
-			{
-				putarraystr(splitline);
-				if (iselement(splitline))
-				{
-					printf("\nElement is OK!\n");
-					setelementinscene(splitline, scene);
-				}
-				else
-				{
-					freearrstr(splitline);
-					free(cleanstr);
-					//free(line);
-					clearscene(scene);
-					close(fd);
-					//exiterror("KO! Element error");
-					exiterrorfreemsg(line);
-				}
-				freearrstr(splitline);
-				free(cleanstr);
-				free(line);
-				line = get_next_line(fd);
-			}
-			else
-			{
-				free(cleanstr);
-				free(line);
-				close(fd);
-				printf("TODO : free scene en exit with error?");
-			}
-		}
-		else
-		{
-			free(line);
-			printf("TODO : free scene en exit with error");
-		}
-	}
-	exitifcheckfails(close(fd), NO_CLOSE);
-	exitifemptyfileoronlyspaces(i, j);
-}
-*/
 
 static void	setscenefromfd(int fd, t_sceneinf *scene)
 {
@@ -144,12 +80,14 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 				{
 					free(cleanstr);
 					free(line);
+					clearscene(scene);
 					close(fd);
-					printf("TODO : free scene en exit with error?");
+					exiterror(MALLOC_ERROR);
 				}
 			}
 			else
 			{
+				free(cleanstr);
 				free(line);
 				line = get_next_line(fd);
 			}
@@ -157,11 +95,12 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 		else
 		{
 			free(line);
-			printf("TODO : free scene en exit with error");
+			clearscene(scene);
+			exiterror(MALLOC_ERROR);
 		}
 	}
 	exitifcheckfails(close(fd), NO_CLOSE);
-	exitifemptyfileoronlyspaces(i, j);
+	exitifemptyfileoronlyspaces(i, j, scene);
 }
 
 /*
