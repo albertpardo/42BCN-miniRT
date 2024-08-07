@@ -6,12 +6,28 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/07 15:07:56 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/07 16:57:56 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "testaux.h"
+
+
+static void	freelinscenfdexitbymalloc(char *line, t_sceneinf *scene, int fd)
+{
+	free(line);
+	clearscene(scene);
+	close(fd);
+	exiterror(MALLOC_ERROR);
+}
+
+static char *freecleanlineandgetnl(char *cleanstr, char *line, int fd)
+{
+	free(cleanstr);
+	free(line);
+	return (get_next_line(fd));
+}
 
 static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
 {
@@ -29,6 +45,9 @@ static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
  * - j : counter for no lines equal to "\0" or "\n"
  */
 
+//  TODO Error when a file Has A > 1 , or C > 1 or L > 1 
+
+/*
 static void	setscenefromfd(int fd, t_sceneinf *scene)
 {
 	char	*line;
@@ -46,7 +65,8 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 		cleanstr = cleanstringspaces(line);
 		if (cleanstr)
 		{
-			if (cleanstr[0] != '\0' && cleanstr[0] != '\n')
+			//if (cleanstr[0] != '\0' && cleanstr[0] != '\n')
+			if (cleanstr[0] != '\0')
 			{
 				j++;
 				ft_printf("--------------------------------------------\n");
@@ -60,21 +80,19 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 					{
 						printf("\nElement is OK!\n");
 						setelementinscene(splitline, scene);
+						freearrstr(splitline);
+						free(cleanstr);
+						free(line);
+						line = get_next_line(fd);
 					}
 					else
 					{
 						freearrstr(splitline);
 						free(cleanstr);
-						//free(line);
 						clearscene(scene);
 						close(fd);
-						//exiterror("KO! Element error");
 						exiterrorfreemsg(line);
 					}
-					freearrstr(splitline);
-					free(cleanstr);
-					free(line);
-					line = get_next_line(fd);
 				}
 				else
 				{
@@ -96,8 +114,162 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 		{
 			free(line);
 			clearscene(scene);
+			close(fd);
 			exiterror(MALLOC_ERROR);
 		}
+		freelinscenfdexitbymalloc(line, scene, fd);
+
+	}
+	exitifcheckfails(close(fd), NO_CLOSE);
+	exitifemptyfileoronlyspaces(i, j, scene);
+}
+*/
+
+/*
+static void	setscenefromfd(int fd, t_sceneinf *scene)
+{
+	char	*line;
+	char	*cleanstr;
+	char	**splitline;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		i++;
+		cleanstr = cleanstringspaces(line);
+		if (cleanstr)
+		{
+			if (cleanstr[0] != '\0')
+			{
+				j++;
+				splitline = ft_split(cleanstr, ' ');
+				if (splitline)
+				{
+					putarraystr(splitline);
+					if (iselement(splitline))
+					{
+						setelementinscene(splitline, scene);
+						freearrstr(splitline);
+						free(cleanstr);
+						free(line);
+						line = get_next_line(fd);
+					}
+					else
+					{
+						freearrstr(splitline);
+						free(cleanstr);
+						clearscene(scene);
+						close(fd);
+						exiterrorfreemsg(line);
+					}
+				}
+				else
+				{
+					free(cleanstr);
+					freelinscenfdexitbymalloc(line, scene, fd);
+				}
+			}
+			else
+			{
+				free(cleanstr);
+				free(line);
+				line = get_next_line(fd);
+			}
+		}
+		else
+			freelinscenfdexitbymalloc(line, scene, fd);
+	}
+	exitifcheckfails(close(fd), NO_CLOSE);
+	exitifemptyfileoronlyspaces(i, j, scene);
+}
+*/
+
+
+static void	setsceneandgnl(char *cleanstr,t_sceneinf *scene, char **line, int fd)
+{
+	char	**splitline;
+
+	splitline = ft_split(cleanstr, ' ');
+	if (splitline)
+	{
+		putarraystr(splitline);
+		if (iselement(splitline))
+		{
+			setelementinscene(splitline, scene);
+			freearrstr(splitline);
+			*line = freecleanlineandgetnl(cleanstr, *line, fd);
+		}
+		else
+		{
+			freearrstr(splitline);
+			free(cleanstr);
+			clearscene(scene);
+			close(fd);
+			exiterrorfreemsg(*line);
+		}
+	}
+	else
+	{
+		free(cleanstr);
+		freelinscenfdexitbymalloc(*line, scene, fd);
+	}
+}
+
+
+static void	setscenefromfd(int fd, t_sceneinf *scene)
+{
+	char	*line;
+	char	*cleanstr;
+//	char	**splitline;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	line = get_next_line(fd);
+	while (line)
+	{
+		i++;
+		cleanstr = cleanstringspaces(line);
+		if (cleanstr == NULL)
+			freelinscenfdexitbymalloc(line, scene, fd);
+		if (cleanstr[0] != '\0')
+		{
+			j++;
+			/*
+			splitline = ft_split(cleanstr, ' ');
+			if (splitline)
+			{
+				putarraystr(splitline);
+				if (iselement(splitline))
+				{
+					setelementinscene(splitline, scene);
+					freearrstr(splitline);
+					line = freecleanlineandgetnl(cleanstr, line, fd);
+				}
+				else
+				{
+					freearrstr(splitline);
+					free(cleanstr);
+					clearscene(scene);
+					close(fd);
+					exiterrorfreemsg(line);
+				}
+			}
+			else
+			{
+				free(cleanstr);
+				freelinscenfdexitbymalloc(line, scene, fd);
+			}
+//			*/
+			setsceneandgnl(cleanstr, scene, &line, fd);
+		}
+		else
+			line = freecleanlineandgetnl(cleanstr, line, fd);
 	}
 	exitifcheckfails(close(fd), NO_CLOSE);
 	exitifemptyfileoronlyspaces(i, j, scene);
