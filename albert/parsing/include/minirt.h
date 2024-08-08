@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/07 18:38:16 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/08 15:15:01 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@
 # define ERR_NUM_TYPELEM_SPHERE "[Sphere]: No Center, Diameter or RGB"
 # define ERR_NUM_TYPELEM_PLANE "[Plane]: No PointPlane, NormalizedNormal or RGB"
 # define ERR_NUM_TYPELEM_CYLINDRE "[Cylindre]: No Center, Normalized Vector, Diameter, Height or RGB"
+# define ERR_DUP_AMB "Ambient Light is duplicated in the file"
+# define ERR_DUP_CAM "Camara is duplicated in the file"
+# define ERR_DUP_LIG "Light is duplicated in the file"
 
 // --- Defines for integers checks ----- //
 

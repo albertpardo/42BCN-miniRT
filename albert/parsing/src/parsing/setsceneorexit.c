@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/07 18:41:16 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:27:06 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,23 +172,57 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 }
 */
 
+/*
+ *
+ * TODO Muchos argumentos
+ *
+ * EXIT if Ambient, Camara or Light is duplicated.
+ *
+ */
+
+static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln, char *clnstr, int fd)
+{
+	if (ft_strlen(aelem[0]) == 1)
+	{
+		if (aelem[0][0] == 'A' && scn->amb.isset)
+		{
+			free(ln);
+			freesplitcleanscenefd(aelem, clnstr, scn, fd);
+			exiterror(ERR_DUP_AMB);
+		}
+		if (aelem[0][0] == 'C' && scn->cam.isset)
+		{
+			free(ln);
+			freesplitcleanscenefd(aelem, clnstr, scn, fd);
+			exiterror(ERR_DUP_CAM);
+		}
+		if (aelem[0][0] == 'L' && scn->light.isset)
+		{
+			free(ln);
+			freesplitcleanscenefd(aelem, clnstr, scn, fd);
+			exiterror(ERR_DUP_LIG);
+		}
+	}
+}
+
 static void	setsceneandgnl(char *cleanstr, t_sceneinf *scn, char **line, int fd)
 {
-	char	**splitline;
+	char	**aelem;
 
-	splitline = ft_split(cleanstr, ' ');
-	if (splitline)
+	aelem = ft_split(cleanstr, ' ');
+	if (aelem)
 	{
-		putarraystr(splitline);
-		if (iselement(splitline))
+		putarraystr(aelem);
+		if (iselement(aelem))
 		{
-			setelementinscene(splitline, scn);
-			freearrstr(splitline);
+			nodupsorexit(aelem, scn, *line, cleanstr, fd);
+			setelementinscene(aelem, scn);
+			freearrstr(aelem);
 			*line = freecleanlineandgetnl(cleanstr, *line, fd);
 		}
 		else
 		{
-			freesplitcleanscenefd(splitline, cleanstr, scn, fd);
+			freesplitcleanscenefd(aelem, cleanstr, scn, fd);
 			exiterrorfreemsg(*line);
 		}
 	}
