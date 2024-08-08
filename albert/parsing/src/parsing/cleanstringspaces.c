@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 12:15:12 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/30 16:25:30 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:38:16 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	delastnl(char *line)
  *	1 - Avoid initial spaces in 'str'
  *	2 - until of 'str'
  *		- get no space chars
- *		- set 'flag' if last char is '.' or ','
+ *		- set 'flag' if last char is '.', ',', '+' or '-'.
  *		- avoid spaces
  *		- to put space check : 
  *			flag == 0 && char != ',' && char != '.' && isprint(char))
@@ -59,7 +59,7 @@ static void	delastnl(char *line)
  *  	So '4.   5' is '4.5'
  *  	'4.  ,  5  .   6,  a' is '4.,5.6,a'
  *
- *  To defina a decimal is better : '4.5' instead '4.'
+ *  To define a decimal is better : '4.5' instead '4.'
  */
 
 static char	*getstrmem(char *str)
@@ -70,6 +70,11 @@ static char	*getstrmem(char *str)
 	if (tmpstr == NULL)
 		exiterror(MALLOC_ERROR);
 	return (tmpstr);
+}
+
+static int iscommapointsgn(char c)
+{
+	return (c == ',' || c == '.' || c == '-' || c == '+');
 }
 
 char	*cleanstringspaces(char *str)
@@ -89,7 +94,7 @@ char	*cleanstringspaces(char *str)
 		flag = 0;
 		while (str[i] != '\0' && ! ft_isspace(str[i]))
 			tmpstr[j++] = str[i++];
-		if (str[i -1] == ',' || str[i - 1] == '.')
+		if (iscommapointsgn(str[i-1]))
 			flag = 1;
 		i = avoidspaces(str, i);
 		if (str[i] != '\0' && flag == 0)
