@@ -6,12 +6,26 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/08 16:27:06 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/08 17:58:12 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "testaux.h"
+
+/*
+ * Struct usec in parsing
+ *
+ * - ln : one line from input file
+ * - cln: 'ln' copy with only one space between valid type data
+ * - astr: split from 'cln' 
+ */
+typedef struct s_parsing
+{
+	char	*ln;
+	char	*cln;
+	char	**astr;
+}	t_pars;
 
 static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
 {
@@ -180,6 +194,7 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
  *
  */
 
+/*
 static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln, char *clnstr, int fd)
 {
 	if (ft_strlen(aelem[0]) == 1)
@@ -204,7 +219,36 @@ static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln, char *clnstr, 
 		}
 	}
 }
+*/
 
+//TODO
+static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
+//static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln, char *clnstr, int fd)
+{
+	if (ft_strlen(pars->astr[0]) == 1)
+	{
+		if (pars->astr[0][0] == 'A' && scn->amb.isset)
+		{
+			free(pars->ln);
+			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
+			exiterror(ERR_DUP_AMB);
+		}
+		if (pars->astr[0][0] == 'C' && scn->cam.isset)
+		{
+			free(pars->ln);
+			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
+			exiterror(ERR_DUP_CAM);
+		}
+		if (pars->astr[0][0] == 'L' && scn->light.isset)
+		{
+			free(pars->ln);
+			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
+			exiterror(ERR_DUP_LIG);
+		}
+	}
+}
+
+/*
 static void	setsceneandgnl(char *cleanstr, t_sceneinf *scn, char **line, int fd)
 {
 	char	**aelem;
@@ -232,7 +276,35 @@ static void	setsceneandgnl(char *cleanstr, t_sceneinf *scn, char **line, int fd)
 		freelinscenfdexitbymalloc(*line, scn, fd);
 	}
 }
+*/
 
+static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
+{
+	pars->astr = ft_split(pars->cln, ' ');
+	if (pars->astr)
+	{
+		putarraystr(pars->astr);
+		if (iselement(pars->astr))
+		{
+			nodupsorexit(pars, scn, fd);
+			setelementinscene(pars->astr, scn);
+			freearrstr(pars->astr);
+			pars->ln = freecleanlineandgetnl(*(pars->astr), pars->ln, fd);
+		}
+		else
+		{
+			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
+			exiterrorfreemsg(pars->ln);
+		}
+	}
+	else
+	{
+		free(pars->astr);
+		freelinscenfdexitbymalloc(pars->ln, scn, fd);
+	}
+}
+
+/*
 static void	setscenefromfd(int fd, t_sceneinf *scene)
 {
 	char	*line;
@@ -256,6 +328,38 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 		}
 		else
 			line = freecleanlineandgetnl(cleanstr, line, fd);
+	}
+	exitifcheckfails(close(fd), NO_CLOSE);
+	exitifemptyfileoronlyspaces(i, j, scene);
+}
+*/
+
+//	char	*line;
+//	char	*cleanstr;
+
+static void	setscenefromfd(int fd, t_sceneinf *scene)
+{
+	t_pars	pars;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	ft_memset(&pars, 0, sizeof(t_pars));
+	pars.ln = get_next_line(fd);
+	while (pars.ln)
+	{
+		i++;
+		pars.cln = cleanstringspaces(pars.ln);
+		if (pars.cln == NULL)
+			freelinscenfdexitbymalloc(pars.ln, scene, fd);
+		if (pars.cln[0] != '\0')
+		{
+			j++;
+			setsceneandgnl(fd, scene, &pars);
+		}
+		else
+			pars.ln = freecleanlineandgetnl(pars.cln, pars.ln, fd);
 	}
 	exitifcheckfails(close(fd), NO_CLOSE);
 	exitifemptyfileoronlyspaces(i, j, scene);
