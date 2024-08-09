@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/09 10:07:52 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 14:07:39 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,32 @@ static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
 	{
 		if (pars->astr[0][0] == 'A' && scn->amb.isset)
 		{
-			free(pars->ln);
+			while (pars->ln != NULL)
+			{
+				free(pars->ln);
+				pars->ln = get_next_line(fd);
+			}
 			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
 			exiterror(ERR_DUP_AMB);
 		}
 		if (pars->astr[0][0] == 'C' && scn->cam.isset)
 		{
+			while (pars->ln != NULL)
+			{
+				free(pars->ln);
+				pars->ln = get_next_line(fd);
+			}
 			free(pars->ln);
 			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
 			exiterror(ERR_DUP_CAM);
 		}
 		if (pars->astr[0][0] == 'L' && scn->light.isset)
 		{
+			while (pars->ln != NULL)
+			{
+				free(pars->ln);
+				pars->ln = get_next_line(fd);
+			}
 			free(pars->ln);
 			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
 			exiterror(ERR_DUP_LIG);
@@ -66,6 +80,8 @@ static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
 
 static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 {
+	char	*str;
+
 	pars->astr = ft_split(pars->cln, ' ');
 	if (pars->astr)
 	{
@@ -79,9 +95,14 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 		}
 		else
 		{
-			printf("size = %lu\n", sizeof(pars));
+			str = ft_strdup(pars->ln);
+			while (pars->ln != NULL)
+			{
+				free(pars->ln);
+				pars->ln = get_next_line(fd);
+			}
 			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
-			exiterrorfreemsg(pars->ln);
+			exiterrorfreemsg(str);
 		}
 	}
 	else
@@ -131,7 +152,8 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 /*
  * void	setsceneorexit(int argc, char *scfile, t_sceneinf *scene)
  *
- * If file is right sceneinfo is created
+ * scfile : scene file with extension 'rt'
+ * If file is right sceneinfo is created 
  *
  * else put error and exit
  */
