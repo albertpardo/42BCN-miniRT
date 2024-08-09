@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/09 08:24:54 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 10:07:52 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,189 +24,11 @@ static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
 }
 
 /*
+ * nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
  *
- * - i : counter for total file lines
- * - j : counter for no lines equal to "\0" or "\n"
- */
-
-//  TODO Error when a file Has A > 1 , or C > 1 or L > 1 
-
-/*
-static void	setscenefromfd(int fd, t_sceneinf *scene)
-{
-	char	*line;
-	char	*cleanstr;
-	char	**splitline;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	line = get_next_line(fd);
-	while (line)
-	{
-		i++;
-		cleanstr = cleanstringspaces(line);
-		if (cleanstr)
-		{
-			//if (cleanstr[0] != '\0' && cleanstr[0] != '\n')
-			if (cleanstr[0] != '\0')
-			{
-				j++;
-				ft_printf("--------------------------------------------\n");
-				ft_printf("Linea Original  >%s", line);
-				ft_printf("Del extra spaces>%s", cleanstr);
-				splitline = ft_split(cleanstr, ' ');
-				if (splitline)
-				{
-					putarraystr(splitline);
-					if (iselement(splitline))
-					{
-						printf("\nElement is OK!\n");
-						setelementinscene(splitline, scene);
-						freearrstr(splitline);
-						free(cleanstr);
-						free(line);
-						line = get_next_line(fd);
-					}
-					else
-					{
-						freearrstr(splitline);
-						free(cleanstr);
-						clearscene(scene);
-						close(fd);
-						exiterrorfreemsg(line);
-					}
-				}
-				else
-				{
-					free(cleanstr);
-					free(line);
-					clearscene(scene);
-					close(fd);
-					exiterror(MALLOC_ERROR);
-				}
-			}
-			else
-			{
-				free(cleanstr);
-				free(line);
-				line = get_next_line(fd);
-			}
-		}
-		else
-		{
-			free(line);
-			clearscene(scene);
-			close(fd);
-			exiterror(MALLOC_ERROR);
-		}
-		freelinscenfdexitbymalloc(line, scene, fd);
-
-	}
-	exitifcheckfails(close(fd), NO_CLOSE);
-	exitifemptyfileoronlyspaces(i, j, scene);
-}
-*/
-
-/*
-static void	setscenefromfd(int fd, t_sceneinf *scene)
-{
-	char	*line;
-	char	*cleanstr;
-	char	**splitline;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	line = get_next_line(fd);
-	while (line)
-	{
-		i++;
-		cleanstr = cleanstringspaces(line);
-		if (cleanstr)
-		{
-			if (cleanstr[0] != '\0')
-			{
-				j++;
-				splitline = ft_split(cleanstr, ' ');
-				if (splitline)
-				{
-					putarraystr(splitline);
-					if (iselement(splitline))
-					{
-						setelementinscene(splitline, scene);
-						freearrstr(splitline);
-						free(cleanstr);
-						free(line);
-						line = get_next_line(fd);
-					}
-					else
-					{
-						freearrstr(splitline);
-						free(cleanstr);
-						clearscene(scene);
-						close(fd);
-						exiterrorfreemsg(line);
-					}
-				}
-				else
-				{
-					free(cleanstr);
-					freelinscenfdexitbymalloc(line, scene, fd);
-				}
-			}
-			else
-			{
-				free(cleanstr);
-				free(line);
-				line = get_next_line(fd);
-			}
-		}
-		else
-			freelinscenfdexitbymalloc(line, scene, fd);
-	}
-	exitifcheckfails(close(fd), NO_CLOSE);
-	exitifemptyfileoronlyspaces(i, j, scene);
-}
-*/
-
-/*
- *
- * TODO Muchos argumentos
- *
- * EXIT if Ambient, Camara or Light is duplicated.
+ * If A, C or L appear more than onces EXIT
  *
  */
-
-/*
-static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln,\
-char *clnstr, int fd)
-{
-	if (ft_strlen(aelem[0]) == 1)
-	{
-		if (aelem[0][0] == 'A' && scn->amb.isset)
-		{
-			free(ln);
-			freesplitcleanscenefd(aelem, clnstr, scn, fd);
-			exiterror(ERR_DUP_AMB);
-		}
-		if (aelem[0][0] == 'C' && scn->cam.isset)
-		{
-			free(ln);
-			freesplitcleanscenefd(aelem, clnstr, scn, fd);
-			exiterror(ERR_DUP_CAM);
-		}
-		if (aelem[0][0] == 'L' && scn->light.isset)
-		{
-			free(ln);
-			freesplitcleanscenefd(aelem, clnstr, scn, fd);
-			exiterror(ERR_DUP_LIG);
-		}
-	}
-}
-*/
 
 static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
 {
@@ -234,34 +56,13 @@ static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
 }
 
 /*
-static void	setsceneandgnl(char *cleanstr, t_sceneinf *scn, char **line, int fd)
-{
-	char	**aelem;
-
-	aelem = ft_split(cleanstr, ' ');
-	if (aelem)
-	{
-		putarraystr(aelem);
-		if (iselement(aelem))
-		{
-			nodupsorexit(aelem, scn, *line, cleanstr, fd);
-			setelementinscene(aelem, scn);
-			freearrstr(aelem);
-			*line = freecleanlineandgetnl(cleanstr, *line, fd);
-		}
-		else
-		{
-			freesplitcleanscenefd(aelem, cleanstr, scn, fd);
-			exiterrorfreemsg(*line);
-		}
-	}
-	else
-	{
-		free(cleanstr);
-		freelinscenfdexitbymalloc(*line, scn, fd);
-	}
-}
-*/
+ * setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
+ * 
+ * set scene and new line in 't_pars pars'
+ *
+ * Exit for any error.
+ *
+ */
 
 static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 {
@@ -278,6 +79,7 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 		}
 		else
 		{
+			printf("size = %lu\n", sizeof(pars));
 			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
 			exiterrorfreemsg(pars->ln);
 		}
@@ -290,37 +92,13 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 }
 
 /*
-static void	setscenefromfd(int fd, t_sceneinf *scene)
-{
-	char	*line;
-	char	*cleanstr;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	line = get_next_line(fd);
-	while (line)
-	{
-		i++;
-		cleanstr = cleanstringspaces(line);
-		if (cleanstr == NULL)
-			freelinscenfdexitbymalloc(line, scene, fd);
-		if (cleanstr[0] != '\0')
-		{
-			j++;
-			setsceneandgnl(cleanstr, scene, &line, fd);
-		}
-		else
-			line = freecleanlineandgetnl(cleanstr, line, fd);
-	}
-	exitifcheckfails(close(fd), NO_CLOSE);
-	exitifemptyfileoronlyspaces(i, j, scene);
-}
-*/
-
-//	char	*line;
-//	char	*cleanstr;
+ * setscenefromfd(int fd, t_sceneinf *scene)
+ *
+ * - i : counter for total file lines
+ * - j : countier for no lines equal to "\0" or "\n"
+ *
+ * Set scene or Exit for empty file or file with only spaces  
+ */
 
 static void	setscenefromfd(int fd, t_sceneinf *scene)
 {
@@ -352,6 +130,7 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 
 /*
  * void	setsceneorexit(int argc, char *scfile, t_sceneinf *scene)
+ *
  * If file is right sceneinfo is created
  *
  * else put error and exit

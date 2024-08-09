@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 06:59:06 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 16:49:50 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 09:15:57 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,25 +44,6 @@ static int	checkfloatlimits(char *str)
 	}
 	return (ans);
 }
-
-/*
-int	isstrsgnfloat(char *str)
-{
-	char	*tmp;
-
-	if (*str == '+' || *str == '-')
-		str++;
-	tmp = str;
-	if (countchar(str, '.') < 2)
-	{
-		while (tmp != NULL && *tmp != '\0' && (ft_isdigit(*tmp) || *tmp == '.'))
-			tmp++;
-		if (tmp != str && *tmp == '\0')
-			return (checkfloatlimits(str));
-	}
-	return (0);
-}
-*/
 
 /* 
  * 	isstrsgnfloat(char *str, int onlyplus)
