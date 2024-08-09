@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:44:31 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 18:09:23 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:40:03 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	checksp(char **aelement)
 			exiterror("[Sphere] RGB is NOT VALID format\n");
 	}
 	else
-		exiterror(ERR_NUM_TYPELEM_SPHERE);
+		exiterror(ERR_TYPO_SPHERE);
 }

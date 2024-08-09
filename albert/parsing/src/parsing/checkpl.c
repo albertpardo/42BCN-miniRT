@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:45:31 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 14:45:50 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:39:38 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	checkpl(char **aelement)
 			exiterror("[Plane] RGB is NOT VALID format\n");
 	}
 	else
-		exiterror(ERR_NUM_TYPELEM_PLANE);
+		exiterror(ERR_TYPO_PLANE);
 }

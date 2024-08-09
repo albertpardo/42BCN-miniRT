@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/08 15:15:01 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:46:14 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include "ft_printf.h"
 # include "get_next_line.h"
 
+// --- Error Mesages --- //
+
 # define BAD_ARGUMENTS "BAD ARGUMETS. Use : ./minirt NAME.rt"
 # define NO_OPEN "open() failed"
 # define NO_CLOSE "\nclose() failed" 
@@ -28,24 +30,42 @@
 # define BAD_FILETYPE "Filetype is not .rt"
 # define EMPTY_FILE "Empty file."
 # define SPACES_IN_FILE "File only with 'spaces' and/or '\\t' and '\\n'." 
-# define EXT ".rt"
 # define ID_ERROR_NOALPHA "Element ID is no alpha"
 # define NO_ELEMENT "NO ELEMENT"
-# define ERR_NUM_TYPELEM_AMBIENT "[Ambient]: No Scale or RGB"
-# define ERR_NUM_TYPELEM_CAMARA "[Camara]: No Viewport, Orientation or RGB"
-# define ERR_NUM_TYPELEM_LIGHT "[Light]: No Lightpoint, Brigh Ratio or RGB"
-# define ERR_NUM_TYPELEM_SPHERE "[Sphere]: No Center, Diameter or RGB"
-# define ERR_NUM_TYPELEM_PLANE "[Plane]: No PointPlane, NormalizedNormal or RGB"
-# define ERR_NUM_TYPELEM_CYLINDRE "[Cylindre]: No Center, Normalized Vector, Diameter, Height or RGB"
+# define ERR_TYPO_AMBIENT "[Ambient]: No Scale or RGB"
+# define ERR_TYPO_CAMARA "[Camara]: No Viewport, Orientation or RGB"
+# define ERR_TYPO_LIGHT "[Light]: No Lightpoint, Brigh Ratio or RGB"
+# define ERR_TYPO_SPHERE "[Sphere]: No Center, Diameter or RGB"
+# define ERR_TYPO_PLANE "[Plane]: No PointPlane, NormalizedNormal or RGB"
+# define ERR_TYPO_CYL "[Cyl]: No Center,NormalizedVector,Diameter,Height or RGB"
 # define ERR_DUP_AMB "Ambient Light is duplicated in the file"
 # define ERR_DUP_CAM "Camara is duplicated in the file"
 # define ERR_DUP_LIG "Light is duplicated in the file"
+
+// --- Define for typo file check --- //
+
+# define EXT ".rt"
 
 // --- Defines for integers checks ----- //
 
 # define CHAR_MAX_RGB "255"
 # define CHAR_MAX_FOV "180"
 # define INT_NUMDIGITS 3
+
+/*
+ * Struct used in parsing for set elements in scene
+ *
+ * - ln : one line from input file
+ * - cln: 'ln' copy with only one space between valid type data
+ * - astr: an string pointer done with ft_split from 'cln' 
+ */
+
+typedef struct s_parsing
+{
+	char	*ln;
+	char	*cln;
+	char	**astr;
+}	t_pars;
 
 typedef struct s_vector3
 {

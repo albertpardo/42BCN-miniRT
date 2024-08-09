@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:47:45 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 18:08:48 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:37:52 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ void	checkcy(char **aelement)
 			exiterror("[Cylinder] RGB is NOT VALID forimat\n");
 	}
 	else
-		exiterror(ERR_NUM_TYPELEM_PLANE);
+		exiterror(ERR_TYPO_PLANE);
 }

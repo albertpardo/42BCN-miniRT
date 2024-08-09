@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:50:40 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 14:51:08 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:37:20 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	checka(char **aelement)
 			exiterror("[Ambient] RGB is NOT VALID format\n");
 	}
 	else
-		exiterror(ERR_NUM_TYPELEM_AMBIENT);
+		exiterror(ERR_TYPO_AMBIENT);
 }

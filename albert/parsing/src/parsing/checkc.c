@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:49:59 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 14:50:21 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:36:20 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void	checkc(char **aelement)
 			ft_printf("[Camara] FOV is NOT VALID format\n");
 	}
 	else
-		exiterror(ERR_NUM_TYPELEM_CAMARA);
+		exiterror(ERR_TYPO_CAMARA);
 }

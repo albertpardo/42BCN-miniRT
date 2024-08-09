@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 12:15:12 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/08 13:38:16 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:25:57 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static char	*getstrmem(char *str)
 	return (tmpstr);
 }
 
-static int iscommapointsgn(char c)
+static int	iscommapointsgn(char c)
 {
 	return (c == ',' || c == '.' || c == '-' || c == '+');
 }
@@ -94,7 +94,7 @@ char	*cleanstringspaces(char *str)
 		flag = 0;
 		while (str[i] != '\0' && ! ft_isspace(str[i]))
 			tmpstr[j++] = str[i++];
-		if (iscommapointsgn(str[i-1]))
+		if (iscommapointsgn(str[i - 1]))
 			flag = 1;
 		i = avoidspaces(str, i);
 		if (str[i] != '\0' && flag == 0)

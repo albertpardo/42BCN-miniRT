@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:46:03 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/03 16:10:08 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:38:37 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	checkl(char **aelement)
 			exiterror("[Light] RGB is NOT VALID format\n");
 	}
 	else
-		exiterror(ERR_NUM_TYPELEM_LIGHT);
+		exiterror(ERR_TYPO_LIGHT);
 }

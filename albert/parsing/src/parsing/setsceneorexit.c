@@ -6,26 +6,12 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/08 17:58:12 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/09 08:24:54 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "testaux.h"
-
-/*
- * Struct usec in parsing
- *
- * - ln : one line from input file
- * - cln: 'ln' copy with only one space between valid type data
- * - astr: split from 'cln' 
- */
-typedef struct s_parsing
-{
-	char	*ln;
-	char	*cln;
-	char	**astr;
-}	t_pars;
 
 static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
 {
@@ -195,7 +181,8 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
  */
 
 /*
-static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln, char *clnstr, int fd)
+static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln,\
+char *clnstr, int fd)
 {
 	if (ft_strlen(aelem[0]) == 1)
 	{
@@ -221,9 +208,7 @@ static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln, char *clnstr, 
 }
 */
 
-//TODO
 static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
-//static void	nodupsorexit(char **aelem, t_sceneinf *scn, char *ln, char *clnstr, int fd)
 {
 	if (ft_strlen(pars->astr[0]) == 1)
 	{
@@ -289,7 +274,7 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 			nodupsorexit(pars, scn, fd);
 			setelementinscene(pars->astr, scn);
 			freearrstr(pars->astr);
-			pars->ln = freecleanlineandgetnl(*(pars->astr), pars->ln, fd);
+			pars->ln = freecleanlineandgetnl(pars->cln, pars->ln, fd);
 		}
 		else
 		{
