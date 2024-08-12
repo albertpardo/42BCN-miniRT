@@ -1,12 +1,44 @@
+## Parsing
 
-**test_makefiles** contains several Makefiles :
+Subjecs says :
 
-## Parsing TESTS
+> Each type of information from an element can be separated by one or more space(s).
+
+Example:
+This line :
+
+´´´txt
+C		 -50.0,0,20    0,0,1   70
+´´´
+
+After clean spaces (only one space between elements):
+
+´´´txt
+C -50.0,0,20 0,0,1 70"
+´´´
+
+The program can clear spaces before/after '.' or ','
+Exmple:
+
+´´´txt
+sp 0.0, 0  . 0,20 . 6 12 .   6 10,0,255
+´´´
+
+After clean spaces (only one space between elements):
+´´´txt
+sp 0.0,0.0,20.6 12.6 10,0,255
+´´´
+
+## Folder **test_makefiles** 
+
+**test_makefiles**  contains several Makefiles :
+
+### Parsing TESTS
 
 - **MakefileParsing2** generate **miniRT_parsing_2** . This file prints a line with clean spaces and determine the element and if the *type element info*  has valid or no valid format 
 - **MakefileParsing5** generate **miniRT_parsing_5** . Prints info scene converted correct numeric format or error if 'rt' file has any misconfiguration.
 
-## Previous TESTS
+#### Previous TESTS
 - **MakefileIsCoor** use **test_iscoordenate.c** to check if several strings are valid *coordinate* or not.
 - **MakefileIsFOV** use **test_isfov.c** to check if several strings are valid *FOV* or not.
 - **MakefileIsOrientNormal** use **test_isorientnormal.c** to check if several strings are valid *Normal Vector* or not.

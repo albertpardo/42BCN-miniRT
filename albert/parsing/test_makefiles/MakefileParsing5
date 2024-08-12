@@ -36,7 +36,7 @@ SRC_FILES = tests/minirt_parsing5.c \
 	parsing/freearrstr.c \
 	parsing/freecleanlineandgetnl.c \
 	parsing/freelinscenfdexitbymalloc.c \
-	parsing/freesplitcleanscenefd.c \
+	parsing/freescnparsfdexitmsg.c \
 	parsing/ft_astrlen.c \
 	parsing/ft_isspace.c \
 	parsing/ft_isstralpha.c \

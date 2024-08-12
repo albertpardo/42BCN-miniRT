@@ -13,7 +13,17 @@
 #include "minirt.h"
 #include "testaux.h"
 
-static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
+/*
+ * - i : counter for total lines in file
+ * - j : counter for lines NO equal to "\0" or "\n"
+ *
+ *	EXIT if:
+ *	- Empty file
+ *	- File with only spaces and/or tabs
+ */
+
+/*
+static void	exitifemptyspaces(int i, int j, t_sceneinf *scene)
 {
 	if (i == 0 || j == 0)
 		clearscene(scene);
@@ -22,11 +32,41 @@ static void	exitifemptyfileoronlyspaces(int i, int j, t_sceneinf *scene)
 	else if (j == 0)
 		exiterror(SPACES_IN_FILE);
 }
+*/
+
+/*
+ * - i : counter for total lines in file
+ * - j : counter for lines NO equal to "\0" or "\n"
+ *
+ *	EXIT if:
+ *	- Empty file
+ *	- File with only spaces and/or tabs
+ *  - If Ambient, Camara or Ligth is not defined in the file.
+ */
+
+static void	exitifemptyspacesnoacl(int i, int j, t_sceneinf *scn)
+{
+	if (i == 0 || j == 0 || !scn->amb.isset || !scn->cam.isset || \
+			!scn->light.isset)
+	{
+		clearscene(scn);
+		if (i == 0)
+			exiterror(EMPTY_FILE);
+		else if (j == 0)
+			exiterror(SPACES_IN_FILE);
+		else if (!scn->amb.isset)
+			exiterror(ERR_NO_AMB);
+		else if (!scn->cam.isset)
+			exiterror(ERR_NO_CAM);
+		else if (!scn->light.isset)
+			exiterror(ERR_NO_LIG);
+	}
+}
 
 /*
  * nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
  *
- * If A, C or L appear more than onces EXIT
+ * If A, C or L appear more than once then EXIT
  *
  */
 
@@ -35,37 +75,11 @@ static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
 	if (ft_strlen(pars->astr[0]) == 1)
 	{
 		if (pars->astr[0][0] == 'A' && scn->amb.isset)
-		{
-			while (pars->ln != NULL)
-			{
-				free(pars->ln);
-				pars->ln = get_next_line(fd);
-			}
-			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
-			exiterror(ERR_DUP_AMB);
-		}
+			freescnparsfdexitmsg(ERR_DUP_AMB, scn, pars, fd);
 		if (pars->astr[0][0] == 'C' && scn->cam.isset)
-		{
-			while (pars->ln != NULL)
-			{
-				free(pars->ln);
-				pars->ln = get_next_line(fd);
-			}
-			free(pars->ln);
-			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
-			exiterror(ERR_DUP_CAM);
-		}
+			freescnparsfdexitmsg(ERR_DUP_CAM, scn, pars, fd);
 		if (pars->astr[0][0] == 'L' && scn->light.isset)
-		{
-			while (pars->ln != NULL)
-			{
-				free(pars->ln);
-				pars->ln = get_next_line(fd);
-			}
-			free(pars->ln);
-			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
-			exiterror(ERR_DUP_LIG);
-		}
+			freescnparsfdexitmsg(ERR_DUP_LIG, scn, pars, fd);
 	}
 }
 
@@ -80,8 +94,6 @@ static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
 
 static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 {
-	char	*str;
-
 	pars->astr = ft_split(pars->cln, ' ');
 	if (pars->astr)
 	{
@@ -94,16 +106,7 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 			pars->ln = freecleanlineandgetnl(pars->cln, pars->ln, fd);
 		}
 		else
-		{
-			str = ft_strdup(pars->ln);
-			while (pars->ln != NULL)
-			{
-				free(pars->ln);
-				pars->ln = get_next_line(fd);
-			}
-			freesplitcleanscenefd(pars->astr, pars->cln, scn, fd);
-			exiterrorfreemsg(str);
-		}
+			freescnparsfdexitmsg(pars->ln, scn, pars, fd);
 	}
 	else
 	{
@@ -115,8 +118,8 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 /*
  * setscenefromfd(int fd, t_sceneinf *scene)
  *
- * - i : counter for total file lines
- * - j : countier for no lines equal to "\0" or "\n"
+ * - i : counter for total lines in file
+ * - j : counter for lines NO equal to "\0" or "\n"
  *
  * Set scene or Exit for empty file or file with only spaces  
  */
@@ -146,7 +149,8 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 			pars.ln = freecleanlineandgetnl(pars.cln, pars.ln, fd);
 	}
 	exitifcheckfails(close(fd), NO_CLOSE);
-	exitifemptyfileoronlyspaces(i, j, scene);
+//	exitifemptyspaces(i, j, scene);
+	exitifemptyspacesnoacl(i, j, scene);
 }
 
 /*

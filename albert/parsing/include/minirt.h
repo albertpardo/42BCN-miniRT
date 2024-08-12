@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/09 08:46:14 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/12 11:17:03 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define SPACES_IN_FILE "File only with 'spaces' and/or '\\t' and '\\n'." 
 # define ID_ERROR_NOALPHA "Element ID is no alpha"
 # define NO_ELEMENT "NO ELEMENT"
+# define ERR_TYPO_ELEM "The next Element line is not valid format :"
 # define ERR_TYPO_AMBIENT "[Ambient]: No Scale or RGB"
 # define ERR_TYPO_CAMARA "[Camara]: No Viewport, Orientation or RGB"
 # define ERR_TYPO_LIGHT "[Light]: No Lightpoint, Brigh Ratio or RGB"
@@ -41,6 +42,9 @@
 # define ERR_DUP_AMB "Ambient Light is duplicated in the file"
 # define ERR_DUP_CAM "Camara is duplicated in the file"
 # define ERR_DUP_LIG "Light is duplicated in the file"
+# define ERR_NO_AMB "Ambient Light is no defined in the file"
+# define ERR_NO_CAM "Camara is no defined in the file"
+# define ERR_NO_LIG "Light is no defined in the file"
 
 // --- Define for typo file check --- //
 
@@ -218,6 +222,7 @@ void	exitifnortfile(char *filename);
 void	freearrstr(char **arr);
 char	*freecleanlineandgetnl(char *cleanstr, char *line, int fd);
 void	freelinscenfdexitbymalloc(char *line, t_sceneinf *scene, int fd);
+void	freescnparsfdexitmsg(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
 void	freesplitcleanscenefd(char **arr, char *str, t_sceneinf *scn, int fd);
 int		ft_astrlen(char **arrstr);
 int		ft_isspace(const char c);
