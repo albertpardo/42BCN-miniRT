@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/09 14:07:39 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/13 10:22:24 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 	pars->astr = ft_split(pars->cln, ' ');
 	if (pars->astr)
 	{
-		putarraystr(pars->astr);
+	// 	putarraystr(pars->astr);
 		if (iselement(pars->astr))
 		{
 			nodupsorexit(pars, scn, fd);
@@ -149,7 +149,6 @@ static void	setscenefromfd(int fd, t_sceneinf *scene)
 			pars.ln = freecleanlineandgetnl(pars.cln, pars.ln, fd);
 	}
 	exitifcheckfails(close(fd), NO_CLOSE);
-//	exitifemptyspaces(i, j, scene);
 	exitifemptyspacesnoacl(i, j, scene);
 }
 
@@ -171,9 +170,9 @@ void	setsceneorexit(int argc, char *scfile, t_sceneinf *scene)
 		exitifnotvalidfiletype(scfile, EXT, BAD_FILETYPE);
 		fd = open(scfile, O_RDONLY);
 		exitifcheckfails(fd, NO_OPEN);
-		printf("==== Initiaize empty scene ====");
+//		ft_printf("==== Initiaize empty scene ====");
 		ft_memset(scene, 0, sizeof(t_sceneinf));
-		putsceneinfoinline(scene);
+//		putsceneinfoinline(scene);
 		setscenefromfd(fd, scene);
 	}
 	else
