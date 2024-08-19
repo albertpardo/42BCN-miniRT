@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 17:04:29 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:10:55 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:59:21 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "libft.h"
 # include "ft_printf.h"
 # include "get_next_line.h"
+# include "vector3.h"
 
 // --- Error Mesages --- //
 
@@ -70,13 +71,6 @@ typedef struct s_parsing
 	char	*cln;
 	char	**astr;
 }	t_pars;
-
-typedef struct s_vector3
-{
-	float	x;
-	float	y;
-	float	z;
-}	t_vector3;
 
 // ---- Diferent elements structs ---- //
 
