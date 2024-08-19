@@ -1,8 +1,8 @@
 # Executable Name
-NAME = miniRT_parsing_4
+NAME = miniRT_parsingToRender
 
 # Makefile path and name
-MAKEFILE = test_makefiles/MakefileParsing4
+MAKEFILE = ./Makefile
 
 # Compiler and FLAGS
 CC = cc
@@ -25,17 +25,22 @@ LIBFTFLAGS := -L $(LIBFT_DIR) -lft
 LIBFT := $(LIBFT_DIR)libft.a
 
 # Source files
-SRC_FILES = tests/minirt_parsing4.c \
+SRC_FILES = tests/minirt_parsing5.c \
 	parsing/cleanstringspaces.c \
 	parsing/clearscene.c \
 	parsing/countchar.c \
 	parsing/exiterror.c \
+	parsing/exiterrorfreemsg.c \
 	parsing/exitifcheckfails.c \
 	parsing/exitifnotvalidfiletype.c \
 	parsing/freearrstr.c \
+	parsing/freecleanlineandgetnl.c \
+	parsing/freelinscenfdexitbymalloc.c \
+	parsing/freescnparsfdexitmsg.c \
 	parsing/ft_astrlen.c \
 	parsing/ft_isspace.c \
 	parsing/ft_isstralpha.c \
+	parsing/ft_strichr.c \
 	parsing/iselement.c \
 	parsing/isokambient.c \
 	parsing/isokcamara.c \
@@ -43,7 +48,6 @@ SRC_FILES = tests/minirt_parsing4.c \
 	parsing/isoklight.c \
 	parsing/isokplan.c \
 	parsing/isokspher.c \
-	parsing/ft_strichr.c \
 	parsing/iscoordinatestr.c \
 	parsing/isfov.c \
 	parsing/isorientnormal.c \
@@ -57,9 +61,12 @@ SRC_FILES = tests/minirt_parsing4.c \
 	parsing/setcylinder.c \
 	parsing/setelementinscene.c \
 	parsing/setlight.c \
+	parsing/setnormalrgb.c \
 	parsing/setplane.c \
+	parsing/setsceneorexit.c \
 	parsing/setsphere.c \
 	parsing/setvectorinelemtscene.c \
+	tests/aux/putarraystr.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
 
