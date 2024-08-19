@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/13 11:05:17 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/19 17:04:29 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/19 17:10:55 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef PARSING_H
+# define PARSING_H
 
 # include <stdio.h>
 # include <fcntl.h>
@@ -187,17 +187,6 @@ typedef struct s_sceneinf
 }	t_sceneinf;
 
 // ------  parsing -------- //
-
-// Start-  used in 'minirt_parsing2.c' //
-
-void	checka(char **aelement);
-void	checkc(char **aelement);
-void	checkcy(char **aelement);
-void	checkl(char **aelement);
-void	checkpl(char **aelement);
-void	checksp(char **aelement);
-void	checkidvalid(char **elem);
-// End-  used in 'minirt_parsing2.c' //
 
 // Start  - Validate elements   //
 
