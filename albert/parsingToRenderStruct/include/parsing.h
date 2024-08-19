@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 17:04:29 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:59:21 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:45:50 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,5 +232,9 @@ void	setsceneorexit(int argc, char *scfile, t_sceneinf *scene);
 void	setsphere(char **aelement, t_sceneinf *scene);
 void	setvectorinelemtscene(char *strvect, t_vector3 *vec3);
 void	putarraystr(char **arrstr);
+
+// ---- t_sceneinf to struct used in render ---- //
+
+void	rendercreate(t_sceneinf *scene);
 
 #endif
