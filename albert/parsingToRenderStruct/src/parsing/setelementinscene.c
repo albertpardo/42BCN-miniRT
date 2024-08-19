@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 18:25:32 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/09 09:17:15 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:35:23 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 void	setelementinscene(char **aelement, t_sceneinf *scene)
 {

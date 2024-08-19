@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 14:43:10 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/05 15:11:43 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:26:11 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 void	delelemlst(void *content)
 {

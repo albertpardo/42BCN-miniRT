@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 16:49:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/03 16:15:10 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:31:33 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 // RGB is only used in bonus . But must be for mandatory
 

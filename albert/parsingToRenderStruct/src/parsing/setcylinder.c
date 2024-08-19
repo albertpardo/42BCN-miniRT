@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:26:13 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/13 11:10:41 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:35:11 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 /*
  * setcylinder(char **aelement, t_sceneinf *scene)
@@ -25,7 +25,6 @@ void	setcylinder(char **aelement, t_sceneinf *scene)
 	t_element	*newelem;
 	t_cylinder	*newcyl;
 
-	//ft_printf("set %s\n", aelement[0]);
 	newelem = (t_element *) ft_calloc(1, sizeof(t_element));
 	newcyl = (t_cylinder *) ft_calloc(1, sizeof(t_cylinder));
 	if (newelem != NULL && newcyl != NULL)

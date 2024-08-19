@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 17:22:06 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/09 09:14:05 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:32:34 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 int	isrgbstr(char *str)
 {

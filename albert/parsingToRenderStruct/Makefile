@@ -25,7 +25,7 @@ LIBFTFLAGS := -L $(LIBFT_DIR) -lft
 LIBFT := $(LIBFT_DIR)libft.a
 
 # Source files
-SRC_FILES = tests/minirt_parsing5.c \
+SRC_FILES = minirt_main_pars_to_render.c \
 	parsing/cleanstringspaces.c \
 	parsing/clearscene.c \
 	parsing/countchar.c \
@@ -70,7 +70,7 @@ SRC_FILES = tests/minirt_parsing5.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
 
-HEADER_FILES = include/minirt.h \
+HEADER_FILES = include/parsing.h \
 	include/testaux.h
 
 # Objet files

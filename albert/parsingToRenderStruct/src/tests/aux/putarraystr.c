@@ -1,4 +1,4 @@
-#include "minirt.h"
+#include "parsing.h"
 
 void	putarraystr(char **arrstr)
 {

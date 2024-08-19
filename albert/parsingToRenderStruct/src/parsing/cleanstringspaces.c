@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 12:15:12 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/09 08:25:57 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:25:57 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 /* 
  * 	avoidspaces(char *str, int i)

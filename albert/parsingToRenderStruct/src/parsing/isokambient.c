@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 16:35:21 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 16:56:37 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:30:43 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 int	isokambient(char **aelement)
 {

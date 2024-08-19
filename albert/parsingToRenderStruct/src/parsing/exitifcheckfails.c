@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 12:16:33 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/25 12:16:36 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:27:42 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 void	exitifcheckfails(int val, char *msg)
 {

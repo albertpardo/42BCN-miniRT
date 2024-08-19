@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 16:46:06 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/02 17:06:21 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:30:55 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 int	isokcamara(char **aelement)
 {

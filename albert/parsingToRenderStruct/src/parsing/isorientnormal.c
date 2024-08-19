@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 15:43:11 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/07/31 15:55:48 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:32:26 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 int	isorientnormal(char *str)
 {

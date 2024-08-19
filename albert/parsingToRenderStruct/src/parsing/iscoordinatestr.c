@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 13:41:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/01 18:01:31 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:30:12 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 int	iscoordinatestr(char *str)
 {

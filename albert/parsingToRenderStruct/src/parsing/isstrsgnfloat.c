@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 06:59:06 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/09 09:15:57 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/19 17:33:53 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "parsing.h"
 
 #define FLT_MAX_INT_CHAR "340282346638528859811704183484516925440"
 
