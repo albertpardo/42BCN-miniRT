@@ -36,7 +36,7 @@ LIBFT := $(LIBFT_DIR)libft.a
 
 # Source files
 SRC_FILES_PARSING = minirt_main_pars_to_render.c \
-	rendercreate.c \
+	rendering.c \
 	parsing/cleanstringspaces.c \
 	parsing/clearscene.c \
 	parsing/countchar.c \
@@ -77,6 +77,7 @@ SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	parsing/setsceneorexit.c \
 	parsing/setsphere.c \
 	parsing/setvectorinelemtscene.c \
+	parse_to_render/setsceneglobal.c \
 	tests/aux/putarraystr.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c

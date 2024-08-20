@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt_main_pars_to_render.c                       :+:      :+:    :+:   */
+/*   parstoglobal.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 10:15:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/20 10:16:20 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/20 14:17:08 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/20 14:23:40 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PARSTOGLOBAL_H
+# define PARSTOGLOBAL_H
+
 #include "miniRT.h"
 #include "parsing.h"
-#include "testaux.h"
 
-//M_PI definida en math.h
+// ---- t_sceneinf to struct used in render ---- //
 
-int	main(int argc, char *argv[])
-{
-	t_sceneinf	scene;
+void    setsceneglobal(t_sceneinf *scene, t_renderer *renderer, t_global *glb);
 
-	setsceneorexit(argc, argv[1], &scene);
-	printf("\n ==== Scene Width valid Values ====");
-	putsceneinfoinline(&scene);
-	rendering(&scene);
-	clearscene(&scene);
-	printf("\n\nPi = %f\n", M_PI);
-	return (0);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:36:56 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/20 14:49:14 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 	pars->astr = ft_split(pars->cln, ' ');
 	if (pars->astr)
 	{
-	// 	putarraystr(pars->astr);
 		if (iselement(pars->astr))
 		{
 			nodupsorexit(pars, scn, fd);
@@ -170,9 +169,7 @@ void	setsceneorexit(int argc, char *scfile, t_sceneinf *scene)
 		exitifnotvalidfiletype(scfile, EXT, BAD_FILETYPE);
 		fd = open(scfile, O_RDONLY);
 		exitifcheckfails(fd, NO_OPEN);
-//		ft_printf("==== Initiaize empty scene ====");
 		ft_memset(scene, 0, sizeof(t_sceneinf));
-//		putsceneinfoinline(scene);
 		setscenefromfd(fd, scene);
 	}
 	else
