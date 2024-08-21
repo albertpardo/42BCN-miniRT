@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 10:09:17 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 17:42:32 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 18:31:38 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int exit_x(t_global *glb)
 {
 	mlx_destroy_image(glb->renderer->mlx, glb->renderer->img);
 	mlx_destroy_window(glb->renderer->mlx, glb->renderer->win);
-	free(glb->renderer->framebuffer);
+//	free(glb->renderer->framebuffer);
 	freetglobal(glb);
 	exit (0);
 }
