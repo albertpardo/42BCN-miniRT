@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 10:58:39 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:32:54 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,8 @@ static t_object	*getelementscene(t_list *lst)
 				getplane(elem->infoelement, &newaobj[i]);
 			else if (ft_strncmp(elem->idelement, "cy", 2) == 0)
 				getcylinder(elem->infoelement, &newaobj[i]);
-			else
-				printf("TODO:  %s\n", elem->idelement);
 			lst = lst->next;
+			i++;
 		}
 	}
 	return (newaobj);
