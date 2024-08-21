@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/20 17:51:27 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 10:58:39 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static t_camera	*getcamerascene(t_cam *cam)
 		newcam->fov = cam->fov;
 	}
 	return (newcam);
-}	
+}
 
 static t_pointlight	*getlightscene(t_light *light)
 {

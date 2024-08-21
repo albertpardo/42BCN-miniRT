@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 10:09:17 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/20 14:27:49 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:21:13 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,5 @@ void	rendering(t_sceneinf *scene)
 	setsceneglobal(scene, &renderer, &el_global);
 //	setrederer(&renderer);
 	ft_printf("\nTODO rendering\n");
+	freetglobal(&el_global);
 }

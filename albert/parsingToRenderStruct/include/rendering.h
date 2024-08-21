@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parstoglobal.h                                     :+:      :+:    :+:   */
+/*   rendering.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 14:17:08 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 11:06:55 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/21 12:24:53 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/21 12:30:19 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSTOGLOBAL_H
-# define PARSTOGLOBAL_H
+#ifndef RENDERING_H
+# define RENDERING_H
 
-#include "miniRT.h"
-#include "parsing.h"
-
-// ---- t_sceneinf to struct used in render ---- //
-
-void	freetglobal(t_global *glb);
-void    setsceneglobal(t_sceneinf *scene, t_renderer *renderer, t_global *glb);
+void	rendering(t_sceneinf *scene);
 
 #endif

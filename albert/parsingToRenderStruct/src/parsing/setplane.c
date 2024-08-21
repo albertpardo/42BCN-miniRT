@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:30:28 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:36:14 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:00:14 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	setplane(char **aelement, t_sceneinf *scene)
 		newelem->infoelement = newpl;
 		setvectorinelemtscene(aelement[1], &newpl->point);
 		setvectorinelemtscene(aelement[2], &newpl->normal);
-		//setvectorinelemtscene(aelement[3], &newpl->f_rgb);
 		setnormalrgb(aelement[3], &newpl->f_rgb);
 	}
 }
