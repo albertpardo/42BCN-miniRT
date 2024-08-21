@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 10:15:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 12:30:56 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:41:48 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	main(int argc, char *argv[])
 	printf("\n ==== Scene Width valid Values ====");
 	putsceneinfoinline(&scene);
 	rendering(&scene);
-	clearscene(&scene);
+//	clearscene(&scene);
 	return (0);
 }

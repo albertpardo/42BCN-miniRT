@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 17:21:17 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:33:31 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,14 @@ static t_pointlight	*getlightscene(t_light *light)
 }
 
 /*
- *  void setsceneglobal(t_sceneinf *scene, t_renderer *renderer, t_global glb)
+ *  void setsceneglobal(t_sceneinf *scene, t_global glb)
  *
  * 	Set render and all elements in scene (get after parsing) 
  * 		to struct 't_global' 
  */
-void	setsceneglobal(t_sceneinf *scene, t_renderer *renderer, t_global *glb)
+void	setsceneglobal(t_sceneinf *scene, t_global *glb)
 {
 	ft_memset(glb, 0, sizeof(t_global));
-	glb->renderer = renderer;
 	getambientscene(&(scene->amb));
 	glb->camera = getcamerascene(&(scene->cam));
 	glb->light_count = 1;

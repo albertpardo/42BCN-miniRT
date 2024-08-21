@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 10:09:17 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 17:21:23 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:42:32 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static int	deal_key(int key, void *glb)
 
 static void	setrederer(t_renderer *rdr)
 {
+	ft_memset(rdr, 0, sizeof(t_global));
 	rdr->width = REND_WITH;
 	rdr->height = REND_HEIGHT;
 	rdr->mlx = mlx_init();
@@ -51,12 +52,13 @@ void	rendering(t_sceneinf *scene)
 	t_global	el_global;
 	t_renderer	renderer;
 
-	ft_memset(&renderer, 0, sizeof(t_global));
-	setsceneglobal(scene, &renderer, &el_global);
+	setsceneglobal(scene, &el_global);
+	clearscene(scene);
+	el_global.renderer = &renderer;
 	setrederer(&renderer);
+	render_scene(&el_global);
 	mlx_key_hook(renderer.win, deal_key, &el_global);
 	mlx_hook(renderer.win, X_RED, 1L << 0, exit_x, &el_global);
-	render_scene(&el_global);
 	mlx_put_image_to_window(renderer.mlx, renderer.win, renderer.img, 0, 0);
 	mlx_loop(renderer.mlx);
 	free(renderer.framebuffer);
