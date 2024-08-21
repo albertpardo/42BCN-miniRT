@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 14:17:08 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 11:06:55 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 14:58:16 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 // ---- t_sceneinf to struct used in render ---- //
 
-void	freetglobal(t_global *glb);
-void    setsceneglobal(t_sceneinf *scene, t_renderer *renderer, t_global *glb);
+void		freetglobal(t_global *glb);
+t_object	*getelementscene(t_list *lst);
+void    	setsceneglobal(t_sceneinf *scene, t_renderer *renderer, t_global *glb);
 
 #endif

@@ -78,6 +78,7 @@ SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	parsing/setsphere.c \
 	parsing/setvectorinelemtscene.c \
 	parse_to_render/freetglobal.c \
+	parse_to_render/getelementscene.c \
 	parse_to_render/setsceneglobal.c \
 	tests/aux/putarraystr.c \
 	tests/aux/putsceneinfoinline.c \

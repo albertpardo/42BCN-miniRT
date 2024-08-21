@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 10:09:17 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 11:21:13 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/21 14:18:45 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #define REND_WITH 1000
 #define REND_HEIGHT 1000
 #define REND_NAME "Ray Tracer"
+
+int deal_key(int key, void *param)
+{
+    printf("key = %d, p = %p\n", key, param);
+    return (0);
+}
 
 static void	setrederer(t_renderer *rdr)
 {
@@ -34,7 +40,12 @@ void	rendering(t_sceneinf *scene)
 
 	ft_memset(&renderer, 0, sizeof(t_global));
 	setsceneglobal(scene, &renderer, &el_global);
-//	setrederer(&renderer);
-	ft_printf("\nTODO rendering\n");
+	setrederer(&renderer);
+    render_scene(&el_global);                                                   
+	mlx_key_hook(renderer.win, deal_key, (void *) 0);
+    mlx_put_image_to_window(renderer.mlx, renderer.win, renderer.img, 0, 0);
+    mlx_loop(renderer.mlx);
+
+	free(renderer.framebuffer);
 	freetglobal(&el_global);
 }
