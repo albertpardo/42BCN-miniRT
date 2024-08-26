@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 10:09:17 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 18:31:38 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:53:03 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	deal_key(int key, void *glb)
 
 static void	setrederer(t_renderer *rdr)
 {
-	ft_memset(rdr, 0, sizeof(t_global));
+	ft_memset(rdr, 0, sizeof(t_renderer));
 	rdr->width = REND_WITH;
 	rdr->height = REND_HEIGHT;
 	rdr->mlx = mlx_init();

@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:29 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/08/04 14:08:30 by jaucarri         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:51:58 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_vector3	illuminate(t_ray ray, t_intersection intersection,
 	t_vector3	lightint;
 	float		smooth;
 
+	(void) ray;
 	r2 = vector3_distance(light.position, intersection.point);
 	if (r2 <= 0 || r2 > light.radius)
 		return ((t_vector3){0, 0, 0});

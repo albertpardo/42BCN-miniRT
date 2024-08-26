@@ -6,7 +6,7 @@ MAKEFILE = ./Makefile
 
 # Compiler and FLAGS
 CC = cc
-CFLAGS = #-Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address #-g3
 DPFLAGS = -MMD -MP
 
 # Linux Include and default libs for MLX
@@ -81,6 +81,8 @@ SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	parse_to_render/getelementscene.c \
 	parse_to_render/setsceneglobal.c \
 	tests/aux/putarraystr.c \
+	tests/aux/putintersection.c \
+	tests/aux/putobject.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
 

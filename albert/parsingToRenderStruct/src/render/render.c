@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 17:54:06 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/08/04 17:54:07 by jaucarri         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:51:51 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_vector3	render(t_ray ray, t_global *global)
 	t_intersection	closest;
 	t_vector3		objcolor;
 	t_vector3		intensity;
-	t_vector3		lightdir;
+	//t_vector3		lightdir;
 
 	closest.hit = 0;
 	objcolor = getvisibleobjectcolor(&closest, global->objects,

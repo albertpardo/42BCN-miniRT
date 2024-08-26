@@ -6,11 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 10:15:00 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 17:41:48 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:22:50 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+//#include "miniRT.h"
 #include "parsing.h"
 #include "rendering.h"
 #include "testaux.h"
