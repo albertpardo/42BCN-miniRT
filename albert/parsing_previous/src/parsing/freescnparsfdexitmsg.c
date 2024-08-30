@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 10:03:51 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/13 10:03:53 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/30 19:17:08 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
  *		- pars.cln : line without spaces
  *		- pars.astr: pointer to string from pars.cln
  *  Put error message 'str' and exits
+ *
+ *  COMMENT : File must be read until the EOF to avoid problems whith the buffer used in ǵet_next_line'
  */
 
 void	freescnparsfdexitmsg(char *msg, t_sceneinf *scn, t_pars *pars, int fd)
