@@ -50,6 +50,7 @@ SRC_FILES = tests/minirt_parsing5.c \
 	parsing/checkisspher.c \
 	parsing/iscoordinatestr.c \
 	parsing/isfov.c \
+	parsing/checkisnormal.c \
 	parsing/isorientnormal.c \
 	parsing/isrgbstr.c \
 	parsing/isstrfloatcerone.c \
