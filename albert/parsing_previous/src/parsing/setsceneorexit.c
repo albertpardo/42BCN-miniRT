@@ -92,6 +92,7 @@ static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
  *
  */
 
+/*
 static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 {
 	pars->astr = ft_split(pars->cln, ' ');
@@ -108,6 +109,40 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 		else
 			freescnparsfdexitmsg(pars->ln, scn, pars, fd);
 	}
+	else
+	{
+		free(pars->astr);
+		freelinscenfdexitbymalloc(pars->ln, scn, fd);
+	}
+}
+*/
+
+
+/*
+*  error :
+*    0  no error
+* 	 1  Format Error
+*	 2  All normal vector components are 0
+*
+*  Change name iselement for other and must return 0,1 or 2
+*
+*/
+static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
+{
+	int	error;
+
+	pars->astr = ft_split(pars->cln, ' ');
+	error = iselement(pars->astr);
+	if (pars->astr && error == 1)   // here for error == 0
+	{
+		nodupsorexit(pars, scn, fd);
+		setelementinscene(pars->astr, scn);
+		freearrstr(pars->astr);
+		pars->ln = freecleanlineandgetnl(pars->cln, pars->ln, fd);
+	}
+	else if (pars->astr && error == 0)   // error == 1
+			freescnparsfdexitmsg(pars->ln, scn, pars, fd);
+	//else if (pars->astr && error == 2)   // error == 2 TODO
 	else
 	{
 		free(pars->astr);
