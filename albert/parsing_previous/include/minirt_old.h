@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/30 16:12:45 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/30 15:56:08 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,13 +206,13 @@ void	checkidvalid(char **elem);
 
 // Start  - Validate elements   //
 
-int		checkiselement(char **elem);
-int		checkisambient(char **aelement);
-int		checkiscamara(char **aelement);
-int		checkislight(char **aelement);
-int		checkisplan(char **aelement);
-int		checkisspher(char **aelement);
-int		checkiscylin(char **aelement);
+int		iselement(char **elem);
+int		isokambient(char **aelement);
+int		isokcamara(char **aelement);
+int		isoklight(char **aelement);
+int		isokplan(char **aelement);
+int		isokspher(char **aelement);
+int		isokcylin(char **aelement);
 
 // End  - Validate elements   //
 
