@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/30 19:16:53 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/31 09:53:06 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
 # define VALID_ELEMENT 0
 # define ERR_IN_FORMAT 1
 # define ERR_NORM_VECTOR_CERO 2
+
+// --- Error Messages asociated to Error values ---//
+
+# define MSG_ERR_IN_FORMAT "The next Element line is not valid format :"
+# define MSG_ERR_NORM_VECTOR_CERO "The next Element line has 'NO VALID 0,0,0 Normal Vector'"
 
 // --- Error Mesages --- //
 
@@ -221,6 +226,7 @@ void	clearscene(t_sceneinf *scene);
 size_t	countchar(char *str, char c);
 void	exiterror(char *msg);
 void	exiterrorfreemsg(char *msg);
+void	exiterror_line_freemsg(char *line, char *msg);
 void	exitifcheckfails(int val, char *msg);
 void	exitifnotvalidfiletype(char *fname, char *ext, char *msg);
 void	exitifnortfile(char *filename);
@@ -229,6 +235,9 @@ char	*freecleanlineandgetnl(char *cleanstr, char *line, int fd);
 void	freelinscenfdexitbymalloc(char *line, t_sceneinf *scene, int fd);
 void	freescnparsfdexitmsg(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
 void	freesplitcleanscenefd(char **arr, char *str, t_sceneinf *scn, int fd);
+void	free_scnparsfd(t_sceneinf *scn, t_pars *pars, int fd);
+void	free_exit_elementerr(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
+void	free_exit_normalcero(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
 int		ft_astrlen(char **arrstr);
 int		ft_isspace(const char c);
 int		ft_isstralpha(char *str);

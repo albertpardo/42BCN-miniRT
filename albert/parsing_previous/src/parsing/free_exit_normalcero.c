@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   freescnparsfdexitmsg.c                             :+:      :+:    :+:   */
+/*   free_exit_normalcero.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 10:03:51 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/31 09:29:47 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/31 09:40:15 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/08/31 09:48:28 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /*
- * freescnparsfdexitmsg(char *msg, t_sceneinf *scn, t_pars *pars, int fd)
- *
  *	str is a duplicate of 'msg'
  *	
  * 	Go to the end of  'fd' file before close it
@@ -27,19 +25,11 @@
  *  COMMENT : File must be read until the EOF to avoid problems whith the buffer used in get_next_line'
  */
 
-void	freescnparsfdexitmsg(char *msg, t_sceneinf *scn, t_pars *pars, int fd)
+void	free_exit_normalcero(char *msg, t_sceneinf *scn, t_pars *pars, int fd)
 {
 	char	*str;
 
 	str = ft_strdup(msg);
-	while (pars->ln != NULL)
-	{
-		free(pars->ln);
-		pars->ln = get_next_line(fd);
-	}
-	close(fd);
-	free(pars->cln);
-	freearrstr(pars->astr);
-	clearscene(scn);
-	exiterrorfreemsg(str);
+	free_scnparsfd(scn, pars, fd);
+	exiterror_line_freemsg(MSG_ERR_NORM_VECTOR_CERO, str);
 }

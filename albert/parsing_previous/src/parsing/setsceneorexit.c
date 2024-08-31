@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/30 19:18:21 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/31 09:47:02 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,11 +166,13 @@ static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 		pars->ln = freecleanlineandgetnl(pars->cln, pars->ln, fd);
 	}
 	else if (pars->astr && error == ERR_IN_FORMAT)   // error == 1
-		freescnparsfdexitmsg(pars->ln, scn, pars, fd);
+		//freescnparsfdexitmsg(pars->ln, scn, pars, fd);
+		free_exit_elementerr(pars->ln, scn, pars, fd);
 	else if (pars->astr && error == ERR_NORM_VECTOR_CERO)   // error == 2 
 	{
-		ft_printf("\n-- TODO ERROR NORMAL = 0.0, 0.0, 0.0\n");
-		freescnparsfdexitmsg(pars->ln, scn, pars, fd);
+//		ft_printf("\n-- TODO ERROR NORMAL = 0.0, 0.0, 0.0\n");
+//		freescnparsfdexitmsg(pars->ln, scn, pars, fd);
+		free_exit_normalcero(pars->ln, scn, pars, fd);
 	}
 	else
 	{
