@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 13:32:12 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/13 11:08:51 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/31 10:24:44 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	setsphere(char **aelement, t_sceneinf *scene)
 	t_element	*newelem;
 	t_sphere	*newsph;
 
-//	ft_printf("set %s\n", aelement[0]);
 	newelem = (t_element *) ft_calloc(1, sizeof(t_element));
 	newsph = (t_sphere *) ft_calloc(1, sizeof(t_sphere));
 	if (newelem != NULL && newsph != NULL)
@@ -35,7 +34,6 @@ void	setsphere(char **aelement, t_sceneinf *scene)
 		newelem->infoelement = newsph;
 		setvectorinelemtscene(aelement[1], &newsph->center);
 		newsph->diameter = ft_atof(aelement[2]);
-		//setvectorinelemtscene(aelement[3], &newsph->f_rgb);
 		setnormalrgb(aelement[3], &newsph->f_rgb);
 	}
 }

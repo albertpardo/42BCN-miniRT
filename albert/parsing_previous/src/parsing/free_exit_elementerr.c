@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 09:09:32 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/31 09:35:26 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/31 10:13:06 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
  *		- pars.astr: pointer to string from pars.cln
  *  Put error message 'str' and exits
  *
- *  COMMENT : File must be read until the EOF to avoid problems whith the buffer used in get_next_line'
+ *  COMMENT : File must be read until the EOF to avoid problems whith the 
+ *  buffer used in get_next_line'
  */
 
 void	free_exit_elementerr(char *msg, t_sceneinf *scn, t_pars *pars, int fd)
@@ -33,4 +34,3 @@ void	free_exit_elementerr(char *msg, t_sceneinf *scn, t_pars *pars, int fd)
 	free_scnparsfd(scn, pars, fd);
 	exiterror_line_freemsg(MSG_ERR_IN_FORMAT, str);
 }
-

@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 09:20:03 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/31 09:25:17 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/31 10:11:21 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 void	free_scnparsfd(t_sceneinf *scn, t_pars *pars, int fd)
 {
-
 	while (pars->ln != NULL)
 	{
 		free(pars->ln);

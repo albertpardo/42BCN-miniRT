@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 14:57:56 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/31 09:53:06 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/31 10:07:44 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "libft.h"
 # include "ft_printf.h"
 # include "get_next_line.h"
+
 // --- Error values when check elements from file ---//
 
 # define VALID_ELEMENT 0
@@ -28,8 +29,8 @@
 
 // --- Error Messages asociated to Error values ---//
 
-# define MSG_ERR_IN_FORMAT "The next Element line is not valid format :"
-# define MSG_ERR_NORM_VECTOR_CERO "The next Element line has 'NO VALID 0,0,0 Normal Vector'"
+# define MSG_ERR_IN_FORMAT "The next Element line is not valid format:"
+# define MSG_ERR_NORM_VECTOR_CERO "'NO VALID 0,0,0 Normal Vector' in line:"
 
 // --- Error Mesages --- //
 

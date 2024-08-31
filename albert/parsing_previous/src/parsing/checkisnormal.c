@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 17:45:45 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/30 18:06:37 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/31 10:09:31 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * ERR_IN_FORMAT  - for no valid format
  * ERR_NORM_VECTOR_CERO - When x,y,z are all 0.0f
  *
- */ 
+ */
 
 int	checkisnormal(char *str)
 {
@@ -33,7 +33,7 @@ int	checkisnormal(char *str)
 		if (astr && ft_astrlen(astr) == 3 && isstrfloatsgnone(astr[0]) && \
 				isstrfloatsgnone(astr[1]) && isstrfloatsgnone(astr[2]))
 		{
-			if(ft_atof(astr[0]) == 0.0f && ft_atof(astr[1]) == 0.0f && \
+			if (ft_atof(astr[0]) == 0.0f && ft_atof(astr[1]) == 0.0f && \
 							ft_atof(astr[2]) == 0.0f)
 				ans = ERR_NORM_VECTOR_CERO;
 			else

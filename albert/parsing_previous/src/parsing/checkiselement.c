@@ -6,12 +6,20 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 15:19:27 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/30 15:52:05 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/31 10:18:07 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "minirt.h"
+
+/*
+ * Checks if element 'elem' from 'rt' file has a valid format
+ *
+ * Return :
+ * 	integer with tye of error. 
+ * 		- 0 Valid format
+ * 		- 1 ERR_IN_FORMAT
+ */
 
 static int	checkisvalidid(char **aelement)
 {
