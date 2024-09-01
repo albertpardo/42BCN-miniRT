@@ -1,41 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iselement.c                                        :+:      :+:    :+:   */
+/*   checkiselement.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 15:36:57 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:30:24 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/30 15:19:27 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/09/01 09:36:18 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "parsing.h"
 
-static int	isvalidid(char **aelement)
+/*
+ * Checks if element 'elem' from 'rt' file has a valid format
+ *
+ * Return :
+ * 	integer with tye of error. 
+ * 		- 0 Valid format
+ * 		- 1 ERR_IN_FORMAT
+ */
+
+static int	checkisvalidid(char **aelement)
 {
 	int	len;
 
 	len = ft_strlen(aelement[0]);
 	if (len == 1 && ft_strncmp(aelement[0], "A", len) == 0)
-		return (isokambient(aelement));
+		return (checkisambient(aelement));
 	else if (len == 1 && ft_strncmp(aelement[0], "C", len) == 0)
-		return (isokcamara(aelement));
+		return (checkiscamara(aelement));
 	else if (len == 1 && ft_strncmp(aelement[0], "L", len) == 0)
-		return (isoklight(aelement));
+		return (checkislight(aelement));
 	else if (len == 2 && ft_strncmp(aelement[0], "sp", len) == 0)
-		return (isokspher(aelement));
+		return (checkisspher(aelement));
 	else if (len == 2 && ft_strncmp(aelement[0], "pl", len) == 0)
-		return (isokplan(aelement));
+		return (checkisplan(aelement));
 	else if (len == 2 && ft_strncmp(aelement[0], "cy", len) == 0)
-		return (isokcylin(aelement));
+		return (checkiscylin(aelement));
 	else
-		return (0);
+		return (ERR_IN_FORMAT);
 }
 
-int	iselement(char **elem)
+int	checkiselement(char **elem)
 {
 	if (elem != NULL && *elem != NULL && ft_isstralpha(elem[0]))
-		return (isvalidid(elem));
-	return (0);
+		return (checkisvalidid(elem));
+	return (ERR_IN_FORMAT);
 }

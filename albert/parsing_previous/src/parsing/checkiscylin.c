@@ -17,9 +17,8 @@
 int	checkiscylin(char **aelement)
 {
 	if (ft_astrlen(aelement) == 6)
-		if (iscoordinatestr(aelement[1]) && isorientnormal(aelement[2]) && \
-				isstrsgnfloat(aelement[3], PLUS) && \
+		if (iscoordinatestr(aelement[1]) && isstrsgnfloat(aelement[3], PLUS) && \
 				isstrsgnfloat(aelement[4], PLUS) && isrgbstr(aelement[5]))
-			return (VALID_ELEMENT);
+			return (checkisnormal(aelement[2]));
 	return (ERR_IN_FORMAT);
 }

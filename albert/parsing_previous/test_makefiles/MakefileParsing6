@@ -26,36 +26,33 @@ LIBFT := $(LIBFT_DIR)libft.a
 
 # Source files
 SRC_FILES = tests/minirt_parsing5.c \
+	parsing/checkisambient.c \
+	parsing/checkiscamara.c \
+	parsing/checkiscylin.c \
+	parsing/checkiselement.c \
+	parsing/checkislight.c \
+	parsing/checkisnormal.c \
+	parsing/checkisplan.c \
+	parsing/checkisspher.c \
 	parsing/cleanstringspaces.c \
 	parsing/clearscene.c \
 	parsing/countchar.c \
 	parsing/exiterror.c \
-	parsing/exiterrorfreemsg.c \
+	parsing/exiterror_line_freemsg.c \
 	parsing/exitifcheckfails.c \
 	parsing/exitifnotvalidfiletype.c \
-	parsing/exiterror_line_freemsg.c \
+	parsing/free_exit_elementerr.c \
+	parsing/free_exit_normalcero.c \
+	parsing/free_scnparsfd.c \
 	parsing/freearrstr.c \
 	parsing/freecleanlineandgetnl.c \
 	parsing/freelinscenfdexitbymalloc.c \
-	parsing/freescnparsfdexitmsg.c \
-	parsing/free_scnparsfd.c \
-	parsing/free_exit_elementerr.c \
-	parsing/free_exit_normalcero.c \
 	parsing/ft_astrlen.c \
 	parsing/ft_isspace.c \
 	parsing/ft_isstralpha.c \
 	parsing/ft_strichr.c \
-	parsing/checkiselement.c \
-	parsing/checkisambient.c \
-	parsing/checkiscamara.c \
-	parsing/checkiscylin.c \
-	parsing/checkislight.c \
-	parsing/checkisplan.c \
-	parsing/checkisspher.c \
 	parsing/iscoordinatestr.c \
 	parsing/isfov.c \
-	parsing/checkisnormal.c \
-	parsing/isorientnormal.c \
 	parsing/isrgbstr.c \
 	parsing/isstrfloatcerone.c \
 	parsing/isstrfloatsgnone.c \
@@ -74,6 +71,10 @@ SRC_FILES = tests/minirt_parsing5.c \
 	tests/aux/putarraystr.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
+
+
+#	parsing/freescnparsfdexitmsg.c \
+#	parsing/isorientnormal.c \
 
 HEADER_FILES = include/minirt.h \
 	include/testaux.h

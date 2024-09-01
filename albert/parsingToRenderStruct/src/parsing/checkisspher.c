@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isokcylin.c                                        :+:      :+:    :+:   */
+/*   checkisspher.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 17:15:24 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:31:24 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/30 15:53:24 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/09/01 09:37:40 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 #define PLUS 1
 
-int	isokcylin(char **aelement)
+int	checkisspher(char **aelement)
 {
-	if (ft_astrlen(aelement) == 6)
-		if (iscoordinatestr(aelement[1]) && isorientnormal(aelement[2]) && \
-				isstrsgnfloat(aelement[3], PLUS) && \
-				isstrsgnfloat(aelement[4], PLUS) && isrgbstr(aelement[5]))
-			return (1);
-	return (0);
+	if (ft_astrlen(aelement) == 4)
+		if (iscoordinatestr(aelement[1]) && \
+				isstrsgnfloat(aelement[2], PLUS) && isrgbstr(aelement[3]))
+			return (VALID_ELEMENT);
+	return (ERR_IN_FORMAT);
 }

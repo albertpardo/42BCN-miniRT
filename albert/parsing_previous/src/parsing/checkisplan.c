@@ -15,8 +15,7 @@
 int	checkisplan(char **aelement)
 {
 	if (ft_astrlen(aelement) == 4)
-		if (iscoordinatestr(aelement[1]) && isorientnormal(aelement[2]) && \
-				isrgbstr(aelement[3]))
-			return (VALID_ELEMENT);
+		if (iscoordinatestr(aelement[1]) && isrgbstr(aelement[3]))
+			return (checkisnormal(aelement[2]));
 	return (ERR_IN_FORMAT);
 }

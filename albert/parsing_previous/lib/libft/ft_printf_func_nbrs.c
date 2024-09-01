@@ -23,7 +23,7 @@ int	unsignbrprintf(va_list ap)
 	unsigned int	un;
 
 	un = va_arg(ap, unsigned int);
-	if (un < 0)
-		un = -un;
+//	if (un < 0)
+//		un = -un;
 	return (ft_putunsignbr(un));
 }

@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 17:04:29 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/20 14:20:35 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/01 09:32:11 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@
 # include "ft_printf.h"
 # include "get_next_line.h"
 # include "vector3.h"
+
+
+
+// --- Error values when check elements from file ---//
+
+# define VALID_ELEMENT 0
+# define ERR_IN_FORMAT 1
+# define ERR_NORM_VECTOR_CERO 2
+
+// --- Error Messages asociated to Error values ---//
+
+# define MSG_ERR_IN_FORMAT "The next Element line is not valid format:"
+# define MSG_ERR_NORM_VECTOR_CERO "'NO VALID 0,0,0 Normal Vector' in line:"
+
 
 // --- Error Mesages --- //
 
@@ -184,13 +198,13 @@ typedef struct s_sceneinf
 
 // Start  - Validate elements   //
 
-int		iselement(char **elem);
-int		isokambient(char **aelement);
-int		isokcamara(char **aelement);
-int		isoklight(char **aelement);
-int		isokplan(char **aelement);
-int		isokspher(char **aelement);
-int		isokcylin(char **aelement);
+int		checkiselement(char **elem);
+int		checkisambient(char **aelement);
+int		checkiscamara(char **aelement);
+int		checkislight(char **aelement);
+int		checkisplan(char **aelement);
+int		checkisspher(char **aelement);
+int		checkiscylin(char **aelement);
 
 // End  - Validate elements   //
 
@@ -199,6 +213,7 @@ void	clearscene(t_sceneinf *scene);
 size_t	countchar(char *str, char c);
 void	exiterror(char *msg);
 void	exiterrorfreemsg(char *msg);
+void	exiterror_line_freemsg(char *line, char *msg);
 void	exitifcheckfails(int val, char *msg);
 void	exitifnotvalidfiletype(char *fname, char *ext, char *msg);
 void	exitifnortfile(char *filename);
@@ -206,14 +221,18 @@ void	freearrstr(char **arr);
 char	*freecleanlineandgetnl(char *cleanstr, char *line, int fd);
 void	freelinscenfdexitbymalloc(char *line, t_sceneinf *scene, int fd);
 void	freescnparsfdexitmsg(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
-void	freesplitcleanscenefd(char **arr, char *str, t_sceneinf *scn, int fd);
+//void	freesplitcleanscenefd(char **arr, char *str, t_sceneinf *scn, int fd);
+void	free_scnparsfd(t_sceneinf *scn, t_pars *pars, int fd);
+void	free_exit_elementerr(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
+void	free_exit_normalcero(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
 int		ft_astrlen(char **arrstr);
 int		ft_isspace(const char c);
 int		ft_isstralpha(char *str);
 int		ft_strichr(const char *s, int c);
 int		iscoordinatestr(char *str);
 int		isfov(char *str);
-int		isorientnormal(char *str);
+int		checkisnormal(char *str);
+//int		isorientnormal(char *str);
 int		isrgbstr(char *str);
 int		isstringvalueinpositiverange(char *str, char *maxintval);
 int		isstrfloat(char *str);

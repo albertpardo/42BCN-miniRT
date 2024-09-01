@@ -254,7 +254,7 @@ int		isstrfloatcerone(char *str);
 int		isstrfloatsgnone(char *str);
 //int		isstrsgnfloat(char *str);
 int		isstrsgnfloat(char *str, int onlyplus);
-void	setambient(char **aelement, t_sceneinf *scene);
+void    setambient(char **aelement, t_sceneinf *scene);
 void	setcamara(char **aelement, t_sceneinf *scene);
 void	setcylinder(char **aelement, t_sceneinf *scene);
 void	setelementinscene(char **eaelement, t_sceneinf *scene);

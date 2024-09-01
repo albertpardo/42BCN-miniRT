@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isokplan.c                                         :+:      :+:    :+:   */
+/*   exiterror_line_freemsg.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 14:45:31 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:31:45 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/31 08:59:54 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/09/01 09:38:18 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-int	isokplan(char **aelement)
+void	exiterror_line_freemsg(char *line, char *msg)
 {
-	if (ft_astrlen(aelement) == 4)
-		if (iscoordinatestr(aelement[1]) && isorientnormal(aelement[2]) && \
-				isrgbstr(aelement[3]))
-			return (1);
-	return (0);
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(line, 2);
+	ft_putstr_fd("\n", 2);
+	ft_putstr_fd(msg, 2);
+	ft_putstr_fd("\n", 2);
+	free(msg);
+	exit (EXIT_FAILURE);
 }

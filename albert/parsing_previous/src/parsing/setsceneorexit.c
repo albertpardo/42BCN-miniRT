@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/31 10:22:58 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/01 10:20:19 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
 	if (ft_strlen(pars->astr[0]) == 1)
 	{
 		if (pars->astr[0][0] == 'A' && scn->amb.isset)
-			freescnparsfdexitmsg(ERR_DUP_AMB, scn, pars, fd);
+			free_exit_elementerr(ERR_DUP_AMB, scn, pars, fd);
 		if (pars->astr[0][0] == 'C' && scn->cam.isset)
-			freescnparsfdexitmsg(ERR_DUP_CAM, scn, pars, fd);
+			free_exit_elementerr(ERR_DUP_CAM, scn, pars, fd);
 		if (pars->astr[0][0] == 'L' && scn->light.isset)
-			freescnparsfdexitmsg(ERR_DUP_LIG, scn, pars, fd);
+			free_exit_elementerr(ERR_DUP_LIG, scn, pars, fd);
 	}
 }
 

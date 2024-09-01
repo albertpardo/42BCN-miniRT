@@ -6,33 +6,11 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:58:55 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/20 14:49:14 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/01 10:25:25 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
-#include "testaux.h"
-
-/*
- * - i : counter for total lines in file
- * - j : counter for lines NO equal to "\0" or "\n"
- *
- *	EXIT if:
- *	- Empty file
- *	- File with only spaces and/or tabs
- */
-
-/*
-static void	exitifemptyspaces(int i, int j, t_sceneinf *scene)
-{
-	if (i == 0 || j == 0)
-		clearscene(scene);
-	if (i == 0)
-		exiterror(EMPTY_FILE);
-	else if (j == 0)
-		exiterror(SPACES_IN_FILE);
-}
-*/
 
 /*
  * - i : counter for total lines in file
@@ -75,38 +53,41 @@ static void	nodupsorexit(t_pars *pars, t_sceneinf *scn, int fd)
 	if (ft_strlen(pars->astr[0]) == 1)
 	{
 		if (pars->astr[0][0] == 'A' && scn->amb.isset)
-			freescnparsfdexitmsg(ERR_DUP_AMB, scn, pars, fd);
+			free_exit_elementerr(ERR_DUP_AMB, scn, pars, fd);
 		if (pars->astr[0][0] == 'C' && scn->cam.isset)
-			freescnparsfdexitmsg(ERR_DUP_CAM, scn, pars, fd);
+			free_exit_elementerr(ERR_DUP_CAM, scn, pars, fd);
 		if (pars->astr[0][0] == 'L' && scn->light.isset)
-			freescnparsfdexitmsg(ERR_DUP_LIG, scn, pars, fd);
+			free_exit_elementerr(ERR_DUP_LIG, scn, pars, fd);
 	}
 }
 
 /*
- * setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
- * 
- * set scene and new line in 't_pars pars'
- *
- * Exit for any error.
- *
- */
+*  error :
+*    0  no error
+* 	 1  Format Error
+*	 2  All normal vector components are 0
+*
+*  Change name iselement for other and must return 0,1 or 2
+*
+*/
 
 static void	setsceneandgnl(int fd, t_sceneinf *scn, t_pars *pars)
 {
+	int	error;
+
 	pars->astr = ft_split(pars->cln, ' ');
-	if (pars->astr)
+	error = checkiselement(pars->astr);
+	if (pars->astr && error == VALID_ELEMENT)
 	{
-		if (iselement(pars->astr))
-		{
-			nodupsorexit(pars, scn, fd);
-			setelementinscene(pars->astr, scn);
-			freearrstr(pars->astr);
-			pars->ln = freecleanlineandgetnl(pars->cln, pars->ln, fd);
-		}
-		else
-			freescnparsfdexitmsg(pars->ln, scn, pars, fd);
+		nodupsorexit(pars, scn, fd);
+		setelementinscene(pars->astr, scn);
+		freearrstr(pars->astr);
+		pars->ln = freecleanlineandgetnl(pars->cln, pars->ln, fd);
 	}
+	else if (pars->astr && error == ERR_IN_FORMAT)
+		free_exit_elementerr(pars->ln, scn, pars, fd);
+	else if (pars->astr && error == ERR_NORM_VECTOR_CERO)
+		free_exit_normalcero(pars->ln, scn, pars, fd);
 	else
 	{
 		free(pars->astr);

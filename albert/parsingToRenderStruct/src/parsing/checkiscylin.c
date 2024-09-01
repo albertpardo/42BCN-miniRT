@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isokambient.c                                      :+:      :+:    :+:   */
+/*   checkiscylin.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 16:35:21 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:30:43 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/30 16:18:34 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/09/01 09:36:00 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-int	isokambient(char **aelement)
+#define PLUS 1
+
+int	checkiscylin(char **aelement)
 {
-	if (ft_astrlen(aelement) == 3)
-		if (isstrfloatcerone(aelement[1]) && isrgbstr(aelement[2]))
-			return (1);
-	return (0);
+	if (ft_astrlen(aelement) == 6)
+		if (iscoordinatestr(aelement[1]) && isstrsgnfloat(aelement[3], PLUS) && \
+				isstrsgnfloat(aelement[4], PLUS) && isrgbstr(aelement[5]))
+			return (checkisnormal(aelement[2]));
+	return (ERR_IN_FORMAT);
 }

@@ -13,7 +13,7 @@
 /*
  * Returns
  * 	The index of the first occurrence of "(char) c" in "*s".
- * 		 c ican be '\0'
+ * 		 c can be '\0'
  * 	-1 for no ocurrence
  */
 

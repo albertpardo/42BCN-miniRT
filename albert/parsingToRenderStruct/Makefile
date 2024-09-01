@@ -37,31 +37,33 @@ LIBFT := $(LIBFT_DIR)libft.a
 # Source files
 SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	rendering.c \
+    parsing/checkisambient.c \
+    parsing/checkiscamara.c \
+    parsing/checkiscylin.c \
+    parsing/checkiselement.c \
+    parsing/checkislight.c \
+	parsing/checkisnormal.c \
+    parsing/checkisplan.c \
+    parsing/checkisspher.c \
 	parsing/cleanstringspaces.c \
 	parsing/clearscene.c \
 	parsing/countchar.c \
 	parsing/exiterror.c \
-	parsing/exiterrorfreemsg.c \
+	parsing/exiterror_line_freemsg.c \
 	parsing/exitifcheckfails.c \
 	parsing/exitifnotvalidfiletype.c \
+	parsing/free_exit_elementerr.c \
+    parsing/free_exit_normalcero.c \
+	parsing/free_scnparsfd.c \
 	parsing/freearrstr.c \
 	parsing/freecleanlineandgetnl.c \
 	parsing/freelinscenfdexitbymalloc.c \
-	parsing/freescnparsfdexitmsg.c \
 	parsing/ft_astrlen.c \
 	parsing/ft_isspace.c \
 	parsing/ft_isstralpha.c \
 	parsing/ft_strichr.c \
-	parsing/iselement.c \
-	parsing/isokambient.c \
-	parsing/isokcamara.c \
-	parsing/isokcylin.c \
-	parsing/isoklight.c \
-	parsing/isokplan.c \
-	parsing/isokspher.c \
 	parsing/iscoordinatestr.c \
 	parsing/isfov.c \
-	parsing/isorientnormal.c \
 	parsing/isrgbstr.c \
 	parsing/isstrfloatcerone.c \
 	parsing/isstrfloatsgnone.c \
@@ -85,6 +87,9 @@ SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	tests/aux/putobject.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
+
+	#parsing/freescnparsfdexitmsg.c \
+	#parsing/isorientnormal.c \
 
 SRC_FILES_RENDER = clamp/clamp.c lighting/lighting.c moller_tumbore/algorithm.c \
 		quaternion_operations/quat_operations.c ray/ray.c render/render.c \

@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isorientnormal.c                                   :+:      :+:    :+:   */
+/*   checkisnormal.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 15:43:11 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:32:26 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/30 17:45:45 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/09/01 09:36:48 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-int	isorientnormal(char *str)
+/* 
+ * Returns:
+ * VALID_ELEMENT  - All correct
+ * ERR_IN_FORMAT  - for no valid format
+ * ERR_NORM_VECTOR_CERO - When x,y,z are all 0.0f
+ *
+ */
+
+int	checkisnormal(char *str)
 {
 	char	**astr;
 	int		ans;
 
-	ans = 0;
+	ans = ERR_IN_FORMAT;
 	astr = NULL;
 	if (countchar(str, ',') == 2)
 	{
 		astr = ft_split(str, ',');
-		if (astr && ft_astrlen(astr) == 3 && \
-				isstrfloatsgnone(astr[0]) && \
-				isstrfloatsgnone(astr[1]) && \
-				isstrfloatsgnone(astr[2]))
-			ans = 1;
+		if (astr && ft_astrlen(astr) == 3 && isstrfloatsgnone(astr[0]) && \
+				isstrfloatsgnone(astr[1]) && isstrfloatsgnone(astr[2]))
+		{
+			if (ft_atof(astr[0]) == 0.0f && ft_atof(astr[1]) == 0.0f && \
+							ft_atof(astr[2]) == 0.0f)
+				ans = ERR_NORM_VECTOR_CERO;
+			else
+				ans = VALID_ELEMENT;
+		}
 	}
 	if (astr)
 		freearrstr(astr);

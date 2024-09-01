@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isoklight.c                                        :+:      :+:    :+:   */
+/*   checkislight.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 16:49:50 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/19 17:31:33 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/30 15:50:32 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/09/01 09:36:37 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "parsing.h"
 
-// RGB is only used in bonus . But must be for mandatory
+// RGB is only used in bonus . But must be check for mandatory
 
-int	isoklight(char **aelement)
+int	checkislight(char **aelement)
 {
 	if (ft_astrlen(aelement) == 4)
 	{
 		if (iscoordinatestr(aelement[1]) && isstrfloatcerone(aelement[2]) && \
 				isrgbstr(aelement[3]))
-			return (1);
+			return (VALID_ELEMENT);
 	}
-	return (0);
+	return (ERR_IN_FORMAT);
 }

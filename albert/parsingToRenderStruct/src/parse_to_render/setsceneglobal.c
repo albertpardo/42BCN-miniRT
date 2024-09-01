@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/21 17:33:31 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/01 10:25:59 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static t_camera	*getcamerascene(t_cam *cam)
 	if (newcam != NULL)
 	{
 		newcam->position = cam->viewpoint;
-		newcam->rotation = (t_quaternion){-0.2164396, 0, 0, 0.976296};	// Revisar to Jaume
+		newcam->rotation = (t_quaternion){-0.2164396, 0, 0, 0.976296}; // Revisar to Jaume
 		newcam->near_plane = 0.000001f;
 		newcam->far_plane = 100.0f;
 		newcam->fov = cam->fov;
