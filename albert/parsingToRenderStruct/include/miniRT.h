@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:18 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/03 14:07:19 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:35:01 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINIRT_H
@@ -173,13 +173,9 @@ typedef struct s_calcs
 }	t_calcs;
 
 float			clamp(float value, float min, float max);
-//t_vector3		illuminate(t_ray ray, t_intersection intersection, \
-//		t_pointlight light);
 t_vector3		illuminate(t_intersection intersection, \
 		t_pointlight light);
 t_intersection	intersectrayobject(t_ray ray, t_object *object);
-//t_vector3		getvisibleobjectcolor(t_intersection *closest, \
-//		t_global *global, int objectcount, t_ray ray);
 t_vector3		getvisibleobjectcolor(t_intersection *closest, \
 		t_global *global, t_ray ray);
 void			quaternion_to_rotation_matrix(const t_quaternion *q, \
@@ -244,8 +240,6 @@ int				first_overlap(t_triangle triangle, t_vector3 *bbox_axes, \
 int				second_overlap(t_vector3 triangle_edges, t_vector3 bbox_axes, \
 		t_triangle triangle, t_vector3 *bbox_vertices);
 t_octree_node	*create_octree_node(const t_bbox *bbox);
-//int				triangle_in_bbox(const t_triangle triangle, \
-//		const t_bbox *bbox, t_object obj);
 int				triangle_in_bbox(const t_triangle triangle, const t_bbox *bbox);
 void			insert_triangle(t_octree_node *node, t_triangle tri, \
 		t_object obj);

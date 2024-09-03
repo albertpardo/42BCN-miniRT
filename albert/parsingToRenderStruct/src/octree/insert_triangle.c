@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 16:20:22 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/02 19:31:31 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:03:31 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,6 @@ static void	subdivide_node(t_octree_node *node)
 	node->is_leaf = 0;
 }
 
-/*
-static void	insert_to_childs(t_octree_node *node, t_triangle tri, t_object obj)
-{
-	int	j;
-
-	j = -1;
-	while (++j < 8)
-	{
-		if (triangle_in_bbox(tri, &node->children[j]->bbox, obj))
-		{
-			insert_triangle(node->children[j], tri, obj);
-		}
-	}
-}
-*/
-
 static void	insert_to_childs(t_octree_node *node, t_triangle tri, t_object obj)
 {
 	int	j;
@@ -90,36 +74,6 @@ static void	insert_to_childs(t_octree_node *node, t_triangle tri, t_object obj)
 		}
 	}
 }
-
-/*
-void	insert_triangle(t_octree_node *node, t_triangle tri, t_object obj)
-{
-	int	i[2];
-
-	if (node->num_triangles < 42)
-		node->triangles[node->num_triangles++] = tri;
-	else
-	{
-		if (node->is_leaf)
-		{
-			subdivide_node(node);
-			i[0] = -1;
-			while (++i[0] < node->num_triangles)
-			{
-				i[1] = -1;
-				while (++i[1] < 8)
-					if (triangle_in_bbox(node->triangles[i[0]],
-							&node->children[i[1]]->bbox, obj))
-						insert_triangle(node->children[i[1]],
-							node->triangles[i[0]], obj);
-			}
-			insert_to_childs(node, tri, obj);
-		}
-		else
-			insert_to_childs(node, tri, obj);
-	}
-}
-*/
 
 void	insert_triangle(t_octree_node *node, t_triangle tri, t_object obj)
 {

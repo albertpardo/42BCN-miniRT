@@ -1,5 +1,5 @@
 # Executable Name
-NAME = miniRT_parsingToRender
+NAME = miniRT
 
 # Makefile path and name
 MAKEFILE = ./Makefile
@@ -102,8 +102,13 @@ SRC_FILES_RENDER = clamp/clamp.c lighting/lighting.c moller_tumbore/algorithm.c 
 
 SRC_FILES = $(SRC_FILES_PARSING) $(SRC_FILES_RENDER)
 
-HEADER_FILES = include/parsing.h \
-	include/testaux.h
+HEADER_FILES = include/miniRT.h \
+	include/parsing.h \
+	include/parstoglobal.h \
+	include/rendering.h \
+	include/testaux2.h \
+	include/testaux.h \
+	include/vector3.h
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 16:20:22 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/02 19:20:52 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:23:56 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,38 +66,6 @@ static int	triangle_intersects_bbox(t_triangle triangle, t_bbox bbox)
 	}
 	return (1);
 }
-
-/*
-int	triangle_in_bbox(const t_triangle triangle, const t_bbox *bbox,
-		t_object obj)
-{
-	t_vector3	v0;
-	t_vector3	v1;
-	t_vector3	v2;
-
-	v0 = triangle.vert0;
-	v1 = triangle.vert1;
-	v2 = triangle.vert2;
-	if (v0.x >= bbox->min.x && v0.x <= bbox->max.x && v0.y >= bbox->min.y
-		&& v0.y <= bbox->max.y && v0.z >= bbox->min.z && v0.z <= bbox->max.z)
-	{
-		return (1);
-	}
-	if (v1.x >= bbox->min.x && v1.x <= bbox->max.x && v1.y >= bbox->min.y
-		&& v1.y <= bbox->max.y && v1.z >= bbox->min.z && v1.z <= bbox->max.z)
-	{
-		return (1);
-	}
-	if (v2.x >= bbox->min.x && v2.x <= bbox->max.x && v2.y >= bbox->min.y
-		&& v2.y <= bbox->max.y && v2.z >= bbox->min.z && v2.z <= bbox->max.z)
-	{
-		return (1);
-	}
-	if (triangle_intersects_bbox(triangle, *bbox))
-		return (1);
-	return (0);
-}
-*/
 
 int	triangle_in_bbox(const t_triangle triangle, const t_bbox *bbox)
 {

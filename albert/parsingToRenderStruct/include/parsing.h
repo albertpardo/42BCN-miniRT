@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 17:04:29 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/09/03 14:07:53 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:39:08 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,30 +83,6 @@ typedef struct s_parsing
 	char	**astr;
 }	t_pars;
 
-// ---- Diferent elements structs ---- //
-
-/*  Ambient , camera & ligth has their own complete struct
-typedef struct s_ambientlight
-{
-	float		lightradio;
-	t_vector3	f_rgb;
-}	t_ambientlight;
-
-typedef struct s_camera
-{
-	t_vector3	viewpoint;
-	t_vector3	orient;
-	float		fov;
-}	t_camera;
-
-typedef struct s_light
-{
-	t_vector3	lightpoint;
-	float		brightratio;
-	t_vector3	f_rgb;
-}	t_light;
-*/
-
 typedef struct s_sphere
 {
 	t_vector3	center;
@@ -139,18 +115,6 @@ typedef struct s_element
 	void	*infoelement;
 }	t_element;
 
-// ---- Only Element struct ------ //
-
-/* Used for Amb, cam, or ligth  NO NECESARY???
-typedef struct s_onlyelem
-{
-	int			isset;
-	t_element	element;
-}	t_onelem;
-*/
-
-// id could be redundant
-
 typedef struct s_amb
 {
 	int			isset;
@@ -158,8 +122,6 @@ typedef struct s_amb
 	float		ratio;
 	t_vector3	f_rgb;
 }	t_amb;
-
-// id could be redundant
 
 typedef struct s_cam
 {
@@ -169,8 +131,6 @@ typedef struct s_cam
 	t_vector3	orient;
 	float		fov;
 }	t_cam;
-
-// id could be redundant
 
 typedef struct s_light
 {
@@ -218,7 +178,6 @@ void	freearrstr(char **arr);
 char	*freecleanlineandgetnl(char *cleanstr, char *line, int fd);
 void	freelinscenfdexitbymalloc(char *line, t_sceneinf *scene, int fd);
 void	freescnparsfdexitmsg(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
-//void	freesplitcleanscenefd(char **arr, char *str, t_sceneinf *scn, int fd);
 void	free_scnparsfd(t_sceneinf *scn, t_pars *pars, int fd);
 void	free_exit_elementerr(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
 void	free_exit_normalcero(char *msg, t_sceneinf *scn, t_pars *pars, int fd);
@@ -229,13 +188,11 @@ int		ft_strichr(const char *s, int c);
 int		iscoordinatestr(char *str);
 int		isfov(char *str);
 int		checkisnormal(char *str);
-//int		isorientnormal(char *str);
 int		isrgbstr(char *str);
 int		isstringvalueinpositiverange(char *str, char *maxintval);
 int		isstrfloat(char *str);
 int		isstrfloatcerone(char *str);
 int		isstrfloatsgnone(char *str);
-//int		isstrsgnfloat(char *str);
 int		isstrsgnfloat(char *str, int onlyplus);
 void	setambient(char **aelement, t_sceneinf *scene);
 void	setcamara(char **aelement, t_sceneinf *scene);

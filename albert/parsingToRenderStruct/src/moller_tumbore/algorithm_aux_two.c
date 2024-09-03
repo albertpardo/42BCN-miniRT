@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 14:13:44 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/02 19:19:19 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:02:28 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,6 @@ int	shadow(int flag, int val)
 		sh = val;
 	return (sh);
 }
-
-/*
-void	getshadow(t_octree_node *node, t_ray ray, t_global *global, float dist)
-{
-	int				i[5];
-	t_vector3		vertex[7];
-	t_intersection	intersection;
-	int				j;
-
-	if (node->is_leaf == 0)
-	{
-		j = 0;
-		while (j < 8)
-		{
-			if (ray_intersects_bbox(ray.origin, ray.direction,
-					node->children[j]->bbox))
-				getshadow(node->children[j], ray, global, dist);
-			j++;
-		}
-	}
-	else
-		checkshadow(node, global, ray, dist);
-}
-*/
 
 void	getshadow(t_octree_node *node, t_ray ray, t_global *global, float dist)
 {

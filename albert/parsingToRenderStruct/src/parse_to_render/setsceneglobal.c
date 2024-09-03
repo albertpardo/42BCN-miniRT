@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/09/01 11:31:07 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/03 17:24:32 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static t_pointlight	*getlightscene(t_light *light)
  * 	Set render and all elements in scene (get after parsing) 
  * 		to struct 't_global' 
  */
+
 void	setsceneglobal(t_sceneinf *scene, t_global *glb)
 {
 	ft_memset(glb, 0, sizeof(t_global));
