@@ -1,12 +1,12 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   rendering.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
+/*   By: apardo-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 10:09:17 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/08/22 13:53:03 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/09/01 10:45:09 by apardo-m          #+#    #+#             */
+/*   Updated: 2024/09/01 11:46:22 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 #define REND_HEIGHT 1000
 #define REND_NAME "Ray Tracer"
 
-# define ESC_KEY 65307
-# define X_RED 17
+#define ESC_KEY 65307
+#define X_RED 17
 
-static int exit_x(t_global *glb)
+static int	exit_x(t_global *glb)
 {
 	mlx_destroy_image(glb->renderer->mlx, glb->renderer->img);
 	mlx_destroy_window(glb->renderer->mlx, glb->renderer->win);
-//	free(glb->renderer->framebuffer);
 	freetglobal(glb);
 	exit (0);
 }
@@ -31,13 +30,13 @@ static int exit_x(t_global *glb)
 static int	deal_key(int key, void *glb)
 {
 	if (key == ESC_KEY)
-		exit_x(glb);	
+		exit_x(glb);
 	return (0);
 }
 
 static void	setrederer(t_renderer *rdr)
 {
-	ft_memset(rdr, 0, sizeof(t_renderer));
+	ft_memset(rdr, 0, sizeof(t_global));
 	rdr->width = REND_WITH;
 	rdr->height = REND_HEIGHT;
 	rdr->mlx = mlx_init();
@@ -56,6 +55,7 @@ void	rendering(t_sceneinf *scene)
 	clearscene(scene);
 	el_global.renderer = &renderer;
 	setrederer(&renderer);
+	create_octree(&el_global);
 	render_scene(&el_global);
 	mlx_key_hook(renderer.win, deal_key, &el_global);
 	mlx_hook(renderer.win, X_RED, 1L << 0, exit_x, &el_global);

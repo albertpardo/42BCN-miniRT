@@ -17,22 +17,81 @@ void	initnormals(t_vector3 *vert, int caps[5], t_calcs *values)
 	values->normals[0] = vert[3];
 	values->normals[1] = vert[4];
 	values->normals[2] = vert[5];
+	values->generalnormal = vert[6];
 	values->indexes[0] = caps[1];
 	values->indexes[1] = caps[2];
 	values->indexes[2] = caps[3];
 	values->use_caps = caps[4];
 }
 
-void	initvertexs(t_vector3 vertex[6], t_object *object, int i[5])
+void	checkshadow(t_octree_node *node, t_global *global, t_ray ray,
+		float dist)
 {
-	vertex[0] = object->vertices[object->triangles[i[0] * 3]];
-	vertex[1] = object->vertices[object->triangles[i[0] * 3 + 1]];
-	vertex[2] = object->vertices[object->triangles[i[0] * 3 + 2]];
-	vertex[3] = object->normals[object->triangles[i[0] * 3]];
-	vertex[4] = object->normals[object->triangles[i[0] * 3 + 1]];
-	vertex[5] = object->normals[object->triangles[i[0] * 3 + 2]];
-	i[1] = object->triangles[i[0] * 3];
-	i[2] = object->triangles[i[0] * 3 + 1];
-	i[3] = object->triangles[i[0] * 3 + 2];
-	i[4] = object->use_caps;
+	int				iter;
+	int				i[5];
+	t_vector3		vertex[7];
+	t_intersection	intersection;
+
+	intersection.hit = 0;
+	iter = 0;
+	while (iter < node->num_triangles)
+	{
+		initvertexs(vertex, global->objects[node->triangles[iter].objid], i,
+			node->triangles[iter]);
+		intersection = rayintersectstriangle(ray.origin,
+				vector_normalize(ray.direction), vertex, i);
+		if (intersection.hit == 1 && intersection.distance < dist
+			&& node->triangles[iter].objid != getinter(0, 0).objindex)
+			shadow(1, 1);
+		iter++;
+	}
+}
+
+void	checkcolor(t_octree_node *node, t_global *global, t_ray ray)
+{
+	int				iter;
+	int				i[5];
+	t_vector3		vertex[7];
+	t_intersection	intersection;
+
+	intersection.hit = 0;
+	iter = 0;
+	while (iter < node->num_triangles)
+	{
+		initvertexs(vertex, global->objects[node->triangles[iter].objid], i,
+			node->triangles[iter]);
+		intersection = rayintersectstriangle(ray.origin,
+				vector_normalize(ray.direction), vertex, i);
+		intersectioncheck(intersection, node->triangles[iter], global);
+		iter++;
+	}
+}
+
+void	intersectioncheck(t_intersection intersection, t_triangle tri,
+		t_global *global)
+{
+	if (intersection.hit == 1 && intersection.distance < getinter(0,
+			0).distance)
+	{
+		intersection.objindex = tri.objid;
+		getinter(1, &intersection);
+		getcol(1, &global->objects[tri.objid].color);
+	}
+}
+
+void	initvertexs(t_vector3 vertex[7], t_object object, int i[5],
+		t_triangle tri)
+{
+	i[1] = tri.index0;
+	i[2] = tri.index1;
+	i[3] = tri.index2;
+	vertex[0] = tri.vert0;
+	vertex[1] = tri.vert1;
+	vertex[2] = tri.vert2;
+	vertex[3] = tri.norm0;
+	vertex[4] = tri.norm1;
+	vertex[5] = tri.norm2;
+	vertex[6] = object.normal;
+	i[4] = tri.usecaps;
+	i[4] = object.use_caps;
 }

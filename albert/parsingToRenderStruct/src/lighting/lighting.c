@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:29 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/08/26 15:51:58 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/02 18:22:58 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ float	attenuate_no_cusp(float distance, float radius, float max_intensity,
 	return (max_intensity * sqrt(1 - s2) / (1 + falloff * s2));
 }
 
-t_vector3	illuminate(t_ray ray, t_intersection intersection,
-		t_pointlight light)
+//t_vector3	illuminate(t_ray ray, t_intersection intersection,
+//		t_pointlight light)
+t_vector3	illuminate(t_intersection intersection, t_pointlight light)
 {
 	float		r2;
 	float		atenuation;
 	t_vector3	lightint;
 	float		smooth;
 
-	(void) ray;
 	r2 = vector3_distance(light.position, intersection.point);
 	if (r2 <= 0 || r2 > light.radius)
 		return ((t_vector3){0, 0, 0});

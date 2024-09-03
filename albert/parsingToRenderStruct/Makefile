@@ -88,16 +88,17 @@ SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
 
-	#parsing/freescnparsfdexitmsg.c \
-	#parsing/isorientnormal.c \
-
 SRC_FILES_RENDER = clamp/clamp.c lighting/lighting.c moller_tumbore/algorithm.c \
 		quaternion_operations/quat_operations.c ray/ray.c render/render.c \
 		render/screen.c shapes/cylinder/cylinder.c shapes/plane/plane.c \
 		shapes/sphere/sphere.c vector_operations/operations.c \
 		vector_operations/operations_two.c vector_operations/operations_three.c \
 		shapes/translate.c moller_tumbore/algorithm_aux.c shapes/sphere/sphere_aux.c \
-		quaternion_operations/rotate.c lighting/ambient.c
+		quaternion_operations/rotate.c lighting/ambient.c \
+		moller_tumbore/algorithm_aux_two.c \
+		octree/octree.c octree/project_onto_axis.c octree/ranges_overlap.c \
+		octree/first_overlap.c octree/second_overlap.c octree/create_octree_node.c \
+		octree/triangle_in_bbox.c octree/insert_triangle.c octree/ray_intersects_bbox.c
 
 SRC_FILES = $(SRC_FILES_PARSING) $(SRC_FILES_RENDER)
 

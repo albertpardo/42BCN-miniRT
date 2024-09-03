@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ambient.c                                          :+:      :+:    :+:   */
+/*   project_onto_axis.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/04 14:08:29 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/01 11:28:38 by apardo-m         ###   ########.fr       */
+/*   Created: 2024/08/30 16:20:22 by jaucarri          #+#    #+#             */
+/*   Updated: 2024/08/30 16:20:23 by jaucarri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "miniRT.h"
+#include "vector3.h"
 
-t_vector3	ambient_light(int flag, t_vector3 new)
+float	project_onto_axis(t_vector3 v, t_vector3 axis)
 {
-	static t_vector3	light = (t_vector3){0, 0, 0};
-
-	if (flag == 1)
-		light = new;
-	return (light);
+	return (v.x * axis.x + v.y * axis.y + v.z * axis.z);
 }
