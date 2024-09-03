@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:18 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/01 11:51:55 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/03 14:07:19 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINIRT_H
@@ -247,6 +247,7 @@ t_octree_node	*create_octree_node(const t_bbox *bbox);
 //int				triangle_in_bbox(const t_triangle triangle, \
 //		const t_bbox *bbox, t_object obj);
 int				triangle_in_bbox(const t_triangle triangle, const t_bbox *bbox);
-void			insert_triangle(t_octree_node *node, t_triangle tri, t_object obj);
+void			insert_triangle(t_octree_node *node, t_triangle tri, \
+		t_object obj);
 
 #endif

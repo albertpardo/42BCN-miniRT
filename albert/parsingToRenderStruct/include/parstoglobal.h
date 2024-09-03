@@ -13,8 +13,8 @@
 #ifndef PARSTOGLOBAL_H
 # define PARSTOGLOBAL_H
 
-#include "miniRT.h"
-#include "parsing.h"
+# include "miniRT.h"
+# include "parsing.h"
 
 // ---- t_sceneinf to struct used in render ---- //
 
