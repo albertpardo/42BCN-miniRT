@@ -83,10 +83,11 @@ SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	parse_to_render/getelementscene.c \
 	parse_to_render/setsceneglobal.c \
 	tests/aux/putarraystr.c \
-	tests/aux/putintersection.c \
-	tests/aux/putobject.c \
 	tests/aux/putsceneinfoinline.c \
 	tests/aux/putsceneinfo.c
+
+#	tests/aux/putintersection.c \
+#	tests/aux/putobject.c \
 
 SRC_FILES_RENDER = clamp/clamp.c lighting/lighting.c moller_tumbore/algorithm.c \
 		quaternion_operations/quat_operations.c ray/ray.c render/render.c \
@@ -106,9 +107,10 @@ HEADER_FILES = include/miniRT.h \
 	include/parsing.h \
 	include/parstoglobal.h \
 	include/rendering.h \
-	include/testaux2.h \
 	include/testaux.h \
 	include/vector3.h
+
+	#include/testaux2.h \
 
 # Objet files
 OBJ_FILES := $(SRC_FILES:.c=.o)
