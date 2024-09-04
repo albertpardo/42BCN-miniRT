@@ -15,8 +15,6 @@
 
 # include "parsing.h"
 
-void	putarraystr(char **arrstr);
-void	putsceneinfo(t_sceneinf *scene);
 void	putsceneinfoinline(t_sceneinf *scene);
 
 #endif
