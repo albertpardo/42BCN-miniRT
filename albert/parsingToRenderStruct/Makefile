@@ -82,8 +82,11 @@ SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	parse_to_render/freetglobal.c \
 	parse_to_render/getelementscene.c \
 	parse_to_render/setsceneglobal.c \
-	tests/aux/putelements.c \
-	tests/aux/putsceneinfoinline.c 
+	putsceneinfo/putelements.c \
+	putsceneinfo/putsceneinfoinline.c 
+	
+#	tests/aux/putelements.c \
+#	tests/aux/putsceneinfoinline.c 
 
 SRC_FILES_RENDER = clamp/clamp.c lighting/lighting.c moller_tumbore/algorithm.c \
 		quaternion_operations/quat_operations.c ray/ray.c render/render.c \
@@ -103,7 +106,7 @@ HEADER_FILES = include/miniRT.h \
 	include/parsing.h \
 	include/parstoglobal.h \
 	include/rendering.h \
-	include/testaux.h \
+	include/putscene.h \
 	include/vector3.h
 
 # Objet files
