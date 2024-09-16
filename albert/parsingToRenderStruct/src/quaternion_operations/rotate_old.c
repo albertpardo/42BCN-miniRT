@@ -119,10 +119,13 @@ void	rotate_object(t_object *obj, t_vector3 normal)
 {
 	int				i;
 	t_quaternion	rot;
+	float			dist;
 
 	normal.x *= -1;
 	normal.z *= -1;
-	rot = calculate_quaternion((t_vector3){0, 1, 0},normal);
+	dist = acosf(vector_dot(normal, (t_vector3){0, 1, 0}));
+	rot = angleaxistoquaternion(dist,
+			vector_cross((t_vector3){0, 1, 0}, normal));
 	i = 0;
 	while (i < obj->vert_count)
 	{

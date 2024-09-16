@@ -6,11 +6,26 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:07:59 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/16 14:22:10 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/08/04 14:08:00 by jaucarri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
+
+t_quaternion	angleaxistoquaternion(float angle, t_vector3 axis)
+{
+	t_quaternion	q;
+	float			halfangle;
+	float			sinhalfangle;
+
+	halfangle = angle * 0.5f;
+	sinhalfangle = sin(halfangle);
+	q.w = cos(halfangle);
+	q.x = axis.x * sinhalfangle;
+	q.y = axis.y * sinhalfangle;
+	q.z = axis.z * sinhalfangle;
+	return (q);
+}
 
 void	quaternion_to_matrix(t_quaternion q, float matrix[3][3])
 {
@@ -23,6 +38,11 @@ void	quaternion_to_matrix(t_quaternion q, float matrix[3][3])
 	matrix[2][0] = 2 * q.x * q.z - 2 * q.y * q.w;
 	matrix[2][1] = 2 * q.y * q.z + 2 * q.x * q.w;
 	matrix[2][2] = 1 - 2 * q.x * q.x - 2 * q.y * q.y;
+}
+
+t_quaternion	conjugate(t_quaternion q)
+{
+	return ((t_quaternion){-q.x, -q.y, -q.z, q.w});
 }
 
 t_vector3	quaternionmultiplyvector3(t_quaternion q, t_vector3 v)
