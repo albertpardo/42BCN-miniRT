@@ -6,12 +6,12 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:00:37 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/13 14:46:24 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:55:12 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
-
+/*
 t_quaternion	quaternion_multiply(t_quaternion *q1, t_quaternion *q2)
 {
 	t_quaternion	result;
@@ -44,7 +44,7 @@ static float	vectmodule(t_vector3 vect)
 {
 	return (sqrtf(vect.x * vect.x + vect.y * vect.y + vect.z * vect.z));
 }
-
+*/
 /*
  * get_q1(t_vector3 desired)
  *
@@ -122,7 +122,7 @@ void	rotate_object(t_object *obj, t_vector3 normal)
 
 	normal.x *= -1;
 	normal.z *= -1;
-	rot = calculate_quaternion((t_vector3){0, 1, 0},normal);
+	rot = calculate_quaternion((t_vector3){0, 1, 0}, normal);
 	i = 0;
 	while (i < obj->vert_count)
 	{

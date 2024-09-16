@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:18 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/03 17:35:01 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:52:45 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MINIRT_H
@@ -243,5 +243,12 @@ t_octree_node	*create_octree_node(const t_bbox *bbox);
 int				triangle_in_bbox(const t_triangle triangle, const t_bbox *bbox);
 void			insert_triangle(t_octree_node *node, t_triangle tri, \
 		t_object obj);
+
+/* ----- quat_operations2.c ----- */
+
+t_quaternion	quaternion_multiply(t_quaternion *q1, t_quaternion *q2);
+t_vector3		operation( t_vector3 vone, t_vector3 vtwo);
+void			normal_by_magnitude(t_vector3 *vect, float mag);
+float			vectmodule(t_vector3 vect);
 
 #endif

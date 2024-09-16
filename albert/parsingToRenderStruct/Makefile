@@ -86,7 +86,9 @@ SRC_FILES_PARSING = minirt_main_pars_to_render.c \
 	putsceneinfo/putsceneinfoinline.c 
 	
 SRC_FILES_RENDER = clamp/clamp.c lighting/lighting.c moller_tumbore/algorithm.c \
-		quaternion_operations/quat_operations.c ray/ray.c render/render.c \
+		quaternion_operations/quat_operations.c \
+		quaternion_operations/quat_operations2.c \
+		ray/ray.c render/render.c \
 		render/screen.c shapes/cylinder/cylinder.c shapes/plane/plane.c \
 		shapes/sphere/sphere.c vector_operations/operations.c \
 		vector_operations/operations_two.c vector_operations/operations_three.c \
