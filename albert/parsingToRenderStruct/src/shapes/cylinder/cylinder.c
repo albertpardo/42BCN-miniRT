@@ -37,10 +37,29 @@ void	generate_auxiliar(t_object *cylinder, int *next, int slices, int *idx)
 
 void	generate_triangles(t_object *cylinder, int *idx, int *next, int slices)
 {
+	int i;
+
+	i = 0;
+	while (i < slices)
+	{
+		*next = (i + 1) % slices;
+		cylinder->triangles[(*idx)++] = 2 + i * 2;
+		cylinder->triangles[(*idx)++] = 2 + *next * 2;
+		cylinder->triangles[(*idx)++] = 3 + i * 2;
+		cylinder->triangles[(*idx)++] = 3 + i * 2;
+		cylinder->triangles[(*idx)++] = 2 + *next * 2;
+		cylinder->triangles[(*idx)++] = 3 + *next * 2;
+		i++;
+	}
+	generate_auxiliar(cylinder, next, slices, idx);
+}
+
+/*void	generate_triangles(t_object *cylinder, int *idx, int *next, int slices)
+{
 	int	i;
 
 	i = 0;
-	while (i <= slices)
+	while (i < slices)
 	{
 		*next = (i + 1) % (slices + 1);
 		cylinder->triangles[(*idx)++] = i * 2;
@@ -52,7 +71,7 @@ void	generate_triangles(t_object *cylinder, int *idx, int *next, int slices)
 		i++;
 	}
 	generate_auxiliar(cylinder, next, slices, idx);
-}
+}*/
 
 /*
 void	generate_top_bottom(t_object *cyl, int slices, int height, float radius)

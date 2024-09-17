@@ -15,17 +15,17 @@
 void	normalcorrection(t_calcs *values)
 {
 	if (values->indexes[0] == 0 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[0], -1);
 	else if (values->indexes[1] == 0 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[1], -1);
 	else if (values->indexes[2] == 0 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[2], -1);
 	else if (values->indexes[0] == 1 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[0], -1);
 	else if (values->indexes[1] == 1 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[1], -1);
 	else if (values->indexes[2] == 1 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[2], -1);
 }
 
 void	initvalues(t_vector3 og, t_vector3 dir, t_vector3 *vert,
