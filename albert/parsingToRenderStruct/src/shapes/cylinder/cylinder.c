@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 13:11:47 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/01 11:22:47 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:18:46 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -37,7 +37,7 @@ void	generate_auxiliar(t_object *cylinder, int *next, int slices, int *idx)
 
 void	generate_triangles(t_object *cylinder, int *idx, int *next, int slices)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < slices)

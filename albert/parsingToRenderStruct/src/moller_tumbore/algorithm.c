@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:38 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/03 17:01:39 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:59:55 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	initvalues(t_vector3 og, t_vector3 dir, t_vector3 *vert,
 					vector_scale(values->normals[1], values->u)),
 				vector_scale(values->normals[2], values->v)));
 	normalcorrection(values);
-	if (vector_dot(values->result.normal, dir) < 0)
+	if (vector_dot(values->result.normal, dir) < -0.05)
 		values->result.normal = vector_scale(values->result.normal, -1);
 }
 
