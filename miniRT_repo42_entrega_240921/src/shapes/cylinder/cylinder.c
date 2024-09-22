@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 13:11:47 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/01 11:22:47 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:18:46 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "miniRT.h"
@@ -40,7 +40,26 @@ void	generate_triangles(t_object *cylinder, int *idx, int *next, int slices)
 	int	i;
 
 	i = 0;
-	while (i <= slices)
+	while (i < slices)
+	{
+		*next = (i + 1) % slices;
+		cylinder->triangles[(*idx)++] = 2 + i * 2;
+		cylinder->triangles[(*idx)++] = 2 + *next * 2;
+		cylinder->triangles[(*idx)++] = 3 + i * 2;
+		cylinder->triangles[(*idx)++] = 3 + i * 2;
+		cylinder->triangles[(*idx)++] = 2 + *next * 2;
+		cylinder->triangles[(*idx)++] = 3 + *next * 2;
+		i++;
+	}
+	generate_auxiliar(cylinder, next, slices, idx);
+}
+
+/*void	generate_triangles(t_object *cylinder, int *idx, int *next, int slices)
+{
+	int	i;
+
+	i = 0;
+	while (i < slices)
 	{
 		*next = (i + 1) % (slices + 1);
 		cylinder->triangles[(*idx)++] = i * 2;
@@ -52,7 +71,7 @@ void	generate_triangles(t_object *cylinder, int *idx, int *next, int slices)
 		i++;
 	}
 	generate_auxiliar(cylinder, next, slices, idx);
-}
+}*/
 
 /*
 void	generate_top_bottom(t_object *cyl, int slices, int height, float radius)

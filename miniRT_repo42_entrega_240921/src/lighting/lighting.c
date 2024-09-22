@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:29 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/03 17:00:35 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:18:12 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ t_vector3	illuminate(t_intersection intersection, t_pointlight light)
 	if (r2 <= 0 || r2 > light.radius)
 		return ((t_vector3){0, 0, 0});
 	lightint = (t_vector3){0.1, 0.1, 0.1};
-	smooth = fmax(vector_dot(vector_normalize(intersection.normal),
+	smooth = fmax(0.0, vector_dot(vector_normalize(intersection.normal),
 				vector_normalize(vector_sub(intersection.point,
-						light.position))), 0.0);
+						light.position))));
 	atenuation = 1 - (r2 / light.radius);
 	if (atenuation < 0.0f)
 		atenuation = 0.0f;

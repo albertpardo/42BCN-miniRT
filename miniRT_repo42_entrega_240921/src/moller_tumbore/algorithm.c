@@ -6,7 +6,7 @@
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:38 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/09/03 17:01:39 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:59:55 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	normalcorrection(t_calcs *values)
 {
 	if (values->indexes[0] == 0 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[0], -1);
 	else if (values->indexes[1] == 0 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[1], -1);
 	else if (values->indexes[2] == 0 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[2], -1);
 	else if (values->indexes[0] == 1 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[0], -1);
 	else if (values->indexes[1] == 1 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[1], -1);
 	else if (values->indexes[2] == 1 && values->use_caps == 1)
-		values->result.normal = vector_scale(values->generalnormal, -1);
+		values->result.normal = vector_scale(values->normals[2], -1);
 }
 
 void	initvalues(t_vector3 og, t_vector3 dir, t_vector3 *vert,
@@ -52,7 +52,7 @@ void	initvalues(t_vector3 og, t_vector3 dir, t_vector3 *vert,
 					vector_scale(values->normals[1], values->u)),
 				vector_scale(values->normals[2], values->v)));
 	normalcorrection(values);
-	if (vector_dot(values->result.normal, dir) < 0)
+	if (vector_dot(values->result.normal, dir) < -0.05)
 		values->result.normal = vector_scale(values->result.normal, -1);
 }
 

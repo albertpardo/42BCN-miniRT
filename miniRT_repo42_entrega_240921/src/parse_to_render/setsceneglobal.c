@@ -6,7 +6,7 @@
 /*   By: apardo-m <apardo-m@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 12:28:35 by apardo-m          #+#    #+#             */
-/*   Updated: 2024/09/03 17:24:32 by apardo-m         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:21:05 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_camera	*getcamerascene(t_cam *cam)
 		rotate_camera(newcam, vector_normalize(cam->orient));
 		newcam->near_plane = 0.000001f;
 		newcam->far_plane = 100.0f;
-		newcam->fov = cam->fov;
+		newcam->fov = clamp(cam->fov, 0, 179.92757);
 	}
 	return (newcam);
 }

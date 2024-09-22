@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   quat_operations2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaucarri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 12:00:37 by jaucarri          #+#    #+#             */
-/*   Updated: 2024/08/19 12:00:39 by jaucarri         ###   ########.fr       */
+/*   Updated: 2024/09/16 14:48:32 by apardo-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,36 +23,24 @@ t_quaternion	quaternion_multiply(t_quaternion *q1, t_quaternion *q2)
 	return (result);
 }
 
-void	rotate_camera(t_camera *cam, t_vector3 orient)
+t_vector3	operation( t_vector3 vone, t_vector3 vtwo)
 {
-	float	dist;
+	t_vector3	ans;
 
-	orient.x *= -1;
-	orient.z *= -1;
-	orient.y = 1 - orient.y * -1;
-	dist = acosf(vector_dot(orient, (t_vector3){0, 1, 0}));
-	cam->rotation = angleaxistoquaternion(dist,
-			vector_cross((t_vector3){0, 1, 0}, orient));
+	ans.x = vone.y * vtwo.z - vone.z * vtwo.y;
+	ans.y = vone.z * vtwo.x - vone.x * vtwo.z;
+	ans.z = vone.x * vtwo.y - vone.y * vtwo.x;
+	return (ans);
 }
 
-void	rotate_object(t_object *obj, t_vector3 normal)
+void	normal_by_magnitude(t_vector3 *vect, float mag)
 {
-	int				i;
-	t_quaternion	rot;
-	float			dist;
+	vect->x /= mag;
+	vect->y /= mag;
+	vect->z /= mag;
+}
 
-	normal.x *= -1;
-	normal.z *= -1;
-	dist = acosf(vector_dot(normal, (t_vector3){0, 1, 0}));
-	rot = angleaxistoquaternion(dist,
-			vector_cross((t_vector3){0, 1, 0}, normal));
-	i = 0;
-	while (i < obj->vert_count)
-	{
-		obj->vertices[i] = quaternionmultiplyvector3(rot,
-				obj->vertices[i]);
-		obj->normals[i] = quaternionmultiplyvector3(rot,
-				obj->normals[i]);
-		i++;
-	}
+float	vectmodule(t_vector3 vect)
+{
+	return (sqrtf(vect.x * vect.x + vect.y * vect.y + vect.z * vect.z));
 }
