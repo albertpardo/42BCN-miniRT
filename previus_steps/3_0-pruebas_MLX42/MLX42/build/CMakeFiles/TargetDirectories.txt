@@ -1,0 +1,7 @@
+/home/apardo-m/Documents/42-BCN/23-Cursus/04_circle/3_0-pruebas_MLX42/MLX42/build/CMakeFiles/mlx42.dir
+/home/apardo-m/Documents/42-BCN/23-Cursus/04_circle/3_0-pruebas_MLX42/MLX42/build/CMakeFiles/edit_cache.dir
+/home/apardo-m/Documents/42-BCN/23-Cursus/04_circle/3_0-pruebas_MLX42/MLX42/build/CMakeFiles/rebuild_cache.dir
+/home/apardo-m/Documents/42-BCN/23-Cursus/04_circle/3_0-pruebas_MLX42/MLX42/build/CMakeFiles/list_install_components.dir
+/home/apardo-m/Documents/42-BCN/23-Cursus/04_circle/3_0-pruebas_MLX42/MLX42/build/CMakeFiles/install.dir
+/home/apardo-m/Documents/42-BCN/23-Cursus/04_circle/3_0-pruebas_MLX42/MLX42/build/CMakeFiles/install/local.dir
+/home/apardo-m/Documents/42-BCN/23-Cursus/04_circle/3_0-pruebas_MLX42/MLX42/build/CMakeFiles/install/strip.dir
